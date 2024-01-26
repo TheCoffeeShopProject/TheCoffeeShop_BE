@@ -9,6 +9,10 @@ using Microsoft.EntityFrameworkCore;
 using TheCoffeeCatBusinessObject;
 using TheCoffeeCatBusinessObject.BusinessObject;
 using TheCoffeeCatBusinessObject.DTO;
+using TheCoffeeCatBusinessObject.DTO.Request;
+
+using TheCoffeeCatBusinessObject.DTO.Response;
+using TheCoffeeCatDAO.DAOs;
 using TheCoffeeCatService.IServices;
 using TheCoffeeCatStore.Mapper;
 
@@ -28,21 +32,21 @@ namespace TheCoffeeCatStore.Controllers.CatsController
         [HttpGet]
         public ActionResult<IEnumerable<Cat>> GetCats()
         {
-          if (_cat.GetCats() == null)
-          {
-              return NotFound();
-          }
+            if (_cat.GetCats() == null)
+            {
+                return NotFound();
+            }
 
-          //config map 
+            //config map 
             var config = new MapperConfiguration(
-                cfg => cfg.AddProfile( new CatProfile())
+                cfg => cfg.AddProfile(new CatProfile())
             );
             // create mapper
             var mapper = config.CreateMapper();
 
             // tranfer from cat to catdto
 
-            var data = _cat.GetCats().ToList().Select(cat => mapper.Map<Cat, CatDTO>(cat));
+            var data = _cat.GetCats().ToList().Select(cat => mapper.Map<Cat, CatResponseDTO>(cat));
 
             return Ok(data);
         }
@@ -51,18 +55,18 @@ namespace TheCoffeeCatStore.Controllers.CatsController
         [HttpGet("{id}")]
         public ActionResult<Cat> GetCat(Guid id)
         {
-          if (_cat.GetCats() == null)
-          {
-              return NotFound();
-          }
-            var cat =  _cat.GetCatById(id);
+            if (_cat.GetCats() == null)
+            {
+                return NotFound();
+            }
+            var cat = _cat.GetCatById(id);
 
             if (cat == null)
             {
                 return NotFound();
             }
 
-            return Ok( cat);
+            return Ok(cat);
         }
 
         // GET: api/Cats/5
@@ -82,75 +86,92 @@ namespace TheCoffeeCatStore.Controllers.CatsController
 
             return Ok(cat);
         }
-        //// PUT: api/Cats/5
-        //// To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        //[HttpPut("{id}")]
-        //public async Task<IActionResult> PutCat(Guid id, Cat cat)
-        //{
-        //    if (id != cat.CatID)
-        //    {
-        //        return BadRequest();
-        //    }
-
-        //    _context.Entry(cat).State = EntityState.Modified;
-
-        //    try
-        //    {
-        //        await _context.SaveChangesAsync();
-        //    }
-        //    catch (DbUpdateConcurrencyException)
-        //    {
-        //        if (!CatExists(id))
-        //        {
-        //            return NotFound();
-        //        }
-        //        else
-        //        {
-        //            throw;
-        //        }
-        //    }
-
-        //    return NoContent();
-        //}
-
-        // POST: api/Cats
+        // PUT: api/Cats/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
-        public ActionResult<Cat> PostCat(Cat cat)
+        [HttpPut("{id}")]
+        public IActionResult UpdateCat(Guid id, CatUpdateDTO catUpdateDTO)
         {
-          if (_cat.GetCats() == null)
-          {
-              return Problem("Entity set 'TheCoffeeStoreDBContext.Cats'  is null.");
-          }
-            _cat.AddNew(cat);
-       
 
-            return Ok( CreatedAtAction("GetCat", new { id = cat.CatID }, cat));
+            try
+            {
+
+                var cat = _cat.GetCatById(id);
+                if (catUpdateDTO.Age != null)
+                {
+                    cat.Age = (int)catUpdateDTO.Age;
+                }
+                if (catUpdateDTO.Description != null)
+                {
+                    cat.Description = catUpdateDTO.Description;
+                }
+                if (catUpdateDTO.Image != null)
+                {
+                    cat.Image = catUpdateDTO.Image;
+                }
+                if (catUpdateDTO.CoffeeID != null)
+                {
+                    cat.CoffeeID = (Guid)catUpdateDTO.CoffeeID;
+                }
+                if(catUpdateDTO.Status != null)
+                {
+                    cat.Status = (bool)catUpdateDTO.Status;
+                }
+                _cat.UpdateCat(cat);
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (_cat.GetCatById(id) == null)
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return Ok("Update Successfully");
         }
 
-        //// DELETE: api/Cats/5
-        //[HttpDelete("{id}")]
-        //public async Task<IActionResult> DeleteCat(Guid id)
-        //{
-        //    if (_context.Cats == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    var cat = await _context.Cats.FindAsync(id);
-        //    if (cat == null)
-        //    {
-        //        return NotFound();
-        //    }
+        //  POST: api/Cats
+        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [HttpPost]
+        public ActionResult<Cat> AddNewCat(CatCreateDTO catDTO)
+        {
+            var config = new MapperConfiguration(
+              cfg => cfg.AddProfile(new CatProfile())
+          );
+            // create mapper
+            var mapper = config.CreateMapper();
 
-        //    _context.Cats.Remove(cat);
-        //    await _context.SaveChangesAsync();
 
-        //    return NoContent();
-        //}
+            var cat = mapper.Map<Cat>(catDTO);
+            _cat.AddNew(cat);
 
-        //private bool CatExists(Guid id)
-        //{
-        //    return (_context.Cats?.Any(e => e.CatID == id)).GetValueOrDefault();
-        //}
+
+            return Ok(cat);
+        }
+
+        // DELETE: api/Cats/5
+        [HttpDelete("{id}")]
+        public IActionResult DeleteCat(Guid id)
+        {
+            if (_cat.GetCats() == null)
+            {
+                return NotFound();
+            }
+            var cat = _cat.GetCatById(id);
+            if (cat == null)
+            {
+                return NotFound();
+            }
+
+            _cat.ChangeStatus(cat);
+
+
+            return Ok("Delete Successfully");
+        }
+
+
     }
 }
