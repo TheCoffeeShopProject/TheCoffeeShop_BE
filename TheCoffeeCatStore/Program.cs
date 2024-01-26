@@ -18,7 +18,7 @@ builder.Services.AddAutoMapper(typeof(ApplicationMapper));
 
 builder.Services.AddScoped<ICatRepo, CatRepo>();
 builder.Services.AddScoped<ICatServices, CatServices>();
-builder.Services.AddScoped<ICoffeeShopRepo, CoffeeShopRepo>(); 
+builder.Services.AddScoped<ICoffeeShopRepo, CoffeeShopRepo>();
 builder.Services.AddScoped<ICoffeeShopServices, CoffeeShopServices>();
 builder.Services.AddScoped<IStaffRepo, StaffRepo>();
 builder.Services.AddScoped<IStaffServices, StaffServices>();
@@ -41,6 +41,13 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+else if (app.Environment.IsProduction())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
+
 
 app.UseHttpsRedirection();
 
