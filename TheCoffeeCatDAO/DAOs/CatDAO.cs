@@ -75,7 +75,7 @@ namespace TheCoffeeCatDAO.DAOs
         public bool ChangeStatus(Cat cat)
         {
             var _context = new TheCoffeeStoreDBContext();
-            var a = _context.Cats.FirstOrDefault(c => c.CatID == cat.CatID);
+            var a = _context.Cats.FirstOrDefault(c => c.CatID.Equals(cat.CatID));
 
 
             if (a == null)
@@ -85,7 +85,7 @@ namespace TheCoffeeCatDAO.DAOs
             else
             {
                 a.Status = false;
-                _context.Entry(a).CurrentValues.SetValues(cat);
+                _context.Entry(a).State = EntityState.Modified;
                 _context.SaveChanges();
                 return true;
             }

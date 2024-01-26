@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TheCoffeeCatBusinessObject.DTO
+namespace TheCoffeeCatBusinessObject.DTO.Response
 {
-   public class CatDTO
+    public class CatResponseDTO
     {
         public string CatName { get; set; }
         public int Age { get; set; }

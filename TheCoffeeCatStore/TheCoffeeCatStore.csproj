@@ -7,6 +7,13 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <Compile Remove="Controllers\StaffController\**" />
+	  <Content Remove="Controllers\StaffController\**" />
+	  <EmbeddedResource Remove="Controllers\StaffController\**" />
+	  <None Remove="Controllers\StaffController\**" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="AutoMapper" Version="12.0.1" />
 		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
 		<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.22" />
@@ -35,10 +42,6 @@
 	  <Content Update="appsettings.json">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </Content>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="Controllers\StaffController\" />
 	</ItemGroup>
 
 </Project>
