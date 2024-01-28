@@ -13,7 +13,7 @@ namespace TheCoffeeCatStore.Mapper
             CreateMap<Drink, DrinkDTO>().ReverseMap();
                 //.BeforeMap((DrinkDTO, Drink) =>
                 //{
-                //    if(DrinkDTO.DrinkName != null)
+                //    if (DrinkDTO.DrinkName != null)
                 //    {
                 //        Drink.DrinkName = DrinkDTO.DrinkName;
                 //    }
@@ -29,7 +29,7 @@ namespace TheCoffeeCatStore.Mapper
                 //    {
                 //        Drink.Image = DrinkDTO.Image;
                 //    }
-                // });
+                //});
 
 
 

@@ -71,7 +71,8 @@ namespace TheCoffeeCatDAO.DAOs
         public IQueryable<Drink> SearchDrinkByName(string search)
         {
             var _context = new TheCoffeeStoreDBContext();
-            return _context.Drinks.Where(a => a.DrinkName.ToUpper().Contains(search.Trim().ToUpper()));
+            var a = _context.Drinks.Where(a => a.DrinkName.ToUpper().Contains(search.Trim().ToUpper()));
+            return a;
         }
         public bool ChangeStatus(Drink drink) {
             var _context = new TheCoffeeStoreDBContext();

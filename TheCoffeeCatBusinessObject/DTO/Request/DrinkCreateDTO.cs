@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace TheCoffeeCatBusinessObject.DTO.Request
 {
-    internal class DrinkCreateDTO
+    public class DrinkCreateDTO
     {
+        public Guid DrinkID { get; set; }
+        public string DrinkName { get; set; }
+        public double UnitPrice { get; set; }
+        public bool Status { get; set; }
+        public string Image { get; set; }
+
+        public List<Menu> Menus { get; set; }
     }
 }

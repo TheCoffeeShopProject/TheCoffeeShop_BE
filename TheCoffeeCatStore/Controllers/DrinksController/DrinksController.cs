@@ -1,8 +1,12 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using NuGet.Protocol.Plugins;
 using TheCoffeeCatBusinessObject;
+using TheCoffeeCatBusinessObject.BusinessObject;
 using TheCoffeeCatBusinessObject.DTO;
+using TheCoffeeCatBusinessObject.DTO.Request;
 using TheCoffeeCatBusinessObject.ViewModels;
 using TheCoffeeCatService.IServices;
 using TheCoffeeCatService.Services;
@@ -82,7 +86,7 @@ namespace TheCoffeeCatStore.Controllers.NewFolder
             try
             {
                 var drinks = _services.GetDrinkByName(searchvalue);
-                var response = _mapper.Map<DrinkDTO>(drinks);
+                var response = _mapper.Map<List<DrinkDTO>>(drinks);
                 return Ok(response);
             }
             catch (Exception ex)
@@ -91,6 +95,7 @@ namespace TheCoffeeCatStore.Controllers.NewFolder
             }
 
         }
+
         [HttpPost]
         public ActionResult AddDrink(DrinkDTO drinkDTO)
         {
@@ -108,29 +113,50 @@ namespace TheCoffeeCatStore.Controllers.NewFolder
             }
         }
         [HttpPut]
-        public ActionResult UpdateDrink(Guid id, DrinkDTO drinkDTO)
+        [Route("{id}")]
+        public ActionResult UpdateDrink([FromRoute] Guid id,[FromForm] DrinkDTO drinkDTO)
         {
+
             try
             {
-                var response = _services.GetDrinkById(id);
 
-                if (response == null)
+                var drink = _services.GetDrinkById(id);
+                if (drinkDTO.DrinkName != null)
+                {
+                    drink.DrinkName = drinkDTO.DrinkName;
+                }
+                if (drinkDTO.UnitPrice != null)
+                {
+                    drink.UnitPrice = drinkDTO.UnitPrice;
+                }
+                if (drinkDTO.Image != null)
+                {
+                    drink.Image = drinkDTO.Image;
+                }
+                if (drinkDTO.Status != null)
+                {
+                    drink.Status = drinkDTO.Status;
+                }
+                _services.UpdateDrink(drink);
+
+
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (_services.GetDrinkById(id) == null)
                 {
                     return NotFound();
                 }
-                var find = _mapper.Map<Drink>(drinkDTO);
-                _services.UpdateDrink(find);
-                return Ok();
+                else
+                {
+                    throw;
+                }
+            }
 
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+            return Ok("Update Successfully");
+
+
 
         }
-
-
-
-    }
+        }
 }
