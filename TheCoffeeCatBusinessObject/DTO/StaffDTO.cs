@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TheCoffeeCatBusinessObject.ViewModels
+namespace TheCoffeeCatBusinessObject.DTO
 {
-    public class StaffVM
+    public class StaffDTO
     {
+        public Guid StaffID { get; set; }
         public string FullName { get; set; }
         public string PhoneNumber { get; set; }
         public string Address { get; set; }

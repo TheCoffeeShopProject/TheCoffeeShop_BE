@@ -9,7 +9,14 @@ namespace TheCoffeeCatStore.Mapper
     {
         public ApplicationMapper() 
         { 
-            CreateMap<Staff, StaffVM>().ReverseMap();
+            CreateMap<Staff, StaffVM>().ReverseMap()
+                .ForMember(
+                dest => dest.StaffID,
+                opt => opt.MapFrom(src => Guid.NewGuid())
+            );
+            CreateMap<Staff, StaffDTO>().ReverseMap();
+
+
             CreateMap<Drink, DrinkDTO>().ReverseMap();
                 //.BeforeMap((DrinkDTO, Drink) =>
                 //{

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TheCoffeeCatBusinessObject;
+using TheCoffeeCatBusinessObject.DTO;
 using TheCoffeeCatBusinessObject.ViewModels;
 using TheCoffeeCatService.IServices;
 
@@ -67,7 +68,7 @@ namespace TheCoffeeCatStore.Controllers.StaffsController
         }
 
         [HttpPut]
-        public IActionResult UpdateStaff(StaffVM staff, Guid id)
+        public IActionResult UpdateStaff(StaffDTO staff, Guid id)
         {
             try
             {
