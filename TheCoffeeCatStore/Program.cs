@@ -22,6 +22,8 @@ builder.Services.AddScoped<ICoffeeShopRepo, CoffeeShopRepo>();
 builder.Services.AddScoped<ICoffeeShopServices, CoffeeShopServices>();
 builder.Services.AddScoped<IStaffRepo, StaffRepo>();
 builder.Services.AddScoped<IStaffServices, StaffServices>();
+builder.Services.AddScoped<IDrinkRepo, DrinkRepo>();
+builder.Services.AddScoped<IDrinkServices, DrinkServices>();
 
 
 
