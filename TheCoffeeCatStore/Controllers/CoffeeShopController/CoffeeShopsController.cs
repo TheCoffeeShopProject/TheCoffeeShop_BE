@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TheCoffeeCatBusinessObject.BusinessObject;
+using TheCoffeeCatService.IServices;
 
 namespace TheCoffeeCatStore.Controllers.CoffeeShopController
 {
@@ -13,40 +14,40 @@ namespace TheCoffeeCatStore.Controllers.CoffeeShopController
     [ApiController]
     public class CoffeeShopsController : ControllerBase
     {
-        private readonly TheCoffeeStoreDBContext _context;
+        private readonly ICoffeeShopServices _coffee;
 
-        public CoffeeShopsController(TheCoffeeStoreDBContext context)
+        public CoffeeShopsController(ICoffeeShopServices coffee)
         {
-            _context = context;
+            _coffee = coffee;
         }
 
         // GET: api/CoffeeShops
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<CoffeeShop>>> GetCofffeeShops()
+        public ActionResult<IEnumerable<CoffeeShop>> GetCofffeeShops()
         {
-          if (_context.CofffeeShops == null)
+          if (_coffee.GetCoffees() == null)
           {
               return NotFound();
           }
-            return await _context.CofffeeShops.ToListAsync();
+            return _coffee.GetCoffees().ToList();
         }
 
         // GET: api/CoffeeShops/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<CoffeeShop>> GetCoffeeShop(Guid id)
+        public ActionResult<CoffeeShop> GetCoffeeShop(Guid id)
         {
-          if (_context.CofffeeShops == null)
+          if (_coffee.GetCoffees() == null)
           {
               return NotFound();
           }
-            var coffeeShop = await _context.CofffeeShops.FindAsync(id);
+            var coffeeShop =  _coffee.GetCoffeeShopById(id);
 
             if (coffeeShop == null)
             {
                 return NotFound();
             }
 
-            return coffeeShop;
+            return Ok( coffeeShop);
         }
 
         // PUT: api/CoffeeShops/5
@@ -59,15 +60,17 @@ namespace TheCoffeeCatStore.Controllers.CoffeeShopController
                 return BadRequest();
             }
 
-            _context.Entry(coffeeShop).State = EntityState.Modified;
+         
+
+       
 
             try
             {
-                await _context.SaveChangesAsync();
+                _coffee.UpdateCoffee(coffeeShop);
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!CoffeeShopExists(id))
+                if (_coffee.GetCoffeeShopById(id)==null)
                 {
                     return NotFound();
                 }
@@ -83,14 +86,13 @@ namespace TheCoffeeCatStore.Controllers.CoffeeShopController
         // POST: api/CoffeeShops
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<CoffeeShop>> PostCoffeeShop(CoffeeShop coffeeShop)
+        public ActionResult<CoffeeShop> PostCoffeeShop(CoffeeShop coffeeShop)
         {
-          if (_context.CofffeeShops == null)
+          if (_coffee.GetCoffees() == null)
           {
               return Problem("Entity set 'TheCoffeeStoreDBContext.CofffeeShops'  is null.");
           }
-            _context.CofffeeShops.Add(coffeeShop);
-            await _context.SaveChangesAsync();
+            _coffee.AddNew(coffeeShop);
 
             return CreatedAtAction("GetCoffeeShop", new { id = coffeeShop.CoffeeID }, coffeeShop);
         }
@@ -99,25 +101,19 @@ namespace TheCoffeeCatStore.Controllers.CoffeeShopController
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCoffeeShop(Guid id)
         {
-            if (_context.CofffeeShops == null)
+            if (_coffee.GetCoffees()== null)
             {
                 return NotFound();
             }
-            var coffeeShop = await _context.CofffeeShops.FindAsync(id);
+            var coffeeShop = _coffee.GetCoffeeShopById(id);
             if (coffeeShop == null)
             {
                 return NotFound();
             }
-
-            _context.CofffeeShops.Remove(coffeeShop);
-            await _context.SaveChangesAsync();
+            _coffee.ChangeStatus(coffeeShop);
 
             return NoContent();
         }
 
-        private bool CoffeeShopExists(Guid id)
-        {
-            return (_context.CofffeeShops?.Any(e => e.CoffeeID == id)).GetValueOrDefault();
-        }
     }
 }
