@@ -97,13 +97,13 @@ namespace TheCoffeeCatStore.Controllers.NewFolder
         }
 
         [HttpPost]
-        public ActionResult AddDrink(DrinkDTO drinkDTO)
+        public ActionResult AddDrink([FromForm]DrinkDTO drinkDTO)
         {
             try
             {
                 var respose = _mapper.Map<Drink>(drinkDTO);
                 _services.AddDrink(respose);
-                return Ok();
+                return Ok(respose);
 
             }
             catch (Exception ex)
