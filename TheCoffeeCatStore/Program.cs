@@ -1,3 +1,4 @@
+using Azure.Storage.Blobs;
 using Newtonsoft.Json;
 using TheCoffeeCatRepository.IRepository;
 using TheCoffeeCatRepository.Repository;
@@ -23,6 +24,7 @@ builder.Services.AddScoped<IStaffRepo, StaffRepo>();
 builder.Services.AddScoped<IStaffServices, StaffServices>();
 builder.Services.AddScoped<IDrinkRepo, DrinkRepo>();
 builder.Services.AddScoped<IDrinkServices, DrinkServices>();
+builder.Services.AddScoped(_=> new BlobServiceClient(builder.Configuration.GetConnectionString("AzureBlobStorage")));
 
 
 

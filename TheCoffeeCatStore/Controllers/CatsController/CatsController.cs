@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using Azure.Storage.Blobs;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -23,9 +24,11 @@ namespace TheCoffeeCatStore.Controllers.CatsController
     public class CatsController : ControllerBase
     {
         private readonly ICatServices _cat;
-        public CatsController(ICatServices cat)
+        private readonly BlobServiceClient _blobServiceClient ;
+        public CatsController(ICatServices cat, BlobServiceClient blobServiceClient)
         {
             _cat = cat;
+            _blobServiceClient = blobServiceClient;
         }
 
         // GET: api/Cats
@@ -89,13 +92,27 @@ namespace TheCoffeeCatStore.Controllers.CatsController
         // PUT: api/Cats/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public IActionResult UpdateCat(Guid id, CatUpdateDTO catUpdateDTO)
+        public IActionResult UpdateCat(Guid id,[FromForm] CatUpdateDTO catUpdateDTO)
         {
 
             try
             {
 
                 var cat = _cat.GetCatById(id);
+                
+                var containerInstance = _blobServiceClient.GetBlobContainerClient("thecoffeeshoppictures");
+                //get file name from request and upload to azure blod storage
+                var blobName =  $"{(Guid.NewGuid())} {catUpdateDTO.Image?.FileName}";
+                //local file path
+                var blobInstance = containerInstance.GetBlobClient (blobName);
+                //upload file to azure blob storge
+                blobInstance.Upload(catUpdateDTO.Image?.OpenReadStream());
+                //storageAccountUrl
+                var storageAccountUrl = "https://thecoffeeshopimage.blob.core.windows.net/thecoffeeshoppictures";
+                //get blod url
+                var blobUrl = $"{storageAccountUrl}/{blobName}";
+
+
                 if (catUpdateDTO.Age != null)
                 {
                     cat.Age = (int)catUpdateDTO.Age;
@@ -106,16 +123,18 @@ namespace TheCoffeeCatStore.Controllers.CatsController
                 }
                 if (catUpdateDTO.Image != null)
                 {
-                    cat.Image = catUpdateDTO.Image;
+                    cat.Image = blobUrl;
                 }
                 if (catUpdateDTO.CoffeeID != null)
                 {
                     cat.CoffeeID = (Guid)catUpdateDTO.CoffeeID;
                 }
-                if(catUpdateDTO.Status != null)
+                if (catUpdateDTO.Status != null)
                 {
                     cat.Status = (bool)catUpdateDTO.Status;
                 }
+
+
                 _cat.UpdateCat(cat);
             }
             catch (DbUpdateConcurrencyException)
