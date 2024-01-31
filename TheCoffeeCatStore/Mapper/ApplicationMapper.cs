@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using TheCoffeeCatBusinessObject;
+using TheCoffeeCatBusinessObject.BusinessObject;
 using TheCoffeeCatBusinessObject.DTO;
 using TheCoffeeCatBusinessObject.ViewModels;
 
@@ -15,6 +16,13 @@ namespace TheCoffeeCatStore.Mapper
                 opt => opt.MapFrom(src => Guid.NewGuid())
             );
             CreateMap<Staff, StaffDTO>().ReverseMap();
+
+            CreateMap<Account, AccountVM>().ReverseMap()
+                .ForMember(
+                dest => dest.AccountID,
+                opt => opt.MapFrom(src => Guid.NewGuid())
+            );
+            CreateMap<Account, AccountDTO>().ReverseMap();
 
 
             CreateMap<Drink, DrinkDTO>().ReverseMap();
