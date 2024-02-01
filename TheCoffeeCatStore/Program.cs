@@ -27,6 +27,7 @@ builder.Services.AddScoped<IStaffRepo, StaffRepo>();
 builder.Services.AddScoped<IStaffServices, StaffServices>();
 builder.Services.AddScoped<IDrinkRepo, DrinkRepo>();
 builder.Services.AddScoped<IDrinkServices, DrinkServices>();
+
 builder.Services.AddScoped<IAccountRepo, AccountRepo>();
 builder.Services.AddScoped<IAccountServices, AccountServices>();
 
@@ -44,6 +45,10 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
     };
 });
+builder.Services.AddScoped<ICatProductRepo,CatProductRepo>();
+builder.Services.AddScoped<ICatProductServices,CatProductServices>();
+builder.Services.AddScoped(_=> new BlobServiceClient(builder.Configuration.GetConnectionString("AzureBlobStorage")));
+
 
 
 
@@ -72,3 +77,4 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+

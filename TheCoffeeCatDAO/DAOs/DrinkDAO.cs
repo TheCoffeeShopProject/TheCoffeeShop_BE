@@ -41,13 +41,13 @@ namespace TheCoffeeCatDAO.DAOs
 
             var _context = new TheCoffeeStoreDBContext();
             var a = _context.Drinks.SingleOrDefault(d => d.DrinkID == drink.DrinkID);
-            if (a == null)
+            if (a != null)
             {
                 return false;
             }
             else
             {
-                _context.Drinks.Add(a);
+                _context.Drinks.Add(drink);
                 _context.SaveChanges();
                 return true;
             }
