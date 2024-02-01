@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TheCoffeeCatBusinessObject;
@@ -8,6 +9,7 @@ using TheCoffeeCatService.IServices;
 
 namespace TheCoffeeCatStore.Controllers.StaffsController
 {
+    [Authorize(Roles = "Admin")]
     [Route("api/[controller]")]
     [ApiController]
     public class StaffsController : ControllerBase
@@ -80,7 +82,8 @@ namespace TheCoffeeCatStore.Controllers.StaffsController
                 _staffServices.UpdateStaff(_staff);
 
                 return Ok();
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 return BadRequest(ex.Message);
             }

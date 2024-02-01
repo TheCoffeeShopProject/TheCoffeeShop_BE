@@ -19,20 +19,22 @@ namespace TheCoffeeCatDAO.DAOs
 
         public Account CheckLogin(string email, string password)
         {
-            try
-            {
-                var check = _context.Accounts.Where(u => u.Email!.Equals(email) && u.Password!.Equals(password)).FirstOrDefault();
+            //try
+            //{
+            //    var check = _context.Accounts.Where(u => u.Email!.Equals(email) && u.Password!.Equals(password)).FirstOrDefault();
 
-                if (check != null)
-                {
-                    return check;
-                }
-                throw new Exception();
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
+            //    if (check != null)
+            //    {
+            //        return check;
+            //    }
+            //    throw new Exception();
+            //}
+            //catch (Exception ex)
+            //{
+            //    throw new Exception(ex.Message);
+            //}
+
+            return _context.Accounts.Where(u => u.Email!.Equals(email) && u.Password!.Equals(password)).FirstOrDefault();
         }
 
         public List<Account> GetAllAccount()
