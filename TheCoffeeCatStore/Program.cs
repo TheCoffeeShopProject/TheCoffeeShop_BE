@@ -1,5 +1,9 @@
 using Azure.Storage.Blobs;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using Newtonsoft.Json;
+using System.Text;
 using TheCoffeeCatRepository.IRepository;
 using TheCoffeeCatRepository.Repository;
 using TheCoffeeCatService.IServices;
@@ -34,6 +38,7 @@ builder.Services.AddMvc()
                         options => { options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore; }
         );
 //builder.Services.AddAutoMapper
+
 
 
 var app = builder.Build();
