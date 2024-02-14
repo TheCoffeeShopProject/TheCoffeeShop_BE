@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using TheCoffeeCatBusinessObject.BusinessObject;
 
-namespace TheCoffeeCatRepository.IRepository
+namespace TheCoffeeCatService.IServices
 {
-    public interface ICommentRepo
+   public interface ICommentServices
     {
 
         bool ChangeStatus(Comment comment);
@@ -20,7 +20,5 @@ namespace TheCoffeeCatRepository.IRepository
         Comment GetCommentById(Guid id);
 
         void UpdateCommentShop(Comment comment);
-
-      
     }
 }

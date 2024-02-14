@@ -71,36 +71,73 @@ namespace TheCoffeeCatStore.Controllers.CoffeeShopController
 
         //// PUT: api/CoffeeShops/5
         //// To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        //[HttpPut("{id}")]
-        //public async Task<IActionResult> PutCoffeeShop(Guid id, CoffeeShop coffeeShop)
-        //{
-        //    if (id != coffeeShop.CoffeeID)
-        //    {
-        //        return BadRequest();
-        //    }
+        [HttpPut("{id}")]
+        public IActionResult UpdateCoffeeShop(Guid id, [FromForm] CoffeeUpdateDTO coffeeUpdateDTO )
+        {
+
+            try
+            {
+                var coffeeshop = _coffee.GetCoffeeShopById(id);
+              
+
+                var containerInstance = _blobServiceClient.GetBlobContainerClient("thecoffeeshoppictures");
+                //get file name from request and upload to azure blod storage
+                var blobName = $"{(Guid.NewGuid())} {coffeeUpdateDTO.Image?.FileName}";
+                //local file path
+                var blobInstance = containerInstance.GetBlobClient(blobName);
+                //upload file to azure blob storge
+                blobInstance.Upload(coffeeUpdateDTO.Image?.OpenReadStream());
+                //storageAccountUrl
+                var storageAccountUrl = "https://thecoffeeshopimage.blob.core.windows.net/thecoffeeshoppictures";
+                //get blod url
+                var blobUrl = $"{storageAccountUrl}/{blobName}";
 
 
+                if (coffeeUpdateDTO.OpenTime != null)
+                {
+                    coffeeshop.OpenTime = coffeeUpdateDTO.OpenTime;
+                    
+                }
+                if (coffeeUpdateDTO.CloseTime != null)
+                {
+                    coffeeshop.CloseTime = coffeeUpdateDTO.CloseTime;
+                }
+                if (coffeeUpdateDTO.PhoneNumber != null)
+                {
+                    coffeeshop.PhoneNumber = coffeeUpdateDTO.PhoneNumber;
+                   
+                }
+                if (coffeeUpdateDTO.Description != null)
+                {
+                    coffeeshop.Description = coffeeUpdateDTO.Description;
+                }
+                if (coffeeUpdateDTO.Status != null)
+                {
+                    coffeeshop.Status = (bool)coffeeUpdateDTO.Status;
+                }
+                if (coffeeUpdateDTO.Image != null)
+                {
+                    coffeeshop.Image = blobUrl;
+                }
 
+                _coffee.UpdateCoffee(coffeeshop);
 
+            
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (_coffee.GetCoffeeShopById(id) == null)
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
 
-        //    try
-        //    {
-        //        _coffee.UpdateCoffee(coffeeShop);
-        //    }
-        //    catch (DbUpdateConcurrencyException)
-        //    {
-        //        if (_coffee.GetCoffeeShopById(id)==null)
-        //        {
-        //            return NotFound();
-        //        }
-        //        else
-        //        {
-        //            throw;
-        //        }
-        //    }
-
-        //    return NoContent();
-        //}
+            return Ok("Update Successfully");
+        }
 
         // POST: api/CoffeeShops
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754

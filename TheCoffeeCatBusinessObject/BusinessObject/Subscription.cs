@@ -23,6 +23,8 @@ namespace TheCoffeeCatBusinessObject
        
         public List<CustomerPackage> CustomerPackages { get; set; }
 
+        public List <OrderDetail> OrderDetails { get; set; }
+
 
      }
 }

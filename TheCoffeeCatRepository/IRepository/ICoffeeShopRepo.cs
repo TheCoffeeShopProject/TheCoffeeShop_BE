@@ -10,17 +10,17 @@ namespace TheCoffeeCatRepository.IRepository
    public interface ICoffeeShopRepo
     {
 
-        public bool ChangeStatus(CoffeeShop coffeeShop);
+        bool ChangeStatus(CoffeeShop coffeeShop);
 
 
-        public List<CoffeeShop> GetCoffees();
-        public void AddNew(CoffeeShop coffeeShop);
+        List<CoffeeShop> GetCoffees();
+        void AddNew(CoffeeShop coffeeShop);
 
 
-        public CoffeeShop GetCoffeeShopById(Guid id);
+        CoffeeShop GetCoffeeShopById(Guid id);
 
-        public void UpdateCoffeeShop(CoffeeShop coffeeShop);
+        void UpdateCoffeeShop(CoffeeShop coffeeShop);
 
-        public IQueryable<CoffeeShop> SearchCoffeeShop(string name);
+        IQueryable<CoffeeShop> SearchCoffeeShop(string name);
     }
 }
