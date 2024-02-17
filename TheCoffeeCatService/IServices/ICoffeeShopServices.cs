@@ -9,16 +9,16 @@ namespace TheCoffeeCatService.IServices
 {
     public interface ICoffeeShopServices
     {
-        public bool ChangeStatus(CoffeeShop coffeeShop);
+        bool ChangeStatus(CoffeeShop coffeeShop);
 
-        public List<CoffeeShop> GetCoffees();
-        public void AddNew(CoffeeShop coffeeShop);
+        List<CoffeeShop> GetCoffees();
+        void AddNew(CoffeeShop coffeeShop);
 
 
-        public CoffeeShop GetCoffeeShopById(Guid id);
+        CoffeeShop GetCoffeeShopById(Guid id);
 
-        public void UpdateCoffee(CoffeeShop coffeeShop);
+        void UpdateCoffee(CoffeeShop coffeeShop);
 
-        public IQueryable<CoffeeShop> SearchCoffee(string name);
+        IQueryable<CoffeeShop> SearchCoffee(string name);
     }
 }

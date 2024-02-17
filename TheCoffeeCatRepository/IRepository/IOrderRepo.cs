@@ -8,20 +8,19 @@ using TheCoffeeCatBusinessObject.BusinessObject;
 
 namespace TheCoffeeCatRepository.IRepository
 {
-    public interface ICatRepo
+   public interface IOrderRepo
     {
+        bool ChangeOrderStatus(Order order);
 
-         bool ChangeStatus(Cat cat);
 
-       
-         List<Cat> GetCats();
-         void AddNew(Cat cat);
+        List<Order> GetOrders();
+        void AddNew(Order order);
 
-       
-         Cat GetCatById(Guid id);
 
-         void UpdateCat(Cat cat);
+        Order GetOrderById(Guid id);
 
-        IQueryable<Cat> SearchCat(string name);
+        void UpdateOrder(Order order);
+
+        
     }
 }
