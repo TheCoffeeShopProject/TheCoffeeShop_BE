@@ -105,13 +105,7 @@ namespace TheCoffeeCatStore.Controllers.AccountsController
 
                     var _token = new JwtSecurityTokenHandler().WriteToken(token);
 
-                    HttpContext.Response.Cookies.Append("UserCookie", _token, new CookieOptions
-                    {
-                        HttpOnly = true, // Chỉ có thể được đọc bằng cách sử dụng HTTP (không sử dụng JavaScript)
-                        Secure = true,   // Chỉ sử dụng khi kết nối an toàn (HTTPS)
-                        SameSite = SameSiteMode.None, // Hoặc SameSiteMode.Strict, tùy thuộc vào yêu cầu của ứng dụng
-                        Expires = DateTime.UtcNow.AddMinutes(10) // Thời gian hết hạn của cookie
-                    });
+                    SetCookie("UserCookie", _token);
 
                     return Ok(new JwtSecurityTokenHandler().WriteToken(token));
 
@@ -126,6 +120,14 @@ namespace TheCoffeeCatStore.Controllers.AccountsController
                 return BadRequest(ex.Message);
             }
 
+        }
+        private void SetCookie(string nameCookie, string value)
+        {
+            CookieOptions cookieOptions = new();
+            cookieOptions.HttpOnly = true;
+            cookieOptions.Secure = true;
+            cookieOptions.Expires = DateTime.Now.AddMinutes(10);
+            HttpContext.Response.Cookies.Append(nameCookie, value);
         }
 
     }
