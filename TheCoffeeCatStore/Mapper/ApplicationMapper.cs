@@ -30,6 +30,22 @@ namespace TheCoffeeCatStore.Mapper
             );
             CreateMap<Account, AccountDTO>().ReverseMap();
 
+            CreateMap<Menu, MenuVM>().ReverseMap()
+                .ForMember(
+                dest => dest.MenuID,
+                opt => opt.MapFrom(src => Guid.NewGuid())
+            );
+            CreateMap<Menu, MenuDTO>().ReverseMap();
+
+            CreateMap<Table, TableVM>().ReverseMap()
+                .ForMember(
+                dest => dest.TableID,
+                opt => opt.MapFrom(src => Guid.NewGuid())
+            );
+            CreateMap<Table, TableDTO>().ReverseMap();
+
+
+
             CreateMap<CatProduct, CatProductDTO>().ReverseMap()
                             .ForMember(dest => dest.CatProductID,
                                        opt => opt.MapFrom(src => Guid.NewGuid()));
