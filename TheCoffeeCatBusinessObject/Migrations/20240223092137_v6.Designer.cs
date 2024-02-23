@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TheCoffeeCatBusinessObject.BusinessObject;
 
@@ -11,9 +12,10 @@ using TheCoffeeCatBusinessObject.BusinessObject;
 namespace TheCoffeeCatBusinessObject.Migrations
 {
     [DbContext(typeof(TheCoffeeStoreDBContext))]
-    partial class TheCoffeeStoreDBContextModelSnapshot : ModelSnapshot
+    [Migration("20240223092137_v6")]
+    partial class v6
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -350,16 +352,11 @@ namespace TheCoffeeCatBusinessObject.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("CPID")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<DateTime>("CreateTime")
                         .HasColumnType("datetime2");
 
                     b.Property<Guid?>("CustomerID")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("StaffID")
+                        .IsRequired()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<bool>("Status")
@@ -369,8 +366,8 @@ namespace TheCoffeeCatBusinessObject.Migrations
                         .IsRequired()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<float>("TotalDiscount")
-                        .HasColumnType("real");
+                    b.Property<int>("TotalDiscount")
+                        .HasColumnType("int");
 
                     b.Property<int>("TotalItem")
                         .HasColumnType("int");
@@ -380,11 +377,7 @@ namespace TheCoffeeCatBusinessObject.Migrations
 
                     b.HasKey("OrderID");
 
-                    b.HasIndex("CPID");
-
                     b.HasIndex("CustomerID");
-
-                    b.HasIndex("StaffID");
 
                     b.HasIndex("TableID");
 
@@ -599,19 +592,10 @@ namespace TheCoffeeCatBusinessObject.Migrations
 
             modelBuilder.Entity("TheCoffeeCatBusinessObject.Order", b =>
                 {
-                    b.HasOne("TheCoffeeCatBusinessObject.BusinessObject.CustomerPackage", "CustomerPackage")
+                    b.HasOne("TheCoffeeCatBusinessObject.Customer", "Customer")
                         .WithMany("Orders")
-                        .HasForeignKey("CPID")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("TheCoffeeCatBusinessObject.Customer", null)
-                        .WithMany("Orders")
-                        .HasForeignKey("CustomerID");
-
-                    b.HasOne("TheCoffeeCatBusinessObject.Staff", "Staff")
-                        .WithMany("Orders")
-                        .HasForeignKey("StaffID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasForeignKey("CustomerID")
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("TheCoffeeCatBusinessObject.Table", "Table")
@@ -620,9 +604,7 @@ namespace TheCoffeeCatBusinessObject.Migrations
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
-                    b.Navigation("CustomerPackage");
-
-                    b.Navigation("Staff");
+                    b.Navigation("Customer");
 
                     b.Navigation("Table");
                 });
@@ -675,11 +657,6 @@ namespace TheCoffeeCatBusinessObject.Migrations
                     b.Navigation("Tables");
                 });
 
-            modelBuilder.Entity("TheCoffeeCatBusinessObject.BusinessObject.CustomerPackage", b =>
-                {
-                    b.Navigation("Orders");
-                });
-
             modelBuilder.Entity("TheCoffeeCatBusinessObject.BusinessObject.Role", b =>
                 {
                     b.Navigation("Accounts");
@@ -707,11 +684,6 @@ namespace TheCoffeeCatBusinessObject.Migrations
             modelBuilder.Entity("TheCoffeeCatBusinessObject.Order", b =>
                 {
                     b.Navigation("OrderDetails");
-                });
-
-            modelBuilder.Entity("TheCoffeeCatBusinessObject.Staff", b =>
-                {
-                    b.Navigation("Orders");
                 });
 
             modelBuilder.Entity("TheCoffeeCatBusinessObject.Subscription", b =>

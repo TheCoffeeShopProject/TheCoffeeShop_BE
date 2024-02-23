@@ -92,5 +92,11 @@ namespace TheCoffeeCatDAO.DAOs
             var _context = new TheCoffeeStoreDBContext();
             return _context.Comments.SingleOrDefault(a => a.CommentID == id);
         }
+
+        public Comment GetCommentByCoffeeID(Comment comment)
+        {
+            var _context = new TheCoffeeStoreDBContext();
+            return _context.Comments.SingleOrDefault(a => a.CoffeeID == comment.CoffeeID);
+        }
     }
 }

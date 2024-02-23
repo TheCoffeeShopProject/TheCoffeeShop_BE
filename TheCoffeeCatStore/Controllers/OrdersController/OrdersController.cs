@@ -81,38 +81,38 @@ namespace TheCoffeeCatStore.Controllers.OrdersController
             return NoContent();
         }
 
-        // POST: api/Orders
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
-        public ActionResult<Order> PostOrder(Order order)
-        {
-            if (_order.GetOrders() == null)
-            {
-                return Problem("Order is null.");
-            }
-            _order.AddNew(order);
+    //    // POST: api/Orders
+    //    // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+    //    [HttpPost]
+    //    public ActionResult<Order> PostOrder(Order order)
+    //    {
+    //        if (_order.GetOrders() == null)
+    //        {
+    //            return Problem("Order is null.");
+    //        }
+    //        _order.AddNew(order);
 
-            return CreatedAtAction("GetOrder", new { id = order.OrderID }, order);
-        }
+    //        return CreatedAtAction("GetOrder", new { id = order.OrderID }, order);
+    //    }
 
-        // DELETE: api/Orders/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteOrder(Guid id)
-        {
-            if (_order.GetOrders() == null)
-            {
-                return NotFound();
-            }
-            var order = _order.GetOrderById(id);
-            if (order == null)
-            {
-                return NotFound();
-            }
+    //    // DELETE: api/Orders/5
+    //    [HttpDelete("{id}")]
+    //    public async Task<IActionResult> DeleteOrder(Guid id)
+    //    {
+    //        if (_order.GetOrders() == null)
+    //        {
+    //            return NotFound();
+    //        }
+    //        var order = _order.GetOrderById(id);
+    //        if (order == null)
+    //        {
+    //            return NotFound();
+    //        }
 
-            _order.ChangeOrderStatus(order);
+    //        _order.ChangeOrderStatus(order);
 
-            return NoContent();
-        }
+    //        return NoContent();
+    //    }
 
       
     }

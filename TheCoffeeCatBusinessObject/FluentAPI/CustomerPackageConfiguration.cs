@@ -17,6 +17,7 @@ namespace TheCoffeeCatBusinessObject.FluentAPI
             builder.HasKey(x => x.CPID);
             builder.Property(x => x.DateStart).IsRequired();
             builder.Property(x => x.DateEnd).IsRequired();
+            builder.HasMany(x => x.Orders).WithOne(x => x.CustomerPackage).HasForeignKey(x=> x.CPID).OnDelete(DeleteBehavior.Cascade);
 
         }
     }

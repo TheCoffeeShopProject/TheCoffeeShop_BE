@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TheCoffeeCatBusinessObject.BusinessObject;
 
@@ -11,9 +12,10 @@ using TheCoffeeCatBusinessObject.BusinessObject;
 namespace TheCoffeeCatBusinessObject.Migrations
 {
     [DbContext(typeof(TheCoffeeStoreDBContext))]
-    partial class TheCoffeeStoreDBContextModelSnapshot : ModelSnapshot
+    [Migration("20240223100245_v7")]
+    partial class v7
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -369,8 +371,8 @@ namespace TheCoffeeCatBusinessObject.Migrations
                         .IsRequired()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<float>("TotalDiscount")
-                        .HasColumnType("real");
+                    b.Property<int>("TotalDiscount")
+                        .HasColumnType("int");
 
                     b.Property<int>("TotalItem")
                         .HasColumnType("int");
