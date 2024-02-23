@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc.TagHelpers;
 using Microsoft.EntityFrameworkCore;
 using TheCoffeeCatBusinessObject.BusinessObject;
 using TheCoffeeCatBusinessObject.DTO;
+using TheCoffeeCatBusinessObject.DTO.Request;
+using TheCoffeeCatBusinessObject.DTO.Response;
 using TheCoffeeCatDAO.DAOs;
 using TheCoffeeCatRepository.IRepository;
 using TheCoffeeCatService.IServices;
@@ -33,7 +35,7 @@ namespace TheCoffeeCatStore.Controllers.CatProdctsController
             try
             {
                 var catProdct = _services.GetCatProducts();
-                var response = _mapper.Map<List<CatProductDTO>>(catProdct);
+                var response = _mapper.Map<List<CatProductCreate>>(catProdct);
                 return Ok(response);
             }
             catch (Exception ex)
@@ -49,7 +51,7 @@ namespace TheCoffeeCatStore.Controllers.CatProdctsController
             try
             {
                 var catProduct = _services.GetCatProductById(id);
-                var response = _mapper.Map<CatProductDTO>(catProduct);
+                var response = _mapper.Map<CatProductCreate>(catProduct);
                 return Ok(response);
 
             }
@@ -66,7 +68,7 @@ namespace TheCoffeeCatStore.Controllers.CatProdctsController
             try
             {
                 var _cat = _services.SearchCatProduct(name);
-                var resposne = _mapper.Map<List<CatProductDTO>>(_cat);
+                var resposne = _mapper.Map<List<CatProductCreate>>(_cat);
                 return Ok(resposne);
 
             }
@@ -78,7 +80,7 @@ namespace TheCoffeeCatStore.Controllers.CatProdctsController
 
         }
         [HttpPost]
-        public ActionResult AddCatProduct([FromForm] CatProductDTO catProduct)
+        public ActionResult AddCatProduct([FromForm] CatProductResponse catProduct)
         {
 
             try
@@ -105,7 +107,7 @@ namespace TheCoffeeCatStore.Controllers.CatProdctsController
 
         [HttpPut]
         [Route("{id:Guid}")]
-        public IActionResult UpdateCatProduct([FromRoute] Guid id, [FromForm] CatProductDTO catProductDTO)
+        public IActionResult UpdateCatProduct([FromRoute] Guid id, [FromForm] CatProductResponse catProductDTO)
         {
 
             try
