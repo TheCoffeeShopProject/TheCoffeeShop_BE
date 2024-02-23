@@ -35,6 +35,14 @@ builder.Services.AddScoped(_=> new BlobServiceClient(builder.Configuration.GetCo
 
 builder.Services.AddScoped<IAccountRepo, AccountRepo>();
 builder.Services.AddScoped<IAccountServices, AccountServices>();
+builder.Services.AddScoped<ICustomerRepo, CustomerRepo>();
+builder.Services.AddScoped<ICustomerServices, CustomerServices>();
+
+builder.Services.AddScoped<ISubscriptionRepo, SubscriptionRepo>();
+builder.Services.AddScoped<ISubscriptionServices, SubscriptionServices>();
+
+builder.Services.AddScoped<ICustomerPackageRepo, CustomerPackageRepo>();
+builder.Services.AddScoped<ICustomerPackageServices, CustomerPackageServices>();
 
 //Jwt
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
