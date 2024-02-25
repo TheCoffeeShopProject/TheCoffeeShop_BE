@@ -48,13 +48,23 @@ namespace TheCoffeeCatStore.Controllers.MenusController
         {
             var menu = _menuServices.GetMenuByID(id);
 
-            var responese = _mapper.Map<AccountVM>(menu);
+            var responese = _mapper.Map<MenuVM>(menu);
+
+            return Ok(responese);
+        }
+
+        [HttpGet("byshopid/{shopId}")]
+        public IActionResult GetMenuByShopID(Guid id)
+        {
+            var menu = _menuServices.GetMenuByShopID(id);
+
+            var responese = menu.Select(menu => _mapper.Map<MenuVM>(menu)).ToList();
 
             return Ok(responese);
         }
 
         [HttpPost]
-        public IActionResult AddNewMenu(MenuVM menu)
+        public IActionResult AddNewMenu(MenuDTO menu)
         {
             try
             {

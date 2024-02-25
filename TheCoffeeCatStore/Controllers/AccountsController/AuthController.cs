@@ -68,7 +68,7 @@ namespace TheCoffeeCatStore.Controllers.AccountsController
                     return Ok(new JwtSecurityTokenHandler().WriteToken(token));
                 }
 
-                var checkLogin = _accountServices.CheckLogin(accountLogin.Email, accountLogin.Password);
+                var checkLogin =  _accountServices.CheckLogin(accountLogin.Email, accountLogin.Password);
                 if (checkLogin != null)
                 {
                     if (checkLogin.Status != true)

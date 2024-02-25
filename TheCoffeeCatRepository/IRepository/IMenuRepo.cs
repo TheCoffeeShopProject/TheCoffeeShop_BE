@@ -11,8 +11,9 @@ namespace TheCoffeeCatRepository.IRepository
     {
         List<Menu> GetAllMenu();
         void AddNewMenu(Menu menu);
-        Menu GetMenuByID(Guid id);
+        IQueryable<Menu> GetMenuByShopID(Guid id);
         void UpdateMenu(Menu menu);
         bool ChangeStatusMenu(Menu menu);
+        Menu GetMenuByID(Guid id);
     }
 }

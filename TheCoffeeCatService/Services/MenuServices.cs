@@ -25,6 +25,8 @@ namespace TheCoffeeCatService.Services
 
         public Menu GetMenuByID(Guid id) => _menuRepo.GetMenuByID(id);
 
+        public IQueryable<Menu> GetMenuByShopID(Guid id) => _menuRepo.GetMenuByShopID(id);
+
         public void UpdateMenu(Menu menu) => _menuRepo.UpdateMenu(menu);
 
     }

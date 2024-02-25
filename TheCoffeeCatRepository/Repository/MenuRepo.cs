@@ -21,6 +21,8 @@ namespace TheCoffeeCatRepository.Repository
 
         public Menu GetMenuByID(Guid id) => dao.GetMenuByID(id);
 
+        public IQueryable<Menu> GetMenuByShopID(Guid id) => dao.GetMenuByShopID(id);
+
         public void UpdateMenu(Menu menu) => dao.UpdateMenu(menu);
     }
 }

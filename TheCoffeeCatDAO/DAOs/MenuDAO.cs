@@ -21,7 +21,7 @@ namespace TheCoffeeCatDAO.DAOs
         {
             try
             {
-                return _context.Menus.Include(a => a.CoffeeShop)
+                return _context.Menus!.Include(a => a.CoffeeShop)
                                      .Include(a => a.Drink)
                                      .Include(a => a.CatProduct)
                                      .Include(a => a.OrderDetails)
@@ -48,11 +48,33 @@ namespace TheCoffeeCatDAO.DAOs
 
         }
 
+        public IQueryable<Menu> GetMenuByShopID(Guid id)
+        {
+            try
+            {
+                var menus = _context.Menus.Where(a => a.CoffeeID == id).Include(a => a.CoffeeShop)
+                                                                       .Include(a => a.Drink)
+                                                                       .Include(a => a.CatProduct)
+                                                                       .Include(a => a.OrderDetails);
+
+
+                return menus;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
         public Menu GetMenuByID(Guid id)
         {
             try
             {
-                var menu = _context.Menus.SingleOrDefault(c => c.MenuID == id);
+                var menu = _context.Menus.Include(a => a.CoffeeShop)
+                                         .Include(a => a.Drink)
+                                         .Include(a => a.CatProduct)
+                                         .Include(a => a.OrderDetails)
+                                         .SingleOrDefault(c => c.MenuID == id);
                 return menu;
             }
             catch (Exception ex)
@@ -60,6 +82,8 @@ namespace TheCoffeeCatDAO.DAOs
                 throw new Exception(ex.Message);
             }
         }
+
+
 
         public void UpdateMenu(Menu menu)
         {
