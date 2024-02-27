@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,11 +9,11 @@ namespace TheCoffeeCatBusinessObject.DTO
 {
     public class CatProductDTO
     {
-        public string CatProductName { get; set; }
-        public string CatProductType { get; set; }
+        public string? CatProductName { get; set; }
+        public string? CatProductType { get; set; }
         public double Price { get; set; }
         public bool Status { get; set; }
-        public string Image { get; set; }
+        public IFormFile? Image { get; set; }
 
     }
 }

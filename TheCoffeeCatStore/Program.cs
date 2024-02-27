@@ -2,6 +2,9 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Azure.Storage.Blobs;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using Newtonsoft.Json;
 using System.Text;
 using TheCoffeeCatRepository.IRepository;
@@ -35,10 +38,21 @@ builder.Services.AddScoped(_ => new BlobServiceClient(builder.Configuration.GetC
 
 builder.Services.AddScoped<IAccountRepo, AccountRepo>();
 builder.Services.AddScoped<IAccountServices, AccountServices>();
+
 builder.Services.AddScoped<IMenuRepo, MenuRepo>();
 builder.Services.AddScoped<IMenuServices, MenuServices>();
 builder.Services.AddScoped<ITableRepo, TableRepo>();
 builder.Services.AddScoped<ITableServices, TableServices>();
+
+builder.Services.AddScoped<ICustomerRepo, CustomerRepo>();
+builder.Services.AddScoped<ICustomerServices, CustomerServices>();
+
+builder.Services.AddScoped<ISubscriptionRepo, SubscriptionRepo>();
+builder.Services.AddScoped<ISubscriptionServices, SubscriptionServices>();
+
+builder.Services.AddScoped<ICustomerPackageRepo, CustomerPackageRepo>();
+builder.Services.AddScoped<ICustomerPackageServices, CustomerPackageServices>();
+
 
 //Jwt
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
@@ -64,7 +78,8 @@ builder.Services.AddMvc()
         );
 
 
-//Google authentication
+
+
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
@@ -75,11 +90,36 @@ builder.Services.AddAuthentication(options =>
 {
     options.ClientId = "1005697246603-03mfv7e19ifmc97u89depummfufnssj8.apps.googleusercontent.com";
     options.ClientSecret = "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";
+
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(
+        builder =>
+        {
+            //you can configure your custom policy
+            builder.AllowAnyOrigin()
+                .AllowAnyHeader()
+                .AllowAnyMethod();
+        });
+});
+
+//builder.Services.AddAutoMapper
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(
+        builder =>
+        {
+            //you can configure your custom policy
+            builder.AllowAnyOrigin()
+                .AllowAnyHeader()
+                .AllowAnyMethod();
+        });
+
 });
 
 
 var app = builder.Build();
-
+app.UseCors(options => options.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 
 app.UseSwagger();
 app.UseSwaggerUI();

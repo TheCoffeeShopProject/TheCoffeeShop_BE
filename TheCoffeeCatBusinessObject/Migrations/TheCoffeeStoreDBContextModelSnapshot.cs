@@ -17,7 +17,7 @@ namespace TheCoffeeCatBusinessObject.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.26")
+                .HasAnnotation("ProductVersion", "6.0.27")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
@@ -237,11 +237,16 @@ namespace TheCoffeeCatBusinessObject.Migrations
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
+                    b.Property<Guid?>("SubscriptionID")
+                        .HasColumnType("uniqueidentifier");
+
                     b.HasKey("OrderDeatailID");
 
                     b.HasIndex("MenuID");
 
                     b.HasIndex("OrderID");
+
+                    b.HasIndex("SubscriptionID");
 
                     b.ToTable("OrderDetail", (string)null);
                 });
@@ -345,20 +350,27 @@ namespace TheCoffeeCatBusinessObject.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid?>("CPID")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<DateTime>("CreateTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("CustomerID")
+                    b.Property<Guid?>("CustomerID")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("StaffID")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<bool>("Status")
                         .HasColumnType("bit");
 
-                    b.Property<Guid>("TableID")
+                    b.Property<Guid?>("TableID")
+                        .IsRequired()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("TotalDiscount")
-                        .HasColumnType("int");
+                    b.Property<float>("TotalDiscount")
+                        .HasColumnType("real");
 
                     b.Property<int>("TotalItem")
                         .HasColumnType("int");
@@ -368,7 +380,11 @@ namespace TheCoffeeCatBusinessObject.Migrations
 
                     b.HasKey("OrderID");
 
+                    b.HasIndex("CPID");
+
                     b.HasIndex("CustomerID");
+
+                    b.HasIndex("StaffID");
 
                     b.HasIndex("TableID");
 
@@ -424,6 +440,9 @@ namespace TheCoffeeCatBusinessObject.Migrations
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Price")
+                        .HasColumnType("float");
 
                     b.Property<bool>("Status")
                         .HasColumnType("bit");
@@ -531,9 +550,15 @@ namespace TheCoffeeCatBusinessObject.Migrations
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
+                    b.HasOne("TheCoffeeCatBusinessObject.Subscription", "Subscription")
+                        .WithMany("OrderDetails")
+                        .HasForeignKey("SubscriptionID");
+
                     b.Navigation("Menu");
 
                     b.Navigation("Order");
+
+                    b.Navigation("Subscription");
                 });
 
             modelBuilder.Entity("TheCoffeeCatBusinessObject.Customer", b =>
@@ -574,10 +599,19 @@ namespace TheCoffeeCatBusinessObject.Migrations
 
             modelBuilder.Entity("TheCoffeeCatBusinessObject.Order", b =>
                 {
-                    b.HasOne("TheCoffeeCatBusinessObject.Customer", "Customer")
+                    b.HasOne("TheCoffeeCatBusinessObject.BusinessObject.CustomerPackage", "CustomerPackage")
                         .WithMany("Orders")
-                        .HasForeignKey("CustomerID")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .HasForeignKey("CPID")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("TheCoffeeCatBusinessObject.Customer", null)
+                        .WithMany("Orders")
+                        .HasForeignKey("CustomerID");
+
+                    b.HasOne("TheCoffeeCatBusinessObject.Staff", "Staff")
+                        .WithMany("Orders")
+                        .HasForeignKey("StaffID")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("TheCoffeeCatBusinessObject.Table", "Table")
@@ -586,7 +620,9 @@ namespace TheCoffeeCatBusinessObject.Migrations
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
-                    b.Navigation("Customer");
+                    b.Navigation("CustomerPackage");
+
+                    b.Navigation("Staff");
 
                     b.Navigation("Table");
                 });
@@ -639,6 +675,11 @@ namespace TheCoffeeCatBusinessObject.Migrations
                     b.Navigation("Tables");
                 });
 
+            modelBuilder.Entity("TheCoffeeCatBusinessObject.BusinessObject.CustomerPackage", b =>
+                {
+                    b.Navigation("Orders");
+                });
+
             modelBuilder.Entity("TheCoffeeCatBusinessObject.BusinessObject.Role", b =>
                 {
                     b.Navigation("Accounts");
@@ -668,9 +709,16 @@ namespace TheCoffeeCatBusinessObject.Migrations
                     b.Navigation("OrderDetails");
                 });
 
+            modelBuilder.Entity("TheCoffeeCatBusinessObject.Staff", b =>
+                {
+                    b.Navigation("Orders");
+                });
+
             modelBuilder.Entity("TheCoffeeCatBusinessObject.Subscription", b =>
                 {
                     b.Navigation("CustomerPackages");
+
+                    b.Navigation("OrderDetails");
                 });
 
             modelBuilder.Entity("TheCoffeeCatBusinessObject.Table", b =>

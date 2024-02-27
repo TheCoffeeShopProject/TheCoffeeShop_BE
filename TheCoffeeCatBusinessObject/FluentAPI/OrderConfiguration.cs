@@ -17,7 +17,6 @@ namespace TheCoffeeCatBusinessObject.FluentAPI
             builder.HasKey(x => x.OrderID);
             builder.Property(x => x.CreateTime).IsRequired();
             builder.Property(x => x.TotalPrice).IsRequired();
-            builder.Property(x => x.CustomerID);
             builder.Property(x => x.TotalItem).IsRequired();
             builder.Property(x => x.Status).IsRequired();
           

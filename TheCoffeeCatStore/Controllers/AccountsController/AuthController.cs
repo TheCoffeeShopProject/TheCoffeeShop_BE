@@ -94,7 +94,8 @@ namespace TheCoffeeCatStore.Controllers.AccountsController
                         new Claim(JwtRegisteredClaimNames.Iat, DateTime.UtcNow.ToString()),
                         new Claim(ClaimTypes.NameIdentifier, checkLogin.AccountID.ToString()),
                         new Claim(ClaimTypes.Email, checkLogin.Email),
-                        new Claim(ClaimTypes.Role, checkLogin.RoleID.ToString())
+                        new Claim(ClaimTypes.Role, checkLogin.RoleID.ToString()),
+                       
                         };
 
                     var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));

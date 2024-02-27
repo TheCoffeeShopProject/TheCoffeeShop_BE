@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Azure.Storage.Blobs;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -19,30 +20,41 @@ namespace TheCoffeeCatStore.Controllers.NewFolder
     {
         private readonly IDrinkServices _services;
         private readonly IMapper _mapper;
-        public DrinksController(IDrinkServices services, IMapper mapper)
+        private readonly BlobServiceClient _blobServiceClient;
+        public DrinksController(IDrinkServices services, IMapper mapper, BlobServiceClient blobServiceClient)
         {
             _services = services;
             _mapper = mapper;
+            _blobServiceClient = blobServiceClient;
         }
         [HttpGet]
         public ActionResult<Drink> GetDrinks()
         {
-            // Get Data from database - domain model - object
-            var drink = _services.GetDrinks();
-            //Map domain model to DTO
-            var drinkDTO = new List<DrinkDTO>();
-            foreach (var drinks in drink)
+            try
             {
-                drinkDTO.Add(new DrinkDTO()
-                {
-                    DrinkName = drinks.DrinkName,
-                    Image = drinks.Image,
-                    Status = drinks.Status,
-                    UnitPrice = drinks.UnitPrice,
-                });
+                var drinks = _services.GetDrinks();
+                var res = _mapper.Map<Drink>(drinks);
+                return Ok(res);
+            }catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
             }
-            // Return DTO
-            return Ok(drinkDTO);
+            //// Get Data from database - domain model - object
+            //var drink = _services.GetDrinks();
+            ////Map domain model to DTO
+            //var drinkDTO = new List<DrinkDTO>();
+            //foreach (var drinks in drink)
+            //{
+            //    drinkDTO.Add(new DrinkDTO()
+            //    {
+            //        DrinkName = drinks.DrinkName,
+            //        Image = drinks.Image,
+            //        Status = drinks.Status,
+            //        UnitPrice = drinks.UnitPrice,
+            //    });
+            //}
+            //// Return DTO
+            //return Ok(drinkDTO);
         }
         //[HttpGet]
         //[Route("{id:Guid}")]
@@ -79,10 +91,10 @@ namespace TheCoffeeCatStore.Controllers.NewFolder
                 return BadRequest(ex.Message);
             }
         }
+
         [HttpGet("search")]
         public ActionResult<Drink> GetDrinkByName(string searchvalue)
         {
-
             try
             {
                 var drinks = _services.GetDrinkByName(searchvalue);
@@ -93,7 +105,6 @@ namespace TheCoffeeCatStore.Controllers.NewFolder
             {
                 return BadRequest(ex.Message);
             }
-
         }
 
         [HttpPost]
@@ -101,7 +112,14 @@ namespace TheCoffeeCatStore.Controllers.NewFolder
         {
             try
             {
+                var containerInstance = _blobServiceClient.GetBlobContainerClient("thecoffeeshoppictures");
+                var blobName = $"{Guid.NewGuid()}{drinkDTO.Image?.FileName}";
+                var blobIntance = containerInstance.GetBlobClient(blobName);
+                blobIntance.Upload(drinkDTO.Image?.OpenReadStream());
+                var storageAccountUrl = "https://thecoffeeshopimage.blob.core.windows.net/thecoffeeshoppictures";
+                var blobUrl = $"{storageAccountUrl}/{blobName}";
                 var respose = _mapper.Map<Drink>(drinkDTO);
+                respose.Image = blobUrl;
                 _services.AddDrink(respose);
                 return Ok(respose);
 
@@ -119,7 +137,12 @@ namespace TheCoffeeCatStore.Controllers.NewFolder
 
             try
             {
-
+                var containerInstance = _blobServiceClient.GetBlobContainerClient("thecoffeeshoppictures");
+                var blobName = $"{Guid.NewGuid()}{drinkDTO.Image?.FileName}";
+                var blobIntance = containerInstance.GetBlobClient(blobName);
+                blobIntance.Upload(drinkDTO.Image?.OpenReadStream());
+                var storageAccountUrl = "https://thecoffeeshopimage.blob.core.windows.net/thecoffeeshoppictures";
+                var blobUrl = $"{storageAccountUrl}/{blobName}";
                 var drink = _services.GetDrinkById(id);
                 if (drinkDTO.DrinkName != null)
                 {
@@ -131,7 +154,7 @@ namespace TheCoffeeCatStore.Controllers.NewFolder
                 }
                 if (drinkDTO.Image != null)
                 {
-                    drink.Image = drinkDTO.Image;
+                    drink.Image = blobUrl;
                 }
                 if (drinkDTO.Status != null)
                 {
@@ -155,8 +178,27 @@ namespace TheCoffeeCatStore.Controllers.NewFolder
 
             return Ok("Update Successfully");
 
+        }
+        [HttpDelete]
+        [Route("{id}")]
+        public ActionResult DeleteDrink([FromRoute] Guid id)
+        {
+            var res = _services.GetDrinks();
+            if (res == null)
+            {
+                return NotFound();
+            }
+            var res2 = _services.GetDrinkById(id);
+            if (res2 == null)
+            {
+                return NotFound();
+            }
+            _services.ChangeStatus(res2);
+            return Ok("Delete  Success");
 
 
         }
-        }
+
+
+    }
 }
