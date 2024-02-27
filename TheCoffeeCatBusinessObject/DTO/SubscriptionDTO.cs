@@ -16,7 +16,9 @@ namespace TheCoffeeCatBusinessObject.DTO
 
         public float DiscountPercent { get; set; }
 
+
         public double Price { get; set; }
+
 
     }
 }

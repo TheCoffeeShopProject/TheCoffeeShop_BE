@@ -1,8 +1,10 @@
+
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
+
 using System.Text;
 using System.Threading.Tasks;
 using TheCoffeeCatBusinessObject;
@@ -81,8 +83,10 @@ namespace TheCoffeeCatDAO.DAOs
             }
             else
             {
+
                 a.Status = false;
                 _context.Entry(a).State = EntityState.Modified;
+
                 _context.SaveChanges();
                 return true;
             }

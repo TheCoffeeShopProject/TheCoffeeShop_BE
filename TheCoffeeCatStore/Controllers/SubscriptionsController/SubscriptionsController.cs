@@ -23,28 +23,36 @@ namespace TheCoffeeCatStore.Controllers.SubscriptionsController
         public ActionResult<Subscription> GetSubscriptions()
         {
             try {
+
+
                 var subscriptions = _subscription.GetSubscriptions();
                 var response = _mapper.Map<List<SubscriptionDTO>>(subscriptions);
                 return Ok(response);
 
             } catch (Exception ex)
+
             {
                 return BadRequest(ex.Message);
             }
         }
 
+
+
         [HttpGet]
         [Route("{id:Guid}")]
         public ActionResult GetSubscriptionById(Guid id)
+
         {
 
             try
             {
                 var subscriptions = _subscription.GetSubscriptionById(id);
+
                 if (subscriptions == null)
                 {
                     return NotFound();
                 }
+
                 var response = _mapper.Map<SubscriptionDTO>(subscriptions);
                 return Ok(response);
             }
@@ -103,15 +111,19 @@ namespace TheCoffeeCatStore.Controllers.SubscriptionsController
                 {
                     subscription.Status = subscriptionDTO.Status;
                 }
+
  
+
                 if (subscriptionDTO.DiscountPercent != null)
                 {
                     subscription.DiscountPercent = subscriptionDTO.DiscountPercent;
                 }
+
                 if (subscriptionDTO.Price != null)
                 {
                     subscription.Price = subscriptionDTO.Price;
                 }
+
                 _subscription.UpdateSubscription(subscription);
 
 
@@ -133,6 +145,7 @@ namespace TheCoffeeCatStore.Controllers.SubscriptionsController
 
 
         }
+
         [HttpDelete]
         [Route("{id}")]
         public ActionResult DeleteSubscription([FromRoute] Guid id)
@@ -152,6 +165,7 @@ namespace TheCoffeeCatStore.Controllers.SubscriptionsController
 
 
         }
+
 
 
 
