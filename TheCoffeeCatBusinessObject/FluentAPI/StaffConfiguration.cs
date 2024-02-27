@@ -21,6 +21,7 @@ namespace TheCoffeeCatBusinessObject.FluentAPI
             builder.Property(x => x.Address).IsRequired();
             builder.Property(x => x.DOB).IsRequired();
             builder.HasOne(x => x.Account);
+            builder.HasMany(x=> x.Orders).WithOne(x=> x.Staff).HasForeignKey(x=> x.StaffID).OnDelete(DeleteBehavior.Cascade);
 
 
 
