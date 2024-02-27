@@ -1,4 +1,4 @@
-using AutoMapper;
+﻿using AutoMapper;
 using TheCoffeeCatBusinessObject;
 using TheCoffeeCatBusinessObject.BusinessObject;
 using TheCoffeeCatBusinessObject.DTO;
@@ -38,12 +38,33 @@ namespace TheCoffeeCatStore.Mapper
 
 
 
-            CreateMap<Account, AccountVM>().ReverseMap()
+            CreateMap<AccountVM, Account>().ReverseMap().ForMember(dest => dest.RoleName,
+                                       opt => opt.MapFrom(src => src.Role!.RoleName));
+            CreateMap<AccountDTO, Account>().ReverseMap();
+
+
+            CreateMap<MenuDTO, Menu>().ReverseMap();
+            CreateMap<MenuVM, Menu>().ReverseMap().ForMember(dest => dest.CatProductName,
+                                       opt => opt.MapFrom(src => src.CatProduct!.CatProductName))
+                                                   .ForMember(dest => dest.DrinkName,
+                                       opt => opt.MapFrom(src => src.Drink!.DrinkName))
+                                                   .ForMember(dest => dest.CoffeeName,
+                                       opt => opt.MapFrom(src => src.CoffeeShop!.CoffeeName))
+                                                   .ForMember(dest => dest.PriceDrink,
+                                       opt => opt.MapFrom(src => src.Drink!.UnitPrice))
+                                                   .ForMember(dest => dest.PriceCatProduct,
+                                       opt => opt.MapFrom(src => src.CatProduct!.Price)); ;
+
+
+
+            CreateMap<Table, TableVM>().ReverseMap()
                 .ForMember(
-                dest => dest.AccountID,
+                dest => dest.TableID,
                 opt => opt.MapFrom(src => Guid.NewGuid())
             );
-            CreateMap<Account, AccountDTO>().ReverseMap();
+            CreateMap<Table, TableDTO>().ReverseMap();
+
+
 
             CreateMap<CatProduct, CatProductResponse>().ReverseMap()
                             .ForMember(dest => dest.CatProductID,

@@ -17,7 +17,7 @@ namespace TheCoffeeCatBusinessObject.FluentAPI
             builder.HasKey(x => x.CustomerID);
             builder.Property(x => x.FullName).IsRequired();
             builder.Property(x => x.PhoneNumber).IsRequired();
-            builder.HasMany(x => x.Orders).WithOne(x => x.Customer).OnDelete(DeleteBehavior.NoAction);
+        
             builder.HasMany(x => x.CustomerPackages).WithOne(x => x.Customer).OnDelete(DeleteBehavior.NoAction);
             builder.HasMany(x => x.Comments).WithOne(x => x.Customer).OnDelete(DeleteBehavior.NoAction);
             builder.HasOne(x => x.Account);

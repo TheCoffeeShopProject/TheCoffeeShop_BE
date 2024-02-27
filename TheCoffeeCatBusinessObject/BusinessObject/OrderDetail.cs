@@ -19,7 +19,7 @@ namespace TheCoffeeCatBusinessObject.BusinessObject
         public Guid OrderID { get; set; }
         public Order Order { get; set; }
 
-        public Guid SubscriptionID { get; set; }
+        public Guid? SubscriptionID { get; set; }
 
         public Subscription Subscription { get; set; }
 

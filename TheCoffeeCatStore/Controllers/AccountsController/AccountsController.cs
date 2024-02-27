@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TheCoffeeCatBusinessObject;
@@ -54,7 +55,7 @@ namespace TheCoffeeCatStore.Controllers.AccountController
         }
 
         [HttpPost]
-        public IActionResult AddNewAccount(AccountVM account)
+        public IActionResult AddNewAccount(AccountDTO account)
         {
             try
             {
@@ -106,6 +107,34 @@ namespace TheCoffeeCatStore.Controllers.AccountController
 
 
             return Ok("Delete Successfully");
+        }
+
+        [HttpPost]
+        [Route("Register")]
+        public async Task<IActionResult> Register(RegisterVM register)
+        {
+            var checkEmail = _accountServices.GetAllAccount().Where(u =>
+                u.Email.Equals(register.Email)).FirstOrDefault();
+
+            if (checkEmail != null)
+            {
+                return BadRequest("Email Existed");
+            }
+
+            var account = new AccountDTO
+            {
+                AccountID = Guid.NewGuid(),
+                Email = register.Email,
+                Password = register.Password,
+                Status = true,
+                RoleID = new Guid("94dab4fc-2c2a-4813-9691-d3bb42bb3760")
+            };
+
+            var _account = _mapper.Map<Account>(account);
+            _accountServices.AddNewAccount(_account);
+
+            return Ok(account);
+
         }
 
 

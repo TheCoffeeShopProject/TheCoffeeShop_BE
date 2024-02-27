@@ -9,7 +9,7 @@ using TheCoffeeCatService.IServices;
 
 namespace TheCoffeeCatStore.Controllers.StaffsController
 {
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin ,e9e125c5-defc-4035-a6b7-3f23c83453ba")]
     [Route("api/[controller]")]
     [ApiController]
     public class StaffsController : ControllerBase
