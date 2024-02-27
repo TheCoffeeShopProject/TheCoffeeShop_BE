@@ -14,7 +14,7 @@ namespace TheCoffeeCatDAO.DAOs
 {
     public class CatDAO
     {
-        private static CatDAO instance;
+        private static CatDAO instance = null;
 
         public static CatDAO Instance
         {
@@ -33,13 +33,13 @@ namespace TheCoffeeCatDAO.DAOs
         public List<Cat> GetAllCat()
         {
             var _context = new TheCoffeeStoreDBContext();
-            return _context.Cats.Include(c => c.CoffeeShop).ToList();
+            return _context.Cats!.Include(c => c.CoffeeShop).ToList();
         }
 
         public bool AddNew(Cat cat)
         {
             var _context = new TheCoffeeStoreDBContext();
-            var a = _context.Cats.SingleOrDefault(c => c.CatID == cat.CatID);
+            var a = _context.Cats!.SingleOrDefault(c => c.CatID == cat.CatID);
 
             if (a != null)
             {
@@ -47,7 +47,7 @@ namespace TheCoffeeCatDAO.DAOs
             }
             else
             {
-                _context.Cats.Add(cat);
+                _context.Cats!.Add(cat);
                 _context.SaveChanges();
                 return true;
 
@@ -58,7 +58,7 @@ namespace TheCoffeeCatDAO.DAOs
         public bool Update(Cat cat)
         {
             var _context = new TheCoffeeStoreDBContext();
-            var a = _context.Cats.SingleOrDefault(c => c.CatID == cat.CatID);
+            var a = _context.Cats!.SingleOrDefault(c => c.CatID == cat.CatID);
 
             if (a == null)
             {
@@ -75,7 +75,7 @@ namespace TheCoffeeCatDAO.DAOs
         public bool ChangeStatus(Cat cat)
         {
             var _context = new TheCoffeeStoreDBContext();
-            var a = _context.Cats.FirstOrDefault(c => c.CatID.Equals(cat.CatID));
+            var a = _context.Cats!.FirstOrDefault(c => c.CatID.Equals(cat.CatID));
 
 
             if (a == null)
@@ -96,14 +96,14 @@ namespace TheCoffeeCatDAO.DAOs
         public Cat GetCatByID(Guid id)
         {
             var _context = new TheCoffeeStoreDBContext();
-            return _context.Cats.SingleOrDefault(a => a.CatID == id);
+            return _context.Cats!.FirstOrDefault(a => a.CatID.Equals(id));
         }
 
 
         public IQueryable<Cat> SearchCatByName(string searchvalue)
         {
             var _context = new TheCoffeeStoreDBContext();
-            var a = _context.Cats.Where(a => a.CatName.ToUpper().Contains(searchvalue.Trim().ToUpper()));
+            var a = _context.Cats!.Where(a => a.CatName.ToUpper().Contains(searchvalue.Trim().ToUpper()));
             return a;
         }
 

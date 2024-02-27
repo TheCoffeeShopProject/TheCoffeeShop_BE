@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,7 +13,7 @@ using System.Threading.Tasks;
             public string DrinkName { get; set; }
             public double UnitPrice { get; set; }
             public bool Status { get; set; }
-            public string Image { get; set; }
+            public IFormFile? Image { get; set; }
         }
     }
 

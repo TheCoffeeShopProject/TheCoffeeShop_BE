@@ -2,6 +2,9 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Azure.Storage.Blobs;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using Newtonsoft.Json;
 using System.Text;
 using TheCoffeeCatRepository.IRepository;
@@ -32,6 +35,14 @@ builder.Services.AddScoped(_=> new BlobServiceClient(builder.Configuration.GetCo
 
 builder.Services.AddScoped<IAccountRepo, AccountRepo>();
 builder.Services.AddScoped<IAccountServices, AccountServices>();
+builder.Services.AddScoped<ICustomerRepo, CustomerRepo>();
+builder.Services.AddScoped<ICustomerServices, CustomerServices>();
+
+builder.Services.AddScoped<ISubscriptionRepo, SubscriptionRepo>();
+builder.Services.AddScoped<ISubscriptionServices, SubscriptionServices>();
+
+builder.Services.AddScoped<ICustomerPackageRepo, CustomerPackageRepo>();
+builder.Services.AddScoped<ICustomerPackageServices, CustomerPackageServices>();
 
 //Jwt
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
@@ -58,11 +69,34 @@ builder.Services.AddMvc()
                 .AddNewtonsoftJson(
                         options => { options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore; }
         );
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(
+        builder =>
+        {
+            //you can configure your custom policy
+            builder.AllowAnyOrigin()
+                .AllowAnyHeader()
+                .AllowAnyMethod();
+        });
+});
+
 //builder.Services.AddAutoMapper
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(
+        builder =>
+        {
+            //you can configure your custom policy
+            builder.AllowAnyOrigin()
+                .AllowAnyHeader()
+                .AllowAnyMethod();
+        });
+});
 
 
 var app = builder.Build();
-
+app.UseCors(options => options.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 
 app.UseSwagger();
 app.UseSwaggerUI();

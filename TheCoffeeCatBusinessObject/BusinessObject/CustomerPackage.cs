@@ -18,5 +18,6 @@ namespace TheCoffeeCatBusinessObject.BusinessObject
         public Guid SubscriptionID { get; set; }
 
         public Subscription Subscription { get; set; }
+        public List<Order> Orders { get; set; } 
     }
 }
