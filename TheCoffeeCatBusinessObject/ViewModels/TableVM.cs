@@ -10,6 +10,6 @@ namespace TheCoffeeCatBusinessObject.ViewModels
     {
         public string Status { get; set; }
         public string Type { get; set; }
-        public Guid CoffeeID { get; set; }
+        public string CoffeeName { get; set; }
     }
 }

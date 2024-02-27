@@ -92,6 +92,8 @@ builder.Services.AddAuthentication(options =>
     options.ClientId = "1005697246603-03mfv7e19ifmc97u89depummfufnssj8.apps.googleusercontent.com";
     options.ClientSecret = "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";
 });
+
+
 builder.Services.AddCors(options =>
     {
         options.AddDefaultPolicy(
@@ -104,39 +106,39 @@ builder.Services.AddCors(options =>
             });
     });
 
-    //builder.Services.AddAutoMapper
-    builder.Services.AddCors(options =>
-    {
-        options.AddDefaultPolicy(
-            builder =>
-            {
-                //you can configure your custom policy
-                builder.AllowAnyOrigin()
-                    .AllowAnyHeader()
-                    .AllowAnyMethod();
-            });
+//builder.Services.AddAutoMapper
+builder.Services.AddCors(options =>
+   {
+       options.AddDefaultPolicy(
+           builder =>
+           {
+               //you can configure your custom policy
+               builder.AllowAnyOrigin()
+                   .AllowAnyHeader()
+                   .AllowAnyMethod();
+           });
 
-    });
-
-
-    var app = builder.Build();
-    app.UseCors(options => options.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
-
-    app.UseSwagger();
-    app.UseSwaggerUI();
+   });
 
 
+var app = builder.Build();
+app.UseCors(options => options.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+
+app.UseSwagger();
+app.UseSwaggerUI();
 
 
-    app.UseHttpsRedirection();
 
-    app.UseAuthentication();
 
-    app.UseAuthorization();
+app.UseHttpsRedirection();
 
-    app.MapControllers();
+app.UseAuthentication();
 
-    app.Run();
+app.UseAuthorization();
+
+app.MapControllers();
+
+app.Run();
 
 
 

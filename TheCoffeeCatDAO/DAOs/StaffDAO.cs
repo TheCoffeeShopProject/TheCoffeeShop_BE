@@ -47,7 +47,9 @@ namespace TheCoffeeCatDAO.DAOs
         {
             try
             {
-                var staff = _context.Staffs.SingleOrDefault(c => c.StaffID == id);
+                var staff = _context.Staffs.Include(c => c.CoffeeShop)
+                                           .Include(a => a.Account)
+                                           .SingleOrDefault(c => c.StaffID == id);
                 return staff;
             }
             catch (Exception ex)

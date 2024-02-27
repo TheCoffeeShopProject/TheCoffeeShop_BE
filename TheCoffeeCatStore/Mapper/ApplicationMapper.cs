@@ -10,12 +10,11 @@ namespace TheCoffeeCatStore.Mapper
     {
         public ApplicationMapper()
         {
-            CreateMap<Staff, StaffVM>().ReverseMap()
-                .ForMember(
-                dest => dest.StaffID,
-                opt => opt.MapFrom(src => Guid.NewGuid())
-            );
-            CreateMap<Staff, StaffDTO>().ReverseMap();
+            CreateMap<StaffVM, Staff>().ReverseMap().ForMember(dest => dest.CoffeeName,
+                                       opt => opt.MapFrom(src => src.CoffeeShop!.CoffeeName))
+                                                    .ForMember(dest => dest.Email,
+                                       opt => opt.MapFrom(src => src.Account!.Email));
+            CreateMap<StaffDTO, Staff>().ReverseMap();
             CreateMap<Drink, DrinkDTO>().ReverseMap()
                  .ForMember(
                 dest => dest.DrinkID,
@@ -54,12 +53,9 @@ namespace TheCoffeeCatStore.Mapper
 
 
 
-            CreateMap<Table, TableVM>().ReverseMap()
-                .ForMember(
-                dest => dest.TableID,
-                opt => opt.MapFrom(src => Guid.NewGuid())
-            );
-            CreateMap<Table, TableDTO>().ReverseMap();
+            CreateMap<TableVM, Table>().ReverseMap().ForMember(dest => dest.CoffeeName,
+                                       opt => opt.MapFrom(src => src.CoffeeShop!.CoffeeName));
+            CreateMap<TableDTO, Table>().ReverseMap();
 
 
 

@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using TheCoffeeCatBusinessObject;
+using TheCoffeeCatBusinessObject.DTO;
 using TheCoffeeCatBusinessObject.ViewModels;
 using TheCoffeeCatService.IServices;
 using TheCoffeeCatService.Services;
@@ -39,6 +41,54 @@ namespace TheCoffeeCatStore.Controllers.TablesController
                 return BadRequest(ex.Message);
             }
         }
+
+        [HttpGet("{id}")]
+        public IActionResult GetTableByID(Guid id)
+        {
+            var table = _tableServices.GetTableByID(id);
+
+            var responese = _mapper.Map<TableVM>(table);
+
+            return Ok(responese);
+        }
+
+        [HttpPost]
+        public IActionResult AddNewTable(TableDTO table)
+        {
+            try
+            {
+                var _table = _mapper.Map<Table>(table);
+                _tableServices.AddNewTable(_table);
+
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPut]
+        public IActionResult UpdateTable(TableDTO table, Guid id)
+        {
+            try
+            {
+                if (table.TableID != id)
+                {
+                    return NotFound();
+                }
+                var _table = _mapper.Map<Table>(table);
+                _tableServices.UpdateTable(_table);
+
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+
 
     }
 }
