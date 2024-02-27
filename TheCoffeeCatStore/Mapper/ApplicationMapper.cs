@@ -23,12 +23,9 @@ namespace TheCoffeeCatStore.Mapper
             );
 
 
-            CreateMap<Account, AccountVM>().ReverseMap()
-                .ForMember(
-                dest => dest.AccountID,
-                opt => opt.MapFrom(src => Guid.NewGuid())
-            );
-            CreateMap<Account, AccountDTO>().ReverseMap();
+            CreateMap<AccountVM, Account>().ReverseMap().ForMember(dest => dest.RoleName,
+                                       opt => opt.MapFrom(src => src.Role!.RoleName));
+            CreateMap<AccountDTO, Account>().ReverseMap();
 
 
             CreateMap<MenuDTO, Menu>().ReverseMap();

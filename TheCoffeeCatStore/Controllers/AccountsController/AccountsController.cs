@@ -55,7 +55,7 @@ namespace TheCoffeeCatStore.Controllers.AccountController
         }
 
         [HttpPost]
-        public IActionResult AddNewAccount(AccountVM account)
+        public IActionResult AddNewAccount(AccountDTO account)
         {
             try
             {
