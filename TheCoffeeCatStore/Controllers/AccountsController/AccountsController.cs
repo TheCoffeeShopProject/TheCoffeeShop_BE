@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TheCoffeeCatBusinessObject;
@@ -54,7 +55,7 @@ namespace TheCoffeeCatStore.Controllers.AccountController
         }
 
         [HttpPost]
-        public IActionResult AddNewAccount(AccountVM account)
+        public IActionResult AddNewAccount(AccountDTO account)
         {
             try
             {

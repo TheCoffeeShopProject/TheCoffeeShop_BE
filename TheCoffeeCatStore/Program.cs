@@ -12,6 +12,8 @@ using TheCoffeeCatRepository.Repository;
 using TheCoffeeCatService.IServices;
 using TheCoffeeCatService.Services;
 using TheCoffeeCatStore.Mapper;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.Google;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +23,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
 builder.Services.AddAutoMapper(typeof(ApplicationMapper));
 
 builder.Services.AddScoped<ICatRepo, CatRepo>();
@@ -31,10 +34,16 @@ builder.Services.AddScoped<IStaffRepo, StaffRepo>();
 builder.Services.AddScoped<IStaffServices, StaffServices>();
 builder.Services.AddScoped<IDrinkRepo, DrinkRepo>();
 builder.Services.AddScoped<IDrinkServices, DrinkServices>();
-builder.Services.AddScoped(_=> new BlobServiceClient(builder.Configuration.GetConnectionString("AzureBlobStorage")));
+builder.Services.AddScoped(_ => new BlobServiceClient(builder.Configuration.GetConnectionString("AzureBlobStorage")));
 
 builder.Services.AddScoped<IAccountRepo, AccountRepo>();
 builder.Services.AddScoped<IAccountServices, AccountServices>();
+
+builder.Services.AddScoped<IMenuRepo, MenuRepo>();
+builder.Services.AddScoped<IMenuServices, MenuServices>();
+builder.Services.AddScoped<ITableRepo, TableRepo>();
+builder.Services.AddScoped<ITableServices, TableServices>();
+
 builder.Services.AddScoped<ICustomerRepo, CustomerRepo>();
 builder.Services.AddScoped<ICustomerServices, CustomerServices>();
 
@@ -43,6 +52,7 @@ builder.Services.AddScoped<ISubscriptionServices, SubscriptionServices>();
 
 builder.Services.AddScoped<ICustomerPackageRepo, CustomerPackageRepo>();
 builder.Services.AddScoped<ICustomerPackageServices, CustomerPackageServices>();
+
 
 //Jwt
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
@@ -58,17 +68,29 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
     };
 });
-builder.Services.AddScoped<ICatProductRepo,CatProductRepo>();
-builder.Services.AddScoped<ICatProductServices,CatProductServices>();
-builder.Services.AddScoped(_=> new BlobServiceClient(builder.Configuration.GetConnectionString("AzureBlobStorage")));
-
-
-
+builder.Services.AddScoped<ICatProductRepo, CatProductRepo>();
+builder.Services.AddScoped<ICatProductServices, CatProductServices>();
+builder.Services.AddScoped(_ => new BlobServiceClient(builder.Configuration.GetConnectionString("AzureBlobStorage")));
 
 builder.Services.AddMvc()
                 .AddNewtonsoftJson(
                         options => { options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore; }
         );
+
+
+
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = GoogleDefaults.AuthenticationScheme;
+})
+.AddCookie()
+.AddGoogle(options =>
+{
+    options.ClientId = "1005697246603-03mfv7e19ifmc97u89depummfufnssj8.apps.googleusercontent.com";
+    options.ClientSecret = "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";
+
 builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(
@@ -92,6 +114,7 @@ builder.Services.AddCors(options =>
                 .AllowAnyHeader()
                 .AllowAnyMethod();
         });
+
 });
 
 
