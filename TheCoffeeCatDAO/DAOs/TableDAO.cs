@@ -22,7 +22,6 @@ namespace TheCoffeeCatDAO.DAOs
             try
             {
                 return _context.Tables.Include(a => a.CoffeeShop)
-                                      .Include(a => a.Orders)
                                       .ToList();
             }
             catch (Exception ex)
@@ -49,7 +48,8 @@ namespace TheCoffeeCatDAO.DAOs
         {
             try
             {
-                var table = _context.Tables.SingleOrDefault(c => c.TableID == id);
+                var table = _context.Tables.Include(a => a.CoffeeShop)
+                                           .SingleOrDefault(c => c.TableID == id);
                 return table;
             }
             catch (Exception ex)

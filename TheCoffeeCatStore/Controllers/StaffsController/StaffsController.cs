@@ -9,7 +9,7 @@ using TheCoffeeCatService.IServices;
 
 namespace TheCoffeeCatStore.Controllers.StaffsController
 {
-    [Authorize(Roles = "Admin ,e9e125c5-defc-4035-a6b7-3f23c83453ba")]
+    //[Authorize(Roles = "Admin ,e9e125c5-defc-4035-a6b7-3f23c83453ba")]
     [Route("api/[controller]")]
     [ApiController]
     public class StaffsController : ControllerBase
@@ -54,7 +54,7 @@ namespace TheCoffeeCatStore.Controllers.StaffsController
         }
 
         [HttpPost]
-        public IActionResult AddNewStaff(StaffVM staff)
+        public IActionResult AddNewStaff(StaffDTO staff)
         {
             try
             {

@@ -67,7 +67,8 @@ namespace TheCoffeeCatDAO.DAOs
         {
             try
             {
-                var account = _context.Accounts.SingleOrDefault(c => c.AccountID == id);
+                var account = _context.Accounts.Include(a => a.Role)
+                                               .SingleOrDefault(c => c.AccountID == id);
                 return account;
             }
             catch (Exception ex)

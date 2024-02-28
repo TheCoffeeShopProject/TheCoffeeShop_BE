@@ -12,7 +12,7 @@ namespace TheCoffeeCatBusinessObject.ViewModels
         public string PhoneNumber { get; set; }
         public string Address { get; set; }
         public string DOB { get; set; }
-        public Guid CoffeeID { get; set; }
-        public Guid AccountID { get; set; }
+        public string CoffeeName { get; set; }
+        public string Email { get; set; }
     }
 }
