@@ -13,6 +13,5 @@ namespace TheCoffeeCatBusinessObject.DTO.Request
         public bool Status { get; set; }
         public string Image { get; set; }
 
-        public List<Menu> Menus { get; set; }
     }
 }
