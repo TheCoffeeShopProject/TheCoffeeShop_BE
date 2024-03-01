@@ -52,6 +52,16 @@ builder.Services.AddScoped<ISubscriptionServices, SubscriptionServices>();
 
 builder.Services.AddScoped<ICustomerPackageRepo, CustomerPackageRepo>();
 builder.Services.AddScoped<ICustomerPackageServices, CustomerPackageServices>();
+builder.Services.AddScoped<IOrderRepo, OrderRepo>();
+builder.Services.AddScoped<IOrderServices, OrderServices>();
+builder.Services.AddScoped<IOrderDetailRepo, OrderDetailRepo>();
+builder.Services.AddScoped<IOrderDetailServices, OrderDetailServices>();
+
+
+
+
+
+
 
 
 //Jwt
@@ -94,17 +104,7 @@ builder.Services.AddAuthentication(options =>
 });
 
 
-builder.Services.AddCors(options =>
-    {
-        options.AddDefaultPolicy(
-            builder =>
-            {
-                //you can configure your custom policy
-                builder.AllowAnyOrigin()
-                    .AllowAnyHeader()
-                    .AllowAnyMethod();
-            });
-    });
+
 
 //builder.Services.AddAutoMapper
 builder.Services.AddCors(options =>
