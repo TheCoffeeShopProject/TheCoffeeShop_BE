@@ -106,7 +106,11 @@ namespace TheCoffeeCatStore.Controllers.CatsController
                 //local file path
                 var blobInstance = containerInstance.GetBlobClient (blobName);
                 //upload file to azure blob storge
-                blobInstance.Upload(catUpdateDTO.Image?.OpenReadStream());
+                if(catUpdateDTO.Image != null)
+                {
+                    blobInstance.Upload(catUpdateDTO.Image?.OpenReadStream());
+                }
+                
                 //storageAccountUrl
                 var storageAccountUrl = "https://thecoffeeshopimage.blob.core.windows.net/thecoffeeshoppictures";
                 //get blod url
