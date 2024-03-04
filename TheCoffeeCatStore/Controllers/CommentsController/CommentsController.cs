@@ -33,14 +33,13 @@ namespace TheCoffeeCatStore.Controllers.CommentsController
           {
               return NotFound();
           }
-            //config map 
+            
             var config = new MapperConfiguration(
                 cfg => cfg.AddProfile(new CommentProfile())
             );
-            // create mapper
+           
             var mapper = config.CreateMapper();
 
-            // tranfer from cat to catdto
 
             var data = _comment.GetComments().ToList().Select(comment => mapper.Map<Comment, CommentResponseDTO>(comment));
 
@@ -82,7 +81,7 @@ namespace TheCoffeeCatStore.Controllers.CommentsController
                 }
                 if (commentUpdateDTO.UpdateTime != null)
                 {
-                    comment.UpdateTime = commentUpdateDTO.UpdateTime;
+                    comment.UpdateTime = (DateTime)commentUpdateDTO.UpdateTime;
 
                 }
             }

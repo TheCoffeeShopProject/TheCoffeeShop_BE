@@ -9,18 +9,10 @@ namespace TheCoffeeCatRepository.IRepository
 {
     public interface ICommentRepo
     {
-
         bool ChangeStatus(Comment comment);
-
-
         List<Comment> GetComments();
         void AddNew(Comment comment);
-
-
         Comment GetCommentById(Guid id);
-
-        void UpdateCommentShop(Comment comment);
-
-      
+        void UpdateCommentShop(Comment comment);   
     }
 }

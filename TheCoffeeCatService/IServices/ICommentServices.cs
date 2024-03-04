@@ -9,16 +9,10 @@ namespace TheCoffeeCatService.IServices
 {
    public interface ICommentServices
     {
-
         bool ChangeStatus(Comment comment);
-
-
         List<Comment> GetComments();
         void AddNew(Comment comment);
-
-
         Comment GetCommentById(Guid id);
-
         void UpdateCommentShop(Comment comment);
     }
 }

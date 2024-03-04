@@ -9,8 +9,8 @@ namespace TheCoffeeCatBusinessObject.DTO.Request
 {
     public class CommentUpdateDTO
     {
-        public string CommentText { get; set; }
-        public DateTime UpdateTime { get; set; }
+        public string? CommentText { get; set; }
+        public DateTime? UpdateTime { get; set; }
 
     }
 }

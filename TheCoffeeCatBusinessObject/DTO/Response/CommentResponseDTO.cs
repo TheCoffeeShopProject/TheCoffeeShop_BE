@@ -13,6 +13,6 @@ namespace TheCoffeeCatBusinessObject.DTO.Response
         public string CommentText { get; set; }
         public DateTime CreateTime { get; set; }
         public DateTime UpdateTime { get; set; }
-        public Customer Customer { get; set; }
+        public Guid CustomerID { get; set; }
     }
 }

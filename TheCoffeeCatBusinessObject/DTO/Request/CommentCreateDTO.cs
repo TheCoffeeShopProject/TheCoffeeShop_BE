@@ -10,8 +10,8 @@ namespace TheCoffeeCatBusinessObject.DTO.Request
     public class CommentCreateDTO
     {    
         public string CommentText { get; set; }
-        public DateTime CreateTime { get; set; }        
-        public CoffeeShop CoffeeShop { get; set; }
-        public Customer Customer { get; set; }
+        public DateTime CreateTime { get; set; }
+        public Guid CoffeeID { get; set; }
+        public Guid CustomerID { get; set; }
     }
 }

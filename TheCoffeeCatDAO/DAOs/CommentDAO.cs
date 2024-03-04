@@ -28,7 +28,7 @@ namespace TheCoffeeCatDAO.DAOs
         public List<Comment> GetAllComment()
         {
             var _context = new TheCoffeeStoreDBContext();
-            return _context.Comments.Include(c => c.CustomerID).Include(c=>c.CoffeeID).ToList();    
+            return _context.Comments.ToList();    
         }
 
         public bool AddComment (Comment comment)

@@ -24,12 +24,12 @@ namespace TheCoffeeCatStore.Mapper
                 opt => opt.MapFrom(src => src.UpdateTime)
                 )
                 .ForMember(
-                dest => dest.Customer,
-                opt => opt.MapFrom(src => src.Customer)
+                dest => dest.CustomerID,
+                opt => opt.MapFrom(src => src.CustomerID)
                 );
 
 
-            CreateMap<CommentCreateDTO, Comment>()
+            CreateMap<Comment, CommentCreateDTO> ()
                .ForMember(
                dest => dest.CommentText,
                opt => opt.MapFrom(src => src.CommentText)
@@ -39,15 +39,15 @@ namespace TheCoffeeCatStore.Mapper
                opt => opt.MapFrom(src => src.CreateTime)
                )
                .ForMember(
-               dest => dest.CoffeeShop,
-               opt => opt.MapFrom(src => src.CoffeeShop)
+               dest => dest.CoffeeID,
+               opt => opt.MapFrom(src => src.CoffeeID)
                )
                .ForMember(
-               dest => dest.Customer,
-               opt => opt.MapFrom(src => src.Customer)
+               dest => dest.CustomerID,
+               opt => opt.MapFrom(src => src.CustomerID)
                );
 
-            CreateMap<CommentUpdateDTO, Comment>()
+            CreateMap<Comment,CommentUpdateDTO> ()
 
             .ForMember(
             dest => dest.CommentText,
