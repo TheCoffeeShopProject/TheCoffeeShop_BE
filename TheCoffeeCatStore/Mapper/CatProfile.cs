@@ -75,6 +75,10 @@ namespace TheCoffeeCatStore.Mapper
             CreateMap<Cat, CatUpdateDTO>()
 
            .ForMember(
+               dest => dest.CatName,
+               opt => opt.MapFrom(src => src.CatName)
+           )
+           .ForMember(
                dest => dest.Age,
                opt => opt.MapFrom(src => src.Age)
            )

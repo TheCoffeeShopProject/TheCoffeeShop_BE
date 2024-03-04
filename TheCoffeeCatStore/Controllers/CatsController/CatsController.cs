@@ -115,7 +115,10 @@ namespace TheCoffeeCatStore.Controllers.CatsController
                 var storageAccountUrl = "https://thecoffeeshopimage.blob.core.windows.net/thecoffeeshoppictures";
                 //get blod url
                 var blobUrl = $"{storageAccountUrl}/{blobName}";
-
+                if (catUpdateDTO.CatName != null)
+                {
+                    cat.CatName = catUpdateDTO.CatName;
+                }
 
                 if (catUpdateDTO.Age != null)
                 {
