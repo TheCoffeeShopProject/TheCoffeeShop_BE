@@ -150,6 +150,8 @@ namespace TheCoffeeCatStore.Controllers.CatsController
                 {
                     return NotFound();
                 }
+
+
                 else
                 {
                     throw;
@@ -162,8 +164,20 @@ namespace TheCoffeeCatStore.Controllers.CatsController
         //  POST: api/Cats
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public ActionResult<Cat> AddNewCat(CatCreateDTO catDTO)
+        public ActionResult<Cat> AddNewCat([FromForm] CatCreateDTO catcreateDTO)
         {
+
+            var containerInstance = _blobServiceClient.GetBlobContainerClient("thecoffeeshoppictures");
+            //get file name from request and upload to azure blod storage
+            var blobName = $"{(Guid.NewGuid())} {catcreateDTO.Image?.FileName}";
+            //local file path
+            var blobInstance = containerInstance.GetBlobClient(blobName);
+          
+
+            //storageAccountUrl
+            var storageAccountUrl = "https://thecoffeeshopimage.blob.core.windows.net/thecoffeeshoppictures";
+            //get blod url
+            var blobUrl = $"{storageAccountUrl}/{blobName}";
             var config = new MapperConfiguration(
               cfg => cfg.AddProfile(new CatProfile())
           );
@@ -171,11 +185,11 @@ namespace TheCoffeeCatStore.Controllers.CatsController
             var mapper = config.CreateMapper();
 
 
-            var cat = mapper.Map<Cat>(catDTO);
+            var cat = mapper.Map<Cat>(catcreateDTO);
             _cat.AddNew(cat);
 
 
-            return Ok(cat);
+            return Ok("Create Successfully");
         }
 
         // DELETE: api/Cats/5
@@ -197,7 +211,5 @@ namespace TheCoffeeCatStore.Controllers.CatsController
 
             return Ok("Delete Successfully");
         }
-
-
     }
 }
