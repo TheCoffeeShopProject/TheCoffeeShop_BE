@@ -65,10 +65,16 @@ namespace TheCoffeeCatStore.Controllers.AccountsController
                         Expires = DateTime.UtcNow.AddMinutes(10) // Thời gian hết hạn của cookie
                     });
 
-                    return Ok(new JwtSecurityTokenHandler().WriteToken(token));
+                    //return Ok(new JwtSecurityTokenHandler().WriteToken(token));
+                    return Ok(new
+                    {
+                        status = true,
+                        roleName = "Admin",
+                        token = _token
+                    });
                 }
 
-                var checkLogin =  _accountServices.CheckLogin(accountLogin.Email, accountLogin.Password);
+                var checkLogin = _accountServices.CheckLogin(accountLogin.Email, accountLogin.Password);
                 if (checkLogin != null)
                 {
                     if (checkLogin.Status != true)
@@ -95,7 +101,7 @@ namespace TheCoffeeCatStore.Controllers.AccountsController
                         new Claim(ClaimTypes.NameIdentifier, checkLogin.AccountID.ToString()),
                         new Claim(ClaimTypes.Email, checkLogin.Email),
                         new Claim(ClaimTypes.Role, checkLogin.RoleID.ToString()),
-                       
+
                         };
 
                     var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
