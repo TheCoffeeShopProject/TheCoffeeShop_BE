@@ -186,6 +186,7 @@ namespace TheCoffeeCatStore.Controllers.CatsController
 
 
             var cat = mapper.Map<Cat>(catcreateDTO);
+            cat.Image = blobUrl;
             _cat.AddNew(cat);
 
 

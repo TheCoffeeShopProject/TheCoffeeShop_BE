@@ -40,9 +40,6 @@ namespace TheCoffeeCatStore.Mapper
                 opt => opt.MapFrom(src => src.Status)
             )
             .ForMember(
-                dest => dest.Image,
-                opt => opt.MapFrom(src => src.Image)
-            ).ForMember(
                 dest => dest.CoffeeID,
                 opt => opt.MapFrom(src => src.CoffeeID)
             )
