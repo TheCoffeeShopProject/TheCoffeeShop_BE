@@ -17,25 +17,44 @@ namespace TheCoffeeCatStore.Mapper
                                                     .ForMember(dest => dest.Email,
                                        opt => opt.MapFrom(src => src.Account!.Email));
             CreateMap<StaffDTO, Staff>().ReverseMap();
+            //drink
             CreateMap<Drink, DrinkCreateDTO>().ReverseMap()
                  .ForMember(
                 dest => dest.DrinkID,
                 opt => opt.MapFrom(src => Guid.NewGuid())
             );
             CreateMap<Drink, DrinkResponseDTO>().ReverseMap();
+            CreateMap<Drink, DrinkUpdateDTO>().ReverseMap();
+            //customer
             CreateMap<Customer, CustomerCreateDTO>().ReverseMap()
                .ForMember(
               dest => dest.CustomerID,
               opt => opt.MapFrom(src => Guid.NewGuid()));
+            CreateMap<Customer, CustomerUpdateDTO>().ReverseMap();
+            CreateMap<Customer, CustomerResponseDTO>().ReverseMap();
+
+            //subscription
             CreateMap<Subscription, SubscriptionCreateDTO>().ReverseMap()
                  .ForMember(
                 dest => dest.SubscriptionID,
                 opt => opt.MapFrom(src => Guid.NewGuid()));
+            CreateMap<Subscription, SubscriptionUpdateDTO>().ReverseMap();
+            CreateMap<Subscription, SubscriptionResponseDTO>().ReverseMap();
+
+            //customerPackage
             CreateMap<CustomerPackage, CustomerPackageCreateDTO>().ReverseMap()
                 .ForMember(dest => dest.CPID,
                                        opt => opt.MapFrom(src => Guid.NewGuid()));
+            CreateMap<CustomerPackage, CustomerPackageResponseDTO>().ReverseMap();
+            CreateMap<CustomerPackage, CustomerPackageUpdateDTO>().ReverseMap();
+            //catProduct
+            CreateMap<CatProduct, CatProductResponse>().ReverseMap()
+                           .ForMember(dest => dest.CatProductID,
+                                      opt => opt.MapFrom(src => Guid.NewGuid()));
+            CreateMap<CatProduct, CatProductCreate>().ReverseMap();
+            CreateMap<CatProduct, CatProductUpdateDTO>().ReverseMap();
 
-
+            //----------
 
             CreateMap<AccountVM, Account>().ReverseMap().ForMember(dest => dest.RoleName,
                                        opt => opt.MapFrom(src => src.Role!.RoleName));
@@ -62,15 +81,10 @@ namespace TheCoffeeCatStore.Mapper
 
 
 
-            CreateMap<CatProduct, CatProductResponse>().ReverseMap()
-                            .ForMember(dest => dest.CatProductID,
-                                       opt => opt.MapFrom(src => Guid.NewGuid()));
-            CreateMap<CatProduct, CatProductCreate>().ReverseMap();
-            CreateMap<CatProduct, CatProductUpdateDTO>().ReverseMap();
-            CreateMap<Drink, DrinkUpdateDTO>().ReverseMap();
-            CreateMap<Subscription, SubscriptionUpdateDTO>().ReverseMap();
-            CreateMap<Customer, CustomerUpdateDTO>().ReverseMap();
-            CreateMap<CustomerPackage, CustomerPackageUpdateDTO>().ReverseMap();
+           
+
+            
+            
 
 
             //.BeforeMap((DrinkDTO, Drink) =>

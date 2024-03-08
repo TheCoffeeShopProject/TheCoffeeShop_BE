@@ -26,7 +26,7 @@ namespace TheCoffeeCatDAO.DAOs
         public List<CatProduct> GetCatProducts()
         {
             var _context = new TheCoffeeStoreDBContext();
-            return _context.CatProducts.ToList();
+            return _context.CatProducts.Where( m => m.Status ==true ).ToList();
 
         }
         public bool AddNewCatProdct(CatProduct catProduct)
@@ -76,7 +76,8 @@ namespace TheCoffeeCatDAO.DAOs
             }
             else
             {
-                _context.Entry(a).CurrentValues.SetValues(catProduct);
+                a.Status = false;
+                _context.Entry(a).State = EntityState.Modified;
                 _context.SaveChanges();
                 return true;
             }

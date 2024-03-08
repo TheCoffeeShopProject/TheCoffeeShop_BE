@@ -34,7 +34,7 @@ namespace TheCoffeeCatStore.Controllers.NewFolder
             try
             {
                 var drinks = _services.GetDrinks();
-                var res = _mapper.Map<List<DrinkCreateDTO>>(drinks);
+                var res = _mapper.Map<List<DrinkResponseDTO>>(drinks);
                 return Ok(res);
             }catch (Exception ex)
             {
@@ -116,7 +116,7 @@ namespace TheCoffeeCatStore.Controllers.NewFolder
                 var containerInstance = _blobServiceClient.GetBlobContainerClient("thecoffeeshoppictures");
                 var blobName = $"{Guid.NewGuid()}{drinkDTO.Image?.FileName}";
                 var blobIntance = containerInstance.GetBlobClient(blobName);
-                blobIntance.Upload(drinkDTO.Image?.OpenReadStream());
+                blobIntance.Upload(drinkDTO.Image?.OpenReadStream());            
                 var storageAccountUrl = "https://thecoffeeshopimage.blob.core.windows.net/thecoffeeshoppictures";
                 var blobUrl = $"{storageAccountUrl}/{blobName}";
                 var respose = _mapper.Map<Drink>(drinkDTO);
@@ -141,7 +141,10 @@ namespace TheCoffeeCatStore.Controllers.NewFolder
                 var containerInstance = _blobServiceClient.GetBlobContainerClient("thecoffeeshoppictures");
                 var blobName = $"{Guid.NewGuid()}{drinkDTO.Image?.FileName}";
                 var blobIntance = containerInstance.GetBlobClient(blobName);
-                blobIntance.Upload(drinkDTO.Image?.OpenReadStream());
+                if (drinkDTO.Image != null)
+                {
+                    blobIntance.Upload(drinkDTO.Image?.OpenReadStream());
+                }
                 var storageAccountUrl = "https://thecoffeeshopimage.blob.core.windows.net/thecoffeeshoppictures";
                 var blobUrl = $"{storageAccountUrl}/{blobName}";
                 var drink = _services.GetDrinkById(id);

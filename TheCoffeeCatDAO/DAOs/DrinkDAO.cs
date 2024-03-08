@@ -27,7 +27,7 @@ namespace TheCoffeeCatDAO.DAOs
         public List<Drink> GetDrinks()
         {
             var _context = new TheCoffeeStoreDBContext();
-            return _context.Drinks.Include(m => m.Menus).ToList();
+            return _context.Drinks.Include(m => m.Menus).Where(m => m.Status == true).ToList();
         }
         public Drink GetDrinkById(Guid id)
         {
@@ -83,7 +83,8 @@ namespace TheCoffeeCatDAO.DAOs
             }
             else
             {
-                _context.Entry(a).CurrentValues.SetValues(drink);
+                a.Status = false;
+                _context.Entry(a).State = EntityState.Modified;
                 _context.SaveChanges();
                 return true;
             }
