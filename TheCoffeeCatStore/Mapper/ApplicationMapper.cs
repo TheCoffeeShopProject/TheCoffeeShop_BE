@@ -17,21 +17,21 @@ namespace TheCoffeeCatStore.Mapper
                                                     .ForMember(dest => dest.Email,
                                        opt => opt.MapFrom(src => src.Account!.Email));
             CreateMap<StaffDTO, Staff>().ReverseMap();
-            CreateMap<Drink, DrinkResponseDTO>().ReverseMap()
+            CreateMap<Drink, DrinkCreateDTO>().ReverseMap()
                  .ForMember(
                 dest => dest.DrinkID,
                 opt => opt.MapFrom(src => Guid.NewGuid())
             );
-            CreateMap<Drink, DrinkCreateDTO>().ReverseMap();
-            CreateMap<Customer, CustomerDTO>().ReverseMap()
+            CreateMap<Drink, DrinkResponseDTO>().ReverseMap();
+            CreateMap<Customer, CustomerCreateDTO>().ReverseMap()
                .ForMember(
               dest => dest.CustomerID,
               opt => opt.MapFrom(src => Guid.NewGuid()));
-            CreateMap<Subscription, SubscriptionDTO>().ReverseMap()
+            CreateMap<Subscription, SubscriptionCreateDTO>().ReverseMap()
                  .ForMember(
                 dest => dest.SubscriptionID,
                 opt => opt.MapFrom(src => Guid.NewGuid()));
-            CreateMap<CustomerPackage, CustomerPackageDTO>().ReverseMap()
+            CreateMap<CustomerPackage, CustomerPackageCreateDTO>().ReverseMap()
                 .ForMember(dest => dest.CPID,
                                        opt => opt.MapFrom(src => Guid.NewGuid()));
 
@@ -66,6 +66,11 @@ namespace TheCoffeeCatStore.Mapper
                             .ForMember(dest => dest.CatProductID,
                                        opt => opt.MapFrom(src => Guid.NewGuid()));
             CreateMap<CatProduct, CatProductCreate>().ReverseMap();
+            CreateMap<CatProduct, CatProductUpdateDTO>().ReverseMap();
+            CreateMap<Drink, DrinkUpdateDTO>().ReverseMap();
+            CreateMap<Subscription, SubscriptionUpdateDTO>().ReverseMap();
+            CreateMap<Customer, CustomerUpdateDTO>().ReverseMap();
+            CreateMap<CustomerPackage, CustomerPackageUpdateDTO>().ReverseMap();
 
 
             //.BeforeMap((DrinkDTO, Drink) =>

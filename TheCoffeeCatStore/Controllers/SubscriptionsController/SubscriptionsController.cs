@@ -5,6 +5,8 @@ using Microsoft.EntityFrameworkCore;
 using TheCoffeeCatBusinessObject.DTO;
 using TheCoffeeCatBusinessObject;
 using TheCoffeeCatService.IServices;
+using TheCoffeeCatBusinessObject.DTO.Response;
+using TheCoffeeCatBusinessObject.DTO.Request;
 
 namespace TheCoffeeCatStore.Controllers.SubscriptionsController
 {
@@ -26,7 +28,7 @@ namespace TheCoffeeCatStore.Controllers.SubscriptionsController
 
 
                 var subscriptions = _subscription.GetSubscriptions();
-                var response = _mapper.Map<List<SubscriptionDTO>>(subscriptions);
+                var response = _mapper.Map<List<SubscriptionResponseDTO>>(subscriptions);
                 return Ok(response);
 
             } catch (Exception ex)
@@ -53,7 +55,7 @@ namespace TheCoffeeCatStore.Controllers.SubscriptionsController
                     return NotFound();
                 }
 
-                var response = _mapper.Map<SubscriptionDTO>(subscriptions);
+                var response = _mapper.Map<SubscriptionResponseDTO>(subscriptions);
                 return Ok(response);
             }
             catch (Exception ex)
@@ -68,7 +70,7 @@ namespace TheCoffeeCatStore.Controllers.SubscriptionsController
             try
             {
                 var subscriptions = _subscription.GetSubscriptionByName(searchvalue);
-                var response = _mapper.Map<List<SubscriptionDTO>>(subscriptions);
+                var response = _mapper.Map<List<SubscriptionResponseDTO>>(subscriptions);
                 return Ok(response);
             }
             catch (Exception ex)
@@ -79,7 +81,7 @@ namespace TheCoffeeCatStore.Controllers.SubscriptionsController
         }
 
         [HttpPost]
-        public ActionResult AddSubscription([FromForm] SubscriptionDTO subscriptionDTO)
+        public ActionResult AddSubscription([FromForm] SubscriptionCreateDTO subscriptionDTO)
         {
             try
             {
@@ -96,7 +98,7 @@ namespace TheCoffeeCatStore.Controllers.SubscriptionsController
         }
         [HttpPut]
         [Route("{id}")]
-        public ActionResult UpdateSubscription([FromRoute] Guid id, [FromForm] SubscriptionDTO subscriptionDTO)
+        public ActionResult UpdateSubscription([FromRoute] Guid id, [FromForm] SubscriptionUpdateDTO subscriptionDTO)
         {
 
             try
@@ -109,19 +111,19 @@ namespace TheCoffeeCatStore.Controllers.SubscriptionsController
                 }
                 if (subscriptionDTO.Status != null)
                 {
-                    subscription.Status = subscriptionDTO.Status;
+                    subscription.Status = (bool)subscriptionDTO.Status;
                 }
 
  
 
                 if (subscriptionDTO.DiscountPercent != null)
                 {
-                    subscription.DiscountPercent = subscriptionDTO.DiscountPercent;
+                    subscription.DiscountPercent = (float)subscriptionDTO.DiscountPercent;
                 }
 
                 if (subscriptionDTO.Price != null)
                 {
-                    subscription.Price = subscriptionDTO.Price;
+                    subscription.Price = (double)subscriptionDTO.Price;
                 }
 
                 _subscription.UpdateSubscription(subscription);

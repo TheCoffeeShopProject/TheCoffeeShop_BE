@@ -5,6 +5,8 @@ using Microsoft.EntityFrameworkCore;
 using TheCoffeeCatBusinessObject.DTO;
 using TheCoffeeCatBusinessObject;
 using TheCoffeeCatService.IServices;
+using TheCoffeeCatBusinessObject.DTO.Response;
+using TheCoffeeCatBusinessObject.DTO.Request;
 
 namespace TheCoffeeCatStore.Controllers.CustomersController
 {
@@ -25,7 +27,7 @@ namespace TheCoffeeCatStore.Controllers.CustomersController
                 try
                 {
                     var cus = _cus.GetCustomers();
-                    var response = _mapper.Map<List<CustomerDTO>>(cus);
+                    var response = _mapper.Map<List<CustomerResponseDTO>>(cus);
                     return Ok(response);
 
                 }
@@ -43,7 +45,7 @@ namespace TheCoffeeCatStore.Controllers.CustomersController
             try
             {
                 var cus = _cus.GetCustomerById(id);
-                var response = _mapper.Map<CustomerDTO>(cus);
+                var response = _mapper.Map<CustomerResponseDTO>(cus);
                 return Ok(response);
             }
             catch (Exception ex)
@@ -58,7 +60,7 @@ namespace TheCoffeeCatStore.Controllers.CustomersController
             try
             {
                 var cus = _cus.SearchCustomer(searchvalue);
-                var response = _mapper.Map<List<CustomerDTO>>(cus);
+                var response = _mapper.Map<List<CustomerResponseDTO>>(cus);
                 return Ok(response);
             }
             catch (Exception ex)
@@ -69,7 +71,7 @@ namespace TheCoffeeCatStore.Controllers.CustomersController
         }
 
         [HttpPost]
-        public ActionResult AddCustomer([FromForm] CustomerDTO cus)
+        public ActionResult AddCustomer([FromForm] CustomerCreateDTO cus)
         {
             try
             {
@@ -86,7 +88,7 @@ namespace TheCoffeeCatStore.Controllers.CustomersController
         }
         [HttpPut]
         [Route("{id}")]
-        public ActionResult UpdateCustomer([FromRoute] Guid id, [FromForm] CustomerDTO _cusDTO)
+        public ActionResult UpdateCustomer([FromRoute] Guid id, [FromForm] CustomerUpdateDTO _cusDTO)
         {
 
             try

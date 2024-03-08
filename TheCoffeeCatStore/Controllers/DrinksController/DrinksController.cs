@@ -84,7 +84,7 @@ namespace TheCoffeeCatStore.Controllers.NewFolder
             try
             {
                 var drinks = _services.GetDrinkById(id);
-                var response = _mapper.Map<DrinkCreateDTO>(drinks);
+                var response = _mapper.Map<DrinkResponseDTO>(drinks);
                 return Ok(response);
             }
             catch (Exception ex)
@@ -99,7 +99,7 @@ namespace TheCoffeeCatStore.Controllers.NewFolder
             try
             {
                 var drinks = _services.GetDrinkByName(searchvalue);
-                var response = _mapper.Map<List<DrinkCreateDTO>>(drinks);
+                var response = _mapper.Map<List<DrinkResponseDTO>>(drinks);
                 return Ok(response);
             }
             catch (Exception ex)
@@ -109,7 +109,7 @@ namespace TheCoffeeCatStore.Controllers.NewFolder
         }
 
         [HttpPost]
-        public ActionResult AddDrink([FromForm]DrinkResponseDTO drinkDTO)
+        public ActionResult AddDrink([FromForm]DrinkCreateDTO drinkDTO)
         {
             try
             {
@@ -133,7 +133,7 @@ namespace TheCoffeeCatStore.Controllers.NewFolder
         }
         [HttpPut]
         [Route("{id}")]
-        public ActionResult UpdateDrink([FromRoute] Guid id,[FromForm] DrinkResponseDTO drinkDTO)
+        public ActionResult UpdateDrink([FromRoute] Guid id,[FromForm] DrinkUpdateDTO drinkDTO)
         {
 
             try
@@ -151,7 +151,7 @@ namespace TheCoffeeCatStore.Controllers.NewFolder
                 }
                 if (drinkDTO.UnitPrice != null)
                 {
-                    drink.UnitPrice = drinkDTO.UnitPrice;
+                    drink.UnitPrice = (float)drinkDTO.UnitPrice;
                 }
                 if (drinkDTO.Image != null)
                 {
@@ -159,7 +159,7 @@ namespace TheCoffeeCatStore.Controllers.NewFolder
                 }
                 if (drinkDTO.Status != null)
                 {
-                    drink.Status = drinkDTO.Status;
+                    drink.Status = (bool)drinkDTO.Status;
                 }
                 _services.UpdateDrink(drink);
 

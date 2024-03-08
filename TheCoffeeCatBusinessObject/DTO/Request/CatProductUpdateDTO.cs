@@ -5,13 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TheCoffeeCatBusinessObject.DTO.Response
+namespace TheCoffeeCatBusinessObject.DTO.Request
 {
-    public class CatProductResponse
+    public class CatProductUpdateDTO
     {
         public string? CatProductName { get; set; }
         public string? CatProductType { get; set; }
         public double? Price { get; set; }
-        public string? Image { get; set; }
+        public bool? Status { get; set; }
+        public IFormFile? Image { get; set; }
     }
 }

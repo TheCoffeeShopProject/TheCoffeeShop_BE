@@ -55,7 +55,7 @@ namespace TheCoffeeCatStore.Controllers.CatsController
         }
 
         // GET: api/Cats/5
-        [HttpGet("{id}")]
+        [HttpGet("{id}")]   
         public ActionResult<Cat> GetCat(Guid id)
         {
             if (_cat.GetCats() == null)

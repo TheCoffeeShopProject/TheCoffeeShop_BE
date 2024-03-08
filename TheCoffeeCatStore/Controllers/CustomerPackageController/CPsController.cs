@@ -6,6 +6,8 @@ using TheCoffeeCatBusinessObject.DTO;
 using TheCoffeeCatBusinessObject;
 using TheCoffeeCatService.IServices;
 using TheCoffeeCatBusinessObject.BusinessObject;
+using TheCoffeeCatBusinessObject.DTO.Response;
+using TheCoffeeCatBusinessObject.DTO.Request;
 
 namespace TheCoffeeCatStore.Controllers.CustomerPackageController
 {
@@ -30,7 +32,7 @@ namespace TheCoffeeCatStore.Controllers.CustomerPackageController
                 {
                     return NotFound();
                 }
-                var response = _mapper.Map<List<CustomerPackageDTO>>(cp);
+                var response = _mapper.Map<List<CustomerPackageResponseDTO>>(cp);
                 return Ok(response);
 
             }
@@ -48,7 +50,7 @@ namespace TheCoffeeCatStore.Controllers.CustomerPackageController
             try
             {
                 var cp = _cp.GetCPById(id);
-                var response = _mapper.Map<CustomerPackageDTO>(cp);
+                var response = _mapper.Map<CustomerPackageResponseDTO>(cp);
                 return Ok(response);
             }
             catch (Exception ex)
@@ -63,7 +65,7 @@ namespace TheCoffeeCatStore.Controllers.CustomerPackageController
             try
             {
                 var cp = _cp.SearchCP(searchvalue);
-                var response = _mapper.Map<List<CustomerPackageDTO>>(cp);
+                var response = _mapper.Map<List<CustomerPackageResponseDTO>>(cp);
                 return Ok(response);
             }
             catch (Exception ex)
@@ -74,7 +76,7 @@ namespace TheCoffeeCatStore.Controllers.CustomerPackageController
         }
 
         [HttpPost]
-        public ActionResult AddCustomerPackage([FromForm] CustomerPackageDTO customerPackageDTO)
+        public ActionResult AddCustomerPackage([FromForm] CustomerPackageCreateDTO customerPackageDTO)
         {
             try
             {
@@ -91,7 +93,7 @@ namespace TheCoffeeCatStore.Controllers.CustomerPackageController
         }
         [HttpPut]
         [Route("{id}")]
-        public ActionResult UpdateCustomerPackage([FromRoute] Guid id, [FromForm] CustomerPackageDTO customerPackageDTO)
+        public ActionResult UpdateCustomerPackage([FromRoute] Guid id, [FromForm] CustomerPackageUpdateDTO customerPackageDTO)
         {
 
             try
@@ -100,20 +102,20 @@ namespace TheCoffeeCatStore.Controllers.CustomerPackageController
                 var cp = _cp.GetCPById(id);
                 if (customerPackageDTO.DateStart != null)
                 {
-                    cp.DateStart = customerPackageDTO.DateStart;
+                    cp.DateStart = (DateTime)customerPackageDTO.DateStart;
                 }
                 if (customerPackageDTO.DateEnd != null)
                 {
-                    cp.DateEnd = customerPackageDTO.DateEnd;
+                    cp.DateEnd = (DateTime)customerPackageDTO.DateEnd;
                 }
                 if (customerPackageDTO.CustomerID != null)
                 {
-                  cp.CustomerID = customerPackageDTO.CustomerID;
+                  cp.CustomerID = (Guid)customerPackageDTO.CustomerID;
                 }
 
                 if (customerPackageDTO.SubscriptionID != null)
                 {
-                    cp.SubscriptionID = customerPackageDTO.SubscriptionID;
+                    cp.SubscriptionID = (Guid)customerPackageDTO.SubscriptionID;
                 }
 
                 _cp.UpdateCP(cp);
