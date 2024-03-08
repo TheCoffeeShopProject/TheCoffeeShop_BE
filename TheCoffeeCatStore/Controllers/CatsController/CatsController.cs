@@ -84,7 +84,7 @@ namespace TheCoffeeCatStore.Controllers.CatsController
 
             if (cat == null)
             {
-                return NotFound();
+                return NotFound("Don't have this cat ");
             }
 
             return Ok(cat);

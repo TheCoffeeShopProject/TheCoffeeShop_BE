@@ -33,7 +33,7 @@ namespace TheCoffeeCatDAO.DAOs
         public List<Cat> GetAllCat()
         {
             var _context = new TheCoffeeStoreDBContext();
-            return _context.Cats!.Include(c => c.CoffeeShop).ToList();
+            return _context.Cats!.Include(c => c.CoffeeShop).Where(c => c.Status == true).ToList();
         }
 
         public bool AddNew(Cat cat)
@@ -103,7 +103,7 @@ namespace TheCoffeeCatDAO.DAOs
         public IQueryable<Cat> SearchCatByName(string searchvalue)
         {
             var _context = new TheCoffeeStoreDBContext();
-            var a = _context.Cats!.Where(a => a.CatName.ToUpper().Contains(searchvalue.Trim().ToUpper()));
+            var a = _context.Cats!.Where(a => a.Status == true && a.CatName.ToUpper().Contains(searchvalue.Trim().ToUpper()) );
             return a;
         }
 
