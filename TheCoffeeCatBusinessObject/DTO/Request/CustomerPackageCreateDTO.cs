@@ -4,15 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TheCoffeeCatBusinessObject.DTO
+namespace TheCoffeeCatBusinessObject.DTO.Request
 {
-    public class CustomerPackageDTO
-    {   
+    public class CustomerPackageCreateDTO
+    {
         public DateTime DateStart { get; set; }
         public DateTime DateEnd { get; set; }
 
         public Guid CustomerID { get; set; }
         public Guid SubscriptionID { get; set; }
-
     }
 }

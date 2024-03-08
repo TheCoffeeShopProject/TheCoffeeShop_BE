@@ -4,10 +4,9 @@ namespace TheCoffeeCatBusinessObject.DTO.Response
 {
     public class DrinkResponseDTO
     {
-        public string DrinkName { get; set; }
-        public double UnitPrice { get; set; }
-        public bool Status { get; set; }
-        public IFormFile? Image { get; set; }
+        public string? DrinkName { get; set; }
+        public double? UnitPrice { get; set; }
+        public string? Image { get; set; }
     }
 }
 

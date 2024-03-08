@@ -35,7 +35,7 @@ namespace TheCoffeeCatStore.Controllers.CatProdctsController
             try
             {
                 var catProdct = _services.GetCatProducts();
-                var response = _mapper.Map<List<CatProductCreate>>(catProdct);
+                var response = _mapper.Map<List<CatProductResponse>>(catProdct);
                 return Ok(response);
             }
             catch (Exception ex)
@@ -51,7 +51,7 @@ namespace TheCoffeeCatStore.Controllers.CatProdctsController
             try
             {
                 var catProduct = _services.GetCatProductById(id);
-                var response = _mapper.Map<CatProductCreate>(catProduct);
+                var response = _mapper.Map<CatProductResponse>(catProduct);
                 return Ok(response);
 
             }
@@ -68,7 +68,7 @@ namespace TheCoffeeCatStore.Controllers.CatProdctsController
             try
             {
                 var _cat = _services.SearchCatProduct(name);
-                var resposne = _mapper.Map<List<CatProductCreate>>(_cat);
+                var resposne = _mapper.Map<List<CatProductResponse>>(_cat);
                 return Ok(resposne);
 
             }
@@ -80,7 +80,7 @@ namespace TheCoffeeCatStore.Controllers.CatProdctsController
 
         }
         [HttpPost]
-        public ActionResult AddCatProduct([FromForm] CatProductResponse catProduct)
+        public ActionResult AddCatProduct([FromForm] CatProductCreate catProduct)
         {
 
             try
@@ -107,7 +107,7 @@ namespace TheCoffeeCatStore.Controllers.CatProdctsController
 
         [HttpPut]
         [Route("{id:Guid}")]
-        public IActionResult UpdateCatProduct([FromRoute] Guid id, [FromForm] CatProductResponse catProductDTO)
+        public IActionResult UpdateCatProduct([FromRoute] Guid id, [FromForm] CatProductUpdateDTO catProductDTO)
         {
 
             try
@@ -116,7 +116,8 @@ namespace TheCoffeeCatStore.Controllers.CatProdctsController
                 var containerInstance = _blobServiceClient.GetBlobContainerClient("thecoffeeshoppictures");
                 var blodName = $"{Guid.NewGuid()} {catProductDTO.Image?.FileName}";
                 var blodInstance = containerInstance.GetBlobClient(blodName);
-                blodInstance.Upload(catProductDTO.Image.OpenReadStream());
+           
+                blodInstance.Upload(catProductDTO.Image?.OpenReadStream());
                 var storageAccountUrl = "https://thecoffeeshopimage.blob.core.windows.net/thecoffeeshoppictures";
                 var blodUrl = $"{storageAccountUrl}/{blodName}";
                 //------------
@@ -131,7 +132,7 @@ namespace TheCoffeeCatStore.Controllers.CatProdctsController
                 }
                 if (catProductDTO.Status != _cat.Status)
                 {
-                    _cat.Status = catProductDTO.Status;
+                    _cat.Status = (bool)catProductDTO.Status;
                 }
                 if (catProductDTO.Image != null)
                 {
@@ -139,7 +140,7 @@ namespace TheCoffeeCatStore.Controllers.CatProdctsController
                 }
                 if (catProductDTO.Price != _cat.Price)
                 {
-                    _cat.Price = catProductDTO.Price;
+                    _cat.Price = (double)catProductDTO.Price;
                 }
                 _services.UpdateCatProdct(_cat);
 

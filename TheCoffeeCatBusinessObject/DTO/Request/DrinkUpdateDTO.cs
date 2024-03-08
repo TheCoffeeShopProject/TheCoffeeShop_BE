@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace TheCoffeeCatBusinessObject.DTO.Request
 {
-    public class DrinkCreateDTO
+    public class DrinkUpdateDTO
     {
-        public string DrinkName { get; set; }
-        public double UnitPrice { get; set; }
-        public bool Status { get; set; }
-        public IFormFile Image { get; set; }
 
+        public string? DrinkName { get; set; }
+        public double? UnitPrice { get; set; }
+        public bool? Status { get; set; }
+        public IFormFile? Image { get; set; }
     }
 }

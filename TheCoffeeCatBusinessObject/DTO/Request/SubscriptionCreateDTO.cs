@@ -3,22 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TheCoffeeCatBusinessObject.BusinessObject;
 
-namespace TheCoffeeCatBusinessObject.DTO
+namespace TheCoffeeCatBusinessObject.DTO.Request
 {
-    public class SubscriptionDTO
+    public class SubscriptionCreateDTO
     {
-
         public string Name { get; set; }
 
         public bool Status { get; set; }
 
         public float DiscountPercent { get; set; }
 
-
         public double Price { get; set; }
-
-
     }
 }
