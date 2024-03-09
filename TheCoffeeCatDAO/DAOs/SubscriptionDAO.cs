@@ -29,7 +29,7 @@ namespace TheCoffeeCatDAO.DAOs
         public List<Subscription> GetSubscriptions()
         {
             var _context = new TheCoffeeStoreDBContext();
-            return _context.Subscriptions.ToList();
+            return _context.Subscriptions.Where(m => m.Status ==true).ToList();
         }
         public Subscription GetSubscriptionById(Guid id)
         {

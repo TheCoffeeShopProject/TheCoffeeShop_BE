@@ -116,8 +116,10 @@ namespace TheCoffeeCatStore.Controllers.CatProdctsController
                 var containerInstance = _blobServiceClient.GetBlobContainerClient("thecoffeeshoppictures");
                 var blodName = $"{Guid.NewGuid()} {catProductDTO.Image?.FileName}";
                 var blodInstance = containerInstance.GetBlobClient(blodName);
-           
-                blodInstance.Upload(catProductDTO.Image?.OpenReadStream());
+                if (catProductDTO.Image != null)
+                {
+                    blodInstance.Upload(catProductDTO.Image?.OpenReadStream());
+                }
                 var storageAccountUrl = "https://thecoffeeshopimage.blob.core.windows.net/thecoffeeshoppictures";
                 var blodUrl = $"{storageAccountUrl}/{blodName}";
                 //------------
@@ -130,7 +132,7 @@ namespace TheCoffeeCatStore.Controllers.CatProdctsController
                 {
                     _cat.CatProductType = catProductDTO.CatProductType;
                 }
-                if (catProductDTO.Status != _cat.Status)
+                if (catProductDTO.Status != null)
                 {
                     _cat.Status = (bool)catProductDTO.Status;
                 }
@@ -138,7 +140,7 @@ namespace TheCoffeeCatStore.Controllers.CatProdctsController
                 {
                     _cat.Image = blodUrl;
                 }
-                if (catProductDTO.Price != _cat.Price)
+                if (catProductDTO.Price != null)
                 {
                     _cat.Price = (double)catProductDTO.Price;
                 }

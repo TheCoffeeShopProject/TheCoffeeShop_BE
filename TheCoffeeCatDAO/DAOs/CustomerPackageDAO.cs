@@ -29,7 +29,7 @@ namespace TheCoffeeCatDAO.DAOs
         public List<CustomerPackage> GetAllCustomerPackage()
         {
             var _context = new TheCoffeeStoreDBContext();
-            return _context.CustomerPackages.Include(c => c.Customer).ToList();
+            return _context.CustomerPackages.Include(c => c.Customer).Where(m=>m.DateEnd <DateTime.Now).ToList();
         }
 
         public bool AddNew(CustomerPackage customerPackage)
@@ -79,7 +79,7 @@ namespace TheCoffeeCatDAO.DAOs
                 return false;
             }
             else
-            {
+            {            
                  _context.Entry(a).State = EntityState.Modified;
                 _context.SaveChanges();
                 return true;
