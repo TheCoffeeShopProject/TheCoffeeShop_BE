@@ -8,6 +8,8 @@ namespace TheCoffeeCatBusinessObject.DTO.Response
 {
     public class CoffeeResponseDTO
     {
+        public Guid CoffeeID { get; set; }
+
         public string? CoffeeName { get; set; }
         public string? OpenTime { get; set; }
 
@@ -15,8 +17,6 @@ namespace TheCoffeeCatBusinessObject.DTO.Response
 
         public string? PhoneNumber { get; set; }
         public string? Description { get; set; }
-
-
         public string? Image { get; set; }
     }
 }

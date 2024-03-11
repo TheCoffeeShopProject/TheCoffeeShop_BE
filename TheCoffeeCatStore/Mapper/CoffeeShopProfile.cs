@@ -11,6 +11,10 @@ namespace TheCoffeeCatStore.Mapper
         {
             CreateMap<CoffeeShop, CoffeeResponseDTO>()
                 .ForMember(
+                dest => dest.CoffeeID,
+                opt => opt.MapFrom(src => src.CoffeeID)
+                )
+                .ForMember(
                 dest => dest.CoffeeName,
                 opt => opt.MapFrom(src => src.CoffeeName)
                 )
