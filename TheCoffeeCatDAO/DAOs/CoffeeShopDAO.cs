@@ -30,7 +30,7 @@ namespace TheCoffeeCatDAO.DAOs
         public List<CoffeeShop> GetAllCoffee()
         {
             var _context = new TheCoffeeStoreDBContext();
-            return _context.CofffeeShops.ToList();
+            return _context.CofffeeShops.Where(c => c.Status).ToList();
         }
 
         public bool AddNewCoffee(CoffeeShop coffeeShop)

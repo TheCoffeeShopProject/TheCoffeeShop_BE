@@ -139,23 +139,36 @@ namespace TheCoffeeCatStore.Controllers.CoffeeShopController
             return Ok("Update Successfully");
         }
 
-        // POST: api/CoffeeShops
+        //  POST: api/CoffeeShops
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public ActionResult<CoffeeShop> AddNewCoffeeShop(CoffeeCreateDTO coffeecreateDTO)
+        public ActionResult<CoffeeShop> AddNewCat([FromForm] CoffeeCreateDTO coffeecreateDTO)
         {
+
+            var containerInstance = _blobServiceClient.GetBlobContainerClient("thecoffeeshoppictures");
+            //get file name from request and upload to azure blod storage
+            var blobName = $"{(Guid.NewGuid())} {coffeecreateDTO.Image?.FileName}";
+            //local file path
+            var blobInstance = containerInstance.GetBlobClient(blobName);
+
+
+            //storageAccountUrl
+            var storageAccountUrl = "https://thecoffeeshopimage.blob.core.windows.net/thecoffeeshoppictures";
+            //get blod url
+            var blobUrl = $"{storageAccountUrl}/{blobName}";
             var config = new MapperConfiguration(
-               cfg => cfg.AddProfile(new CoffeeShopProfile())
-           );
+              cfg => cfg.AddProfile(new CoffeeShopProfile())
+          );
             // create mapper
             var mapper = config.CreateMapper();
 
 
             var coffee = mapper.Map<CoffeeShop>(coffeecreateDTO);
+            coffee.Image = blobUrl;
             _coffee.AddNew(coffee);
 
 
-            return Ok(coffee);
+            return Ok("Create Successfully");
         }
 
         // DELETE: api/CoffeeShops/5
