@@ -8,6 +8,7 @@ namespace TheCoffeeCatBusinessObject.ViewModels
 {
     public class AccountVM
     {
+        public Guid AccountID { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
         public bool Status { get; set; }
