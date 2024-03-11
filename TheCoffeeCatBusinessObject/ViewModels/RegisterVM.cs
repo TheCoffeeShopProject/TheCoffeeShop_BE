@@ -16,6 +16,8 @@ namespace TheCoffeeCatBusinessObject.ViewModels
         [Required(ErrorMessage = "Password is required")]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
+        [StringLength(100, MinimumLength = 6, ErrorMessage = "Password must be at least 6 characters.")]
+        [RegularExpression(@"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&^_-]+$", ErrorMessage = "Password must contain at least one letter and one number.")]
         public string Password { get; set; }
 
         [Required(ErrorMessage = "Confirm Password is required")]
