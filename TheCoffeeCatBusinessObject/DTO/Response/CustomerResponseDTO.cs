@@ -8,6 +8,7 @@ namespace TheCoffeeCatBusinessObject.DTO.Response
 {
     public class CustomerResponseDTO
     {
+        public Guid? CustomerID { get; set; }
         public string? FullName { get; set; }
 
         public string? PhoneNumber { get; set; }

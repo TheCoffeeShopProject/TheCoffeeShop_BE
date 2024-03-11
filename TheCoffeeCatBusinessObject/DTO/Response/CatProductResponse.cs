@@ -9,6 +9,7 @@ namespace TheCoffeeCatBusinessObject.DTO.Response
 {
     public class CatProductResponse
     {
+        public Guid? CatProductID { get; set; }
         public string? CatProductName { get; set; }
         public string? CatProductType { get; set; }
         public double? Price { get; set; }
