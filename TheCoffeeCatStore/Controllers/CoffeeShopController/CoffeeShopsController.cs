@@ -96,6 +96,11 @@ namespace TheCoffeeCatStore.Controllers.CoffeeShopController
                 //get blod url
                 var blobUrl = $"{storageAccountUrl}/{blobName}";
 
+                if (coffeeUpdateDTO.CoffeeName != null)
+                {
+                    coffeeshop.CoffeeName = coffeeUpdateDTO.CoffeeName;
+
+                }
 
                 if (coffeeUpdateDTO.OpenTime != null)
                 {

@@ -9,6 +9,8 @@ namespace TheCoffeeCatBusinessObject.DTO.Request
 {
     public class CoffeeUpdateDTO
     {
+        public string? CoffeeName { get; set; }
+
         public string? OpenTime { get; set; }
 
         public string? CloseTime { get; set; }

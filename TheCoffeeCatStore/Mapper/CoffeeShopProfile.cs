@@ -34,6 +34,10 @@ namespace TheCoffeeCatStore.Mapper
                 dest => dest.Description,
                 opt => opt.MapFrom(src => src.Description)
                 )
+                 .ForMember(
+                dest => dest.Status,
+                opt => opt.MapFrom(src => src.Status)
+                )
                 .ForMember(
                 dest => dest.Image,
                 opt => opt.MapFrom(src => src.Image)
@@ -74,7 +78,10 @@ namespace TheCoffeeCatStore.Mapper
                );
 
             CreateMap<CoffeeUpdateDTO, CoffeeShop>()
-         
+            .ForMember(
+             dest => dest.CoffeeName,
+             opt => opt.MapFrom(src => src.CoffeeName)
+             )
              .ForMember(
              dest => dest.OpenTime,
              opt => opt.MapFrom(src => src.OpenTime)
