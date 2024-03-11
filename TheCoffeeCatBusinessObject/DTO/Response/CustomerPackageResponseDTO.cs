@@ -8,6 +8,7 @@ namespace TheCoffeeCatBusinessObject.DTO.Response
 {
     public class CustomerPackageResponseDTO
     {
+        public Guid? CPID { get; set; }
         public DateTime? DateStart { get; set; }
         public DateTime? DateEnd { get; set; }
 
