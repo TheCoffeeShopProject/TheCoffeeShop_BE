@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -72,7 +73,7 @@ namespace TheCoffeeCatDAO.DAOs
         public bool ChangeStatus(CoffeeShop coffeeShop)
         {
             var _context = new TheCoffeeStoreDBContext();
-            var a = _context.CofffeeShops.SingleOrDefault(c => c.CoffeeID == coffeeShop.CoffeeID);
+            var a = _context.CofffeeShops.SingleOrDefault(c => c.CoffeeID.Equals( coffeeShop.CoffeeID));
 
 
             if (a == null)
@@ -82,7 +83,8 @@ namespace TheCoffeeCatDAO.DAOs
             else
             {
                 a.Status = false;
-                _context.Entry(a).CurrentValues.SetValues(coffeeShop);
+                _context.Entry(a).State = EntityState.Modified;
+
                 _context.SaveChanges();
                 return true;
             }
