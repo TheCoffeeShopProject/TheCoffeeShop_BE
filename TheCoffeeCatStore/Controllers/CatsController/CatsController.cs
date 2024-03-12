@@ -169,10 +169,11 @@ namespace TheCoffeeCatStore.Controllers.CatsController
 
             var containerInstance = _blobServiceClient.GetBlobContainerClient("thecoffeeshoppictures");
             //get file name from request and upload to azure blod storage
-            var blobName = $"{(Guid.NewGuid())} {catcreateDTO.Image?.FileName}";
+            var blobName = $"{Guid.NewGuid()} {catcreateDTO.Image?.FileName}";
             //local file path
             var blobInstance = containerInstance.GetBlobClient(blobName);
-          
+            blobInstance.Upload(catcreateDTO.Image?.OpenReadStream());
+
 
             //storageAccountUrl
             var storageAccountUrl = "https://thecoffeeshopimage.blob.core.windows.net/thecoffeeshoppictures";
