@@ -28,35 +28,50 @@ namespace TheCoffeeCatService.Services
             _order.AddNew(order);
         }
 
-        public void AddNewOrderByListOrderDetail(List<OrderDetail> list, Guid CPID)
+        public bool AddNewOrderByListOrderDetail(List<OrderDetail> list, Guid? CPID, Guid StaffID,Guid? SubcriptionID)
         {
-            double totalPrice = 0;
-            int totalItem = 0;
-            
-            
-            foreach (OrderDetail detail in list)
+            using (var scope = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
             {
-                totalPrice += detail.Amount * detail.Quantity;
-                totalItem += detail.Quantity;
-                
-            }
+                try
+                {
+                    double totalPrice = 0;
+                    int totalItem = 0;
 
-            Order order = new Order 
-            {   
-                OrderID = Guid.NewGuid(),
-                CreateTime = DateTime.Now,
-                TotalPrice = totalPrice,
-                TotalItem = totalItem
-,
-                
-            };
-            _order.AddNew(order);
-            foreach (OrderDetail detail in list)
-            {
-                detail.OrderDeatailID = Guid.NewGuid();
-                detail.OrderID = order.OrderID;
-                _orderDetail.AddNew(detail);
+
+                    foreach (OrderDetail detail in list)
+                    {
+                        totalPrice += detail.Amount * detail.Quantity;
+                        totalItem += detail.Quantity;
+
+                    }
+
+                    Order order = new Order
+                    {
+                        OrderID = Guid.NewGuid(),
+                        CreateTime = DateTime.Now,
+                        TotalPrice = totalPrice,
+                        TotalItem = totalItem,
+                        StaffID = StaffID,
+                        CPID = CPID,
+                    };
+                    _order.AddNew(order);
+                    foreach (OrderDetail detail in list)
+                    {
+                        detail.OrderDeatailID = Guid.NewGuid();
+                        detail.OrderID = order.OrderID;
+                        detail.SubscriptionID = SubcriptionID;
+                        _orderDetail.AddNew(detail);
+                    }
+                    scope.Complete();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    scope.Dispose();
+                    return false;
+                }
             }
+            
         }
 
         public bool ChangeOrderStatus(Order order)

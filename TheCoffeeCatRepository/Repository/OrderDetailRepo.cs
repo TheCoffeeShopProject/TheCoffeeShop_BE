@@ -37,9 +37,9 @@ namespace TheCoffeeCatRepository.Repository
             return dao.GetAllOrderDetail();
         }
 
-        public OrderDetail GetOrderDetailByOrderId(Order order)
+        public OrderDetail GetOrderDetail(Guid id)
         {
-            return dao.GetOrderDetailByOrderId(order);
+          return dao.GetOrderDetail(id);
         }
     }
 }

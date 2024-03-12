@@ -38,17 +38,48 @@ namespace TheCoffeeCatDAO.DAOs
             }
             else
             {
+                //var menu = _context.Menus.SingleOrDefault(m=>m.MenuID == orderdetail.MenuID);
+                //if(menu == null)
+                //{
+                //    return false;
+                //}
+             
+                //orderdetail.Menu = menu;
+
+                //var order = _context.Orders.SingleOrDefault(m=>m.OrderID == orderdetail.OrderID);
+                //if(order == null)
+                //{
+                //    return false;
+                //}
+                //orderdetail.Order = order;
+
+                //var subcription = _context.Subscriptions.SingleOrDefault(m => m.SubscriptionID == orderdetail.SubscriptionID);
+                //if (subcription == null)
+                //{
+                //    return false;
+                //}
+                //orderdetail.Subscription = subcription;
+
+
                 _context.OrderDetails.Add(orderdetail);
                 _context.SaveChanges();
+
                 return true;
 
             }
         }
 
+       
+
         public void DeleteOrderDeatail(OrderDetail orderdetail)
         {
             var _context = new TheCoffeeStoreDBContext();
             var a = _context.OrderDetails.FirstOrDefault(a =>a.OrderDeatailID == orderdetail.OrderDeatailID);
+            if (a != null)
+            {
+                a.Menu = null;
+                a.Order = null;
+            }
             _context.OrderDetails.Remove(a);
             _context.SaveChanges();
         }
@@ -59,10 +90,11 @@ namespace TheCoffeeCatDAO.DAOs
             return _context.OrderDetails.ToList();
         }
 
-        public OrderDetail GetOrderDetailByOrderId(Order order)
+        public OrderDetail GetOrderDetail(Guid id)
         {
             var _context = new TheCoffeeStoreDBContext();
-            return _context.OrderDetails.SingleOrDefault(c=> c.OrderID == order.OrderID);
+            return _context.OrderDetails.SingleOrDefault(a => a.OrderDeatailID.Equals(id) );
+            
         }
 
 

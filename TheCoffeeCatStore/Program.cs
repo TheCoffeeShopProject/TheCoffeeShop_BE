@@ -56,6 +56,9 @@ builder.Services.AddScoped<IOrderRepo, OrderRepo>();
 builder.Services.AddScoped<IOrderServices, OrderServices>();
 builder.Services.AddScoped<IOrderDetailRepo, OrderDetailRepo>();
 builder.Services.AddScoped<IOrderDetailServices, OrderDetailServices>();
+builder.Services.AddScoped<ICommentRepo, CommentRepo>();
+builder.Services.AddScoped<ICommentServices, CommentServices>();
+
 
 
 

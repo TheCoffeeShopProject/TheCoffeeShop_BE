@@ -19,7 +19,8 @@ namespace TheCoffeeCatBusinessObject.FluentAPI
             builder.Property(x => x.TotalPrice).IsRequired();
             builder.Property(x => x.TotalItem).IsRequired();
             builder.Property(x => x.Status).IsRequired();
-          
+            builder.Property(x => x.TableID).IsRequired(false);
+
             builder.HasMany(x => x.OrderDetails).WithOne(x => x.Order).OnDelete(DeleteBehavior.NoAction);
 
 

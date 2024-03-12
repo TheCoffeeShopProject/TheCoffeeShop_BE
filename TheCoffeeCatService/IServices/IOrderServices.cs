@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TheCoffeeCatBusinessObject;
 using TheCoffeeCatBusinessObject.BusinessObject;
+using TheCoffeeCatBusinessObject.DTO.Request;
 
 namespace TheCoffeeCatService.IServices
 {
@@ -16,7 +17,7 @@ namespace TheCoffeeCatService.IServices
 
         List<Order> GetOrders();
         void AddNewOrder(Order order);
-        void AddNewOrderByListOrderDetail(List<OrderDetail> list, Guid CPID);
+        bool AddNewOrderByListOrderDetail(List<OrderDetail> list, Guid? CPID, Guid StaffID, Guid? SubcriptionID);
 
 
         Order GetOrderById(Guid id);

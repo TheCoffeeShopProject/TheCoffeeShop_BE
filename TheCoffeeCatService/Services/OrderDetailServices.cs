@@ -32,9 +32,9 @@ namespace TheCoffeeCatService.Services
             return _orderdetail.GetAllOrderDetail();
         }
 
-        public OrderDetail GetOrderDetailByOrderId(Order order)
+        public OrderDetail GetOrderDetail(Guid id)
         {
-            return _orderdetail.GetOrderDetailByOrderId(order);
+           return _orderdetail.GetOrderDetail(id);
         }
     }
 }

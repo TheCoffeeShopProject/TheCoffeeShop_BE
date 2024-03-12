@@ -15,6 +15,7 @@ namespace TheCoffeeCatBusinessObject.DTO.Request
     {
         public string? CatName { get; set; }
         public int? Age { get; set; }
+        
         public string? Description { get; set; }
         public IFormFile? Image { get; set; }
 

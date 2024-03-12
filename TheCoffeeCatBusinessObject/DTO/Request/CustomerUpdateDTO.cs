@@ -8,6 +8,7 @@ namespace TheCoffeeCatBusinessObject.DTO.Request
 {
     public class CustomerUpdateDTO
     {
+
         public string? FullName { get; set; }
 
         public string? PhoneNumber { get; set; }

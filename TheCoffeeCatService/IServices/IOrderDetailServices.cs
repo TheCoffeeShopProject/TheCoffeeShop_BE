@@ -13,6 +13,6 @@ namespace TheCoffeeCatService.IServices
         void AddNew(OrderDetail orderdetail);
         void Delete(OrderDetail orderdetail);
         List<OrderDetail> GetAllOrderDetail();
-        OrderDetail GetOrderDetailByOrderId(Order order);
+        OrderDetail GetOrderDetail(Guid id);
     }
 }

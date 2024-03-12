@@ -8,5 +8,12 @@ namespace TheCoffeeCatBusinessObject.DTO.Request
 {
     public class OrderDetailCreateDTO
     {
+
+        public int Quantity { get; set; }
+
+        public float Amount { get; set; }
+        public Guid? MenuID { get; set; }
+        public Guid? OrderID { get; set; }
+        public Guid? SubscriptionID { get; set; } 
     }
 }

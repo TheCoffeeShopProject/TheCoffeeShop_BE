@@ -14,6 +14,6 @@ namespace TheCoffeeCatRepository.IRepository
         void Delete(OrderDetail orderdetail);
 
         List<OrderDetail> GetAllOrderDetail();
-        OrderDetail GetOrderDetailByOrderId(Order order);
+        OrderDetail GetOrderDetail(Guid id);
     }
 }

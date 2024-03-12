@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
+using Azure.Storage.Blobs;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TheCoffeeCatBusinessObject;
 using TheCoffeeCatBusinessObject.BusinessObject;
+using TheCoffeeCatBusinessObject.DTO.Request;
 using TheCoffeeCatService.IServices;
+using TheCoffeeCatStore.Mapper;
 
 namespace TheCoffeeCatStore.Controllers.OrdersController
 {
@@ -81,39 +85,50 @@ namespace TheCoffeeCatStore.Controllers.OrdersController
             return NoContent();
         }
 
-    //    // POST: api/Orders
-    //    // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-    //    [HttpPost]
-    //    public ActionResult<Order> PostOrder(Order order)
-    //    {
-    //        if (_order.GetOrders() == null)
-    //        {
-    //            return Problem("Order is null.");
-    //        }
-    //        _order.AddNew(order);
+        [HttpPost]
+        public ActionResult<Order> AddNewOrder([FromBody] List<OrderDetailCreateDTO> listOrderDetailDtos, Guid? CPID, Guid StaffID)
+        {
 
-    //        return CreatedAtAction("GetOrder", new { id = order.OrderID }, order);
-    //    }
+            var config = new MapperConfiguration(cfg =>
+            {
+                cfg.AddProfile(new OrderDetailProfile());
+            });
+            var mapper = config.CreateMapper();
 
-    //    // DELETE: api/Orders/5
-    //    [HttpDelete("{id}")]
-    //    public async Task<IActionResult> DeleteOrder(Guid id)
-    //    {
-    //        if (_order.GetOrders() == null)
-    //        {
-    //            return NotFound();
-    //        }
-    //        var order = _order.GetOrderById(id);
-    //        if (order == null)
-    //        {
-    //            return NotFound();
-    //        }
+            var listOrderDetails = listOrderDetailDtos.Select(o => mapper.Map<OrderDetailCreateDTO, OrderDetail>(o));
+          //  var config = new MapperConfiguration(
+          //    cfg => cfg.AddProfile(new OrderProfile())
+          //);
+          //  // create mapper
+          //  var mapper = config.CreateMapper();
 
-    //        _order.ChangeOrderStatus(order);
 
-    //        return NoContent();
-    //    }
+            //  var order = mapper.Map<Order>(ordercreateDTO);
+          _order.AddNewOrderByListOrderDetail(listOrderDetails.ToList(), CPID, StaffID);
 
-      
+
+            return Ok("Create Successfully");
+        }
+
+        //    // DELETE: api/Orders/5
+        //    [HttpDelete("{id}")]
+        //    public async Task<IActionResult> DeleteOrder(Guid id)
+        //    {
+        //        if (_order.GetOrders() == null)
+        //        {
+        //            return NotFound();
+        //        }
+        //        var order = _order.GetOrderById(id);
+        //        if (order == null)
+        //        {
+        //            return NotFound();
+        //        }
+
+        //        _order.ChangeOrderStatus(order);
+
+        //        return NoContent();
+        //    }
+
+
     }
 }
