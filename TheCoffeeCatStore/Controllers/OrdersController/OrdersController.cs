@@ -30,10 +30,10 @@ namespace TheCoffeeCatStore.Controllers.OrdersController
         [HttpGet]
         public ActionResult<IEnumerable<Order>> GetOrders()
         {
-          if (_order.GetOrders() == null)
-          {
-              return NotFound();
-          }
+            if (_order.GetOrders() == null)
+            {
+                return NotFound();
+            }
             return _order.GetOrders().ToList();
         }
 
@@ -45,7 +45,7 @@ namespace TheCoffeeCatStore.Controllers.OrdersController
             {
                 return NotFound();
             }
-            var order =  _order.GetOrderById(id);
+            var order = _order.GetOrderById(id);
 
             if (order == null)
             {
@@ -72,7 +72,7 @@ namespace TheCoffeeCatStore.Controllers.OrdersController
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (_order.GetOrderById(id)==null)
+                if (_order.GetOrderById(id) == null)
                 {
                     return NotFound();
                 }
@@ -96,15 +96,15 @@ namespace TheCoffeeCatStore.Controllers.OrdersController
             var mapper = config.CreateMapper();
 
             var listOrderDetails = listOrderDetailDtos.Select(o => mapper.Map<OrderDetailCreateDTO, OrderDetail>(o));
-          //  var config = new MapperConfiguration(
-          //    cfg => cfg.AddProfile(new OrderProfile())
-          //);
-          //  // create mapper
-          //  var mapper = config.CreateMapper();
+            //  var config = new MapperConfiguration(
+            //    cfg => cfg.AddProfile(new OrderProfile())
+            //);
+            //  // create mapper
+            //  var mapper = config.CreateMapper();
 
 
             //  var order = mapper.Map<Order>(ordercreateDTO);
-          _order.AddNewOrderByListOrderDetail(listOrderDetails.ToList(), CPID, StaffID);
+            //_order.AddNewOrderByListOrderDetail(listOrderDetails.ToList(), CPID, StaffID);
 
 
             return Ok("Create Successfully");
