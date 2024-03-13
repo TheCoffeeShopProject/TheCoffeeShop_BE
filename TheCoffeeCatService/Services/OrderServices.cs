@@ -28,7 +28,7 @@ namespace TheCoffeeCatService.Services
             _order.AddNew(order);
         }
 
-        public bool AddNewOrderByListOrderDetail(List<OrderDetail> list, Guid? CPID, Guid StaffID,Guid? SubcriptionID)
+        public bool AddNewOrderByListOrderDetail(List<OrderDetail> list, Guid? CPID, Guid StaffID)
         {
             using (var scope = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
             {
@@ -59,7 +59,7 @@ namespace TheCoffeeCatService.Services
                     {
                         detail.OrderDeatailID = Guid.NewGuid();
                         detail.OrderID = order.OrderID;
-                        detail.SubscriptionID = SubcriptionID;
+                    
                         _orderDetail.AddNew(detail);
                     }
                     scope.Complete();
