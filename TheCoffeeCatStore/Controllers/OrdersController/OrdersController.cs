@@ -104,7 +104,7 @@ namespace TheCoffeeCatStore.Controllers.OrdersController
 
 
             //  var order = mapper.Map<Order>(ordercreateDTO);
-            //_order.AddNewOrderByListOrderDetail(listOrderDetails.ToList(), CPID, StaffID);
+            _order.AddNewOrderByListOrderDetail(listOrderDetails.ToList(), CPID, StaffID);
 
 
             return Ok("Create Successfully");
