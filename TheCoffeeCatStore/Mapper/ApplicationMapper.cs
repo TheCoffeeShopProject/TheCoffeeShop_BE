@@ -75,16 +75,15 @@ namespace TheCoffeeCatStore.Mapper
 
 
 
-            CreateMap<TableVM, Table>().ReverseMap().ForMember(dest => dest.CoffeeName,
-                                       opt => opt.MapFrom(src => src.CoffeeShop!.CoffeeName));
+            CreateMap<TableVM, Table>().ReverseMap();
             CreateMap<TableDTO, Table>().ReverseMap();
 
 
 
-           
 
-            
-            
+
+
+
 
 
             //.BeforeMap((DrinkDTO, Drink) =>
