@@ -65,13 +65,13 @@ namespace TheCoffeeCatStore.Controllers.AccountsController
                         Expires = DateTime.UtcNow.AddMinutes(10) // Thời gian hết hạn của cookie
                     });
 
-                    //return Ok(new JwtSecurityTokenHandler().WriteToken(token));
-                    return Ok(new
-                    {
-                        status = true,
-                        roleName = "Admin",
-                        token = _token
-                    });
+                    return Ok(new JwtSecurityTokenHandler().WriteToken(token));
+                    //return Ok(new
+                    //{
+                    //    status = true,
+                    //    roleName = "Admin",
+                    //    token = _token
+                    //});
                 }
 
                 var checkLogin = _accountServices.CheckLogin(accountLogin.Email, accountLogin.Password);

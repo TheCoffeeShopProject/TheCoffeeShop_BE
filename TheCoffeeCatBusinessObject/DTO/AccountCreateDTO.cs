@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TheCoffeeCatBusinessObject.DTO
 {
-    public class AccountDTO
+    public class AccountCreateDTO
     {
         public Guid AccountID { get; set; }
 

@@ -6,6 +6,7 @@ using TheCoffeeCatBusinessObject;
 using TheCoffeeCatBusinessObject.DTO;
 using TheCoffeeCatBusinessObject.ViewModels;
 using TheCoffeeCatService.IServices;
+using TheCoffeeCatService.Services;
 
 namespace TheCoffeeCatStore.Controllers.StaffsController
 {
@@ -54,7 +55,7 @@ namespace TheCoffeeCatStore.Controllers.StaffsController
         }
 
         [HttpPost]
-        public IActionResult AddNewStaff(StaffDTO staff)
+        public IActionResult AddNewStaff(StaffCreateDTO staff)
         {
             try
             {
@@ -69,19 +70,42 @@ namespace TheCoffeeCatStore.Controllers.StaffsController
             }
         }
 
-        [HttpPut]
-        public IActionResult UpdateStaff(StaffDTO staff, Guid id)
+        [HttpPut("{id}")]
+        public IActionResult UpdateStaff([FromForm] StaffUpdateDTO staff, Guid id)
         {
             try
             {
-                if (staff.StaffID != id)
+                var staffs = _staffServices.GetStaffByID(id);
+                if (staff.FullName != null)
                 {
-                    return NotFound();
+                    staffs.FullName = staff.FullName;
                 }
-                var _staff = _mapper.Map<Staff>(staff);
-                _staffServices.UpdateStaff(_staff);
+                if (staff.PhoneNumber != null)
+                {
+                    staffs.PhoneNumber = staff.PhoneNumber;
+                }
+                if (staff.Address != null)
+                {
+                    staffs.Address = staff.Address;
+                }
+                if (staff.DOB != null)
+                {
+                    staffs.DOB = staff.DOB;
+                }
+                if (staff.CoffeeID != null)
+                {
+                    staffs.CoffeeID = (Guid)staff.CoffeeID;
+                }
+                if (staff.AccountID != null)
+                {
+                    staffs.AccountID = (Guid)staff.AccountID;
+                }
 
-                return Ok();
+
+
+                _staffServices.UpdateStaff(staffs);
+
+                return Ok("Update Successfully");
             }
             catch (Exception ex)
             {

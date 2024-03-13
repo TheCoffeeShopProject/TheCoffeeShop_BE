@@ -55,7 +55,7 @@ namespace TheCoffeeCatStore.Controllers.AccountController
         }
 
         [HttpPost]
-        public IActionResult AddNewAccount(AccountDTO account)
+        public IActionResult AddNewAccount(AccountCreateDTO account)
         {
             try
             {
@@ -70,19 +70,32 @@ namespace TheCoffeeCatStore.Controllers.AccountController
             }
         }
 
-        [HttpPut]
-        public IActionResult UpdateAccount(AccountDTO account, Guid id)
+        [HttpPut("{id}")]
+        public IActionResult UpdateAccount([FromForm] AccountUpdateDTO account, Guid id)
         {
             try
             {
-                if (account.AccountID != id)
+                var accounts = _accountServices.GetAccountByID(id);
+                if (account.Email != null)
                 {
-                    return NotFound();
+                    accounts.Email = account.Email;
                 }
-                var _account = _mapper.Map<Account>(account);
-                _accountServices.UpdateAccount(_account);
+                if (account.Password != null)
+                {
+                    accounts.Password = account.Password;
+                }
+                if (account.Status != null)
+                {
+                    accounts.Status = (bool)account.Status;
+                }
+                if (account.RoleID != null)
+                {
+                    accounts.RoleID = (Guid)account.RoleID;
+                }
 
-                return Ok();
+                _accountServices.UpdateAccount(accounts);
+
+                return Ok("Update Successfully");
             }
             catch (Exception ex)
             {
@@ -121,7 +134,7 @@ namespace TheCoffeeCatStore.Controllers.AccountController
                 return BadRequest("Email Existed");
             }
 
-            var account = new AccountDTO
+            var account = new AccountCreateDTO
             {
                 AccountID = Guid.NewGuid(),
                 Email = register.Email,

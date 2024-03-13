@@ -81,7 +81,9 @@ namespace TheCoffeeCatDAO.DAOs
         {
             try
             {
-                _context.Attach(account).State = EntityState.Modified;
+                var a = _context.Accounts!.SingleOrDefault(c => c.AccountID == account.AccountID);
+
+                _context.Entry(a).CurrentValues.SetValues(account);
                 _context.SaveChanges();
 
             }
