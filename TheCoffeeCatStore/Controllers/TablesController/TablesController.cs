@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TheCoffeeCatBusinessObject;
+using TheCoffeeCatBusinessObject.BusinessObject;
 using TheCoffeeCatBusinessObject.DTO;
 using TheCoffeeCatBusinessObject.ViewModels;
 using TheCoffeeCatService.IServices;
@@ -53,7 +54,7 @@ namespace TheCoffeeCatStore.Controllers.TablesController
         }
 
         [HttpPost]
-        public IActionResult AddNewTable(TableDTO table)
+        public IActionResult AddNewTable(TableCreateDTO table)
         {
             try
             {
@@ -68,19 +69,38 @@ namespace TheCoffeeCatStore.Controllers.TablesController
             }
         }
 
-        [HttpPut]
-        public IActionResult UpdateTable(TableDTO table, Guid id)
+        [HttpPut("{id}")]
+        public IActionResult UpdateTable([FromForm] TableUpdateDTO table, Guid id)
         {
             try
             {
-                if (table.TableID != id)
-                {
-                    return NotFound();
-                }
-                var _table = _mapper.Map<Table>(table);
-                _tableServices.UpdateTable(_table);
+                //if (table.TableID != id)
+                //{
+                //    return NotFound();
+                //}
+                //var _table = _mapper.Map<Table>(table);
+                //_tableServices.UpdateTable(_table);
 
-                return Ok();
+                //return Ok();
+
+                var tables = _tableServices.GetTableByID(id);
+                if (table.Status != null)
+                {
+                    tables.Status = table.Status;
+                }
+                if (table.Type != null)
+                {
+                    tables.Type = table.Type;
+                }
+                if (table.CoffeeID != null)
+                {
+                    tables.CoffeeID = (Guid)table.CoffeeID;
+                }
+
+                _tableServices.UpdateTable(tables);
+
+                return Ok("Update Successfully");
+
             }
             catch (Exception ex)
             {

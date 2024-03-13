@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TheCoffeeCatBusinessObject.DTO
 {
-    public class MenuDTO
+    public class MenuCreateDTO
     {
         public Guid MenuID { get; set; }
 
@@ -17,10 +17,10 @@ namespace TheCoffeeCatBusinessObject.DTO
         [Required(ErrorMessage = "Coffee Shop is required.")]
         public Guid CoffeeID { get; set; }
 
-        [Required(ErrorMessage = "Drink is required.")]
+        //[Required(ErrorMessage = "Drink is required.")]
         public Guid? DrinkID { get; set; }
 
-        [Required(ErrorMessage = "Cat Product is required.")]
+        //[Required(ErrorMessage = "Cat Product is required.")]
         public Guid? CatProductID { get; set; }
 
     }

@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using TheCoffeeCatBusinessObject;
 using TheCoffeeCatBusinessObject.BusinessObject;
 using TheCoffeeCatBusinessObject.DTO;
+using TheCoffeeCatBusinessObject.DTO.Request;
 using TheCoffeeCatBusinessObject.ViewModels;
 using TheCoffeeCatService.IServices;
 using TheCoffeeCatService.Services;
@@ -64,7 +65,7 @@ namespace TheCoffeeCatStore.Controllers.MenusController
         }
 
         [HttpPost]
-        public IActionResult AddNewMenu(MenuDTO menu)
+        public IActionResult AddNewMenu(MenuCreateDTO menu)
         {
             try
             {
@@ -79,19 +80,33 @@ namespace TheCoffeeCatStore.Controllers.MenusController
             }
         }
 
-        [HttpPut]
-        public IActionResult UpdateMenu(MenuDTO menu, Guid id)
+        [HttpPut("{id}")]
+        public IActionResult UpdateMenu([FromForm] MenuUpdateDTO menu, Guid id)
         {
             try
             {
-                if (menu.MenuID != id)
+                var menus = _menuServices.GetMenuByID(id);
+                if (menu.Status != null)
                 {
-                    return NotFound();
+                    menus.Status = (bool)menu.Status;
                 }
-                var _menu = _mapper.Map<Menu>(menu);
-                _menuServices.UpdateMenu(_menu);
+                if (menu.CoffeeID != null)
+                {
+                    menus.CoffeeID = (Guid)menu.CoffeeID;
+                }
+                if (menu.DrinkID != null)
+                {
+                    menus.DrinkID = (Guid)menu.DrinkID;
+                }
+                if (menu.CatProductID != null)
+                {
+                    menus.CatProductID = (Guid)menu.CatProductID;
+                }
 
-                return Ok();
+
+                _menuServices.UpdateMenu(menus);
+
+                return Ok("Update Successfully");
             }
             catch (Exception ex)
             {

@@ -86,7 +86,9 @@ namespace TheCoffeeCatDAO.DAOs
         {
             try
             {
-                _context.Attach(menu).State = EntityState.Modified;
+                var a = _context.Menus!.SingleOrDefault(c => c.MenuID == menu.MenuID);
+
+                _context.Entry(a).CurrentValues.SetValues(menu);
                 _context.SaveChanges();
 
             }
