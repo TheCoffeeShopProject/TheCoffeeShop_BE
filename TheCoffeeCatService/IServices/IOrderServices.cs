@@ -17,7 +17,7 @@ namespace TheCoffeeCatService.IServices
 
         List<Order> GetOrders();
         void AddNewOrder(Order order);
-        bool AddNewOrderByListOrderDetail(List<OrderDetail> list, Guid? CPID, Guid StaffID, Guid? SubcriptionID);
+        bool AddNewOrderByListOrderDetail(List<OrderDetail> list, Guid? CPID, Guid StaffID);
 
 
         Order GetOrderById(Guid id);
