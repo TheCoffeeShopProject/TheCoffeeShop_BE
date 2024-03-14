@@ -96,38 +96,32 @@ namespace TheCoffeeCatStore.Controllers.OrdersController
             var mapper = config.CreateMapper();
 
             var listOrderDetails = listOrderDetailDtos.Select(o => mapper.Map<OrderDetailCreateDTO, OrderDetail>(o));
-            //  var config = new MapperConfiguration(
-            //    cfg => cfg.AddProfile(new OrderProfile())
-            //);
-            //  // create mapper
-            //  var mapper = config.CreateMapper();
-
-
-            //  var order = mapper.Map<Order>(ordercreateDTO);
+  
             _order.AddNewOrderByListOrderDetail(listOrderDetails.ToList(), CPID, StaffID);
 
 
             return Ok("Create Successfully");
         }
 
-        //    // DELETE: api/Orders/5
-        //    [HttpDelete("{id}")]
-        //    public async Task<IActionResult> DeleteOrder(Guid id)
-        //    {
-        //        if (_order.GetOrders() == null)
-        //        {
-        //            return NotFound();
-        //        }
-        //        var order = _order.GetOrderById(id);
-        //        if (order == null)
-        //        {
-        //            return NotFound();
-        //        }
+        // DELETE: api/Order/5
+        [HttpDelete("{id}")]
+        public IActionResult DeleteOrder(Guid id)
+        {
+            if (_order.GetOrders()== null)
+            {
+                return NotFound();
+            }
+            var order = _order.GetOrderById(id);
+            if (order == null)
+            {
+                return NotFound();
+            }
 
-        //        _order.ChangeOrderStatus(order);
+            _order.ChangeOrderStatus(order);
 
-        //        return NoContent();
-        //    }
+
+            return Ok("Delete Successfully");
+        }
 
 
     }

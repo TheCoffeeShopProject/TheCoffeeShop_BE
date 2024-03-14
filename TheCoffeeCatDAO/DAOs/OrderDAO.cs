@@ -30,7 +30,7 @@ namespace TheCoffeeCatDAO.DAOs
         public List<Order> GetAllOrder()
         {
             var _context = new TheCoffeeStoreDBContext();
-            return _context.Orders.Include(c=>c.Table).ToList();
+            return _context.Orders.ToList();
         }
 
         public bool AddNew(Order order)
