@@ -15,5 +15,6 @@ namespace TheCoffeeCatRepository.IRepository
         public void UpdateCatProdct(CatProduct catProduct);
         public bool ChangeStatus(CatProduct catProduct);
         public IQueryable<CatProduct> SearchCatProduct(string search);
+       
     }
 }

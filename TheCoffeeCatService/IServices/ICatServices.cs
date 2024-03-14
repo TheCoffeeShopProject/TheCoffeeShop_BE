@@ -21,5 +21,6 @@ namespace TheCoffeeCatService.IServices
         void UpdateCat(Cat cat);
 
         IQueryable<Cat> SearchCat(string name);
+        IQueryable<Cat> SearchCatByCoffeeID(Guid id);
     }
 }

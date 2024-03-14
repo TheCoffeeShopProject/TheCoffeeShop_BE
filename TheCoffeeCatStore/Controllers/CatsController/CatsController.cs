@@ -89,6 +89,25 @@ namespace TheCoffeeCatStore.Controllers.CatsController
 
             return Ok(cat);
         }
+
+        // GET: api/Cats/5
+        [HttpGet("searchbycoffeeid")]
+        public ActionResult<Cat> GetCatByCoffeeID(Guid id)
+        {
+            if (_cat.GetCats() == null)
+            {
+                return NotFound();
+            }
+            var cat = _cat.SearchCatByCoffeeID(id);
+
+            if (cat == null)
+            {
+                return NotFound("Don't have this cat ");
+            }
+
+            return Ok(cat);
+        }
+
         // PUT: api/Cats/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]

@@ -43,6 +43,11 @@ namespace TheCoffeeCatService.Services
           return _cat.SearchCat(name);
         }
 
+        public IQueryable<Cat> SearchCatByCoffeeID(Guid id)
+        {
+            return _cat.SearchCatByCoffeeID(id);
+        }
+
         public void UpdateCat(Cat cat)
         {
          _cat.UpdateCat(cat);

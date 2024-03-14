@@ -107,5 +107,11 @@ namespace TheCoffeeCatDAO.DAOs
             return a;
         }
 
+        public IQueryable<Cat> SearchCatByCoffeeID(Guid id)
+        {
+            var _context = new TheCoffeeStoreDBContext();
+            var a = _context.Cats!.Where(a => a.Status == true && a.CoffeeID == id);
+            return a;
+        }
     }
 }

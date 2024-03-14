@@ -43,6 +43,12 @@ namespace TheCoffeeCatRepository.Repository
            return dao.SearchCatByName(name);
         }
 
+        public IQueryable<Cat> SearchCatByCoffeeID(Guid id)
+        {
+            return dao.SearchCatByCoffeeID(id);
+            
+        }
+
         public void UpdateCat(Cat cat)
         {
             dao.Update(cat);
