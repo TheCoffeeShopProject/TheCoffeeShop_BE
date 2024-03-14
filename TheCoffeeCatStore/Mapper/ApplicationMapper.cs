@@ -75,7 +75,11 @@ namespace TheCoffeeCatStore.Mapper
                                                    .ForMember(dest => dest.PriceDrink,
                                        opt => opt.MapFrom(src => src.Drink!.UnitPrice))
                                                    .ForMember(dest => dest.PriceCatProduct,
-                                       opt => opt.MapFrom(src => src.CatProduct!.Price)); ;
+                                       opt => opt.MapFrom(src => src.CatProduct!.Price))
+                                                   .ForMember(dest => dest.ImageDrink,
+                                       opt => opt.MapFrom(src => src.Drink!.Image))
+                                                   .ForMember(dest => dest.ImageCatProduct,
+                                       opt => opt.MapFrom(src => src.CatProduct!.Image)); ; ;
 
 
 

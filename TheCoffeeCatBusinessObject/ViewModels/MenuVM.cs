@@ -13,7 +13,9 @@ namespace TheCoffeeCatBusinessObject.ViewModels
         public string CoffeeName { get; set; }
         public string? DrinkName { get; set; }
         public double PriceDrink { get; set; }
+        public string ImageDrink { get; set; }
         public string? CatProductName { get; set; }
         public double PriceCatProduct { get; set; }
+        public string ImageCatProduct { get; set; }
     }
 }
