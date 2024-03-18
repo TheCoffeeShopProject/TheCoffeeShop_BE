@@ -1,0 +1,682 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\admin\\Downloads\\Coffee_BE\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{88784502-4081-43B4-9803-925A14971591}|TheCoffeeCatStore\\TheCoffeeCatStore.csproj|c:\\users\\admin\\downloads\\coffee_be\\thecoffeecatstore\\controllers\\vnpaycontroller\\vnpaycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88784502-4081-43B4-9803-925A14971591}|TheCoffeeCatStore\\TheCoffeeCatStore.csproj|solutionrelative:thecoffeecatstore\\controllers\\vnpaycontroller\\vnpaycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{65C6E527-8CDB-4DAD-9FB2-5E9B2E171307}|TheCoffeeCatDAO\\TheCoffeeCatDAO.csproj|c:\\users\\admin\\downloads\\coffee_be\\thecoffeecatdao\\daos\\paymentinformationmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{65C6E527-8CDB-4DAD-9FB2-5E9B2E171307}|TheCoffeeCatDAO\\TheCoffeeCatDAO.csproj|solutionrelative:thecoffeecatdao\\daos\\paymentinformationmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E599617-27DB-48F3-B247-1853AF6270D4}|TheCoffeeCatService\\TheCoffeeCatService.csproj|c:\\users\\admin\\downloads\\coffee_be\\thecoffeecatservice\\services\\vnpayservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E599617-27DB-48F3-B247-1853AF6270D4}|TheCoffeeCatService\\TheCoffeeCatService.csproj|solutionrelative:thecoffeecatservice\\services\\vnpayservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88784502-4081-43B4-9803-925A14971591}|TheCoffeeCatStore\\TheCoffeeCatStore.csproj|c:\\users\\admin\\downloads\\coffee_be\\thecoffeecatstore\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{88784502-4081-43B4-9803-925A14971591}|TheCoffeeCatStore\\TheCoffeeCatStore.csproj|solutionrelative:thecoffeecatstore\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88784502-4081-43B4-9803-925A14971591}|TheCoffeeCatStore\\TheCoffeeCatStore.csproj|c:\\users\\admin\\downloads\\coffee_be\\thecoffeecatstore\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88784502-4081-43B4-9803-925A14971591}|TheCoffeeCatStore\\TheCoffeeCatStore.csproj|solutionrelative:thecoffeecatstore\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88784502-4081-43B4-9803-925A14971591}|TheCoffeeCatStore\\TheCoffeeCatStore.csproj|c:\\users\\admin\\downloads\\coffee_be\\thecoffeecatstore\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{88784502-4081-43B4-9803-925A14971591}|TheCoffeeCatStore\\TheCoffeeCatStore.csproj|solutionrelative:thecoffeecatstore\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E599617-27DB-48F3-B247-1853AF6270D4}|TheCoffeeCatService\\TheCoffeeCatService.csproj|c:\\users\\admin\\downloads\\coffee_be\\thecoffeecatservice\\iservices\\ivnpayservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E599617-27DB-48F3-B247-1853AF6270D4}|TheCoffeeCatService\\TheCoffeeCatService.csproj|solutionrelative:thecoffeecatservice\\iservices\\ivnpayservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E599617-27DB-48F3-B247-1853AF6270D4}|TheCoffeeCatService\\TheCoffeeCatService.csproj|c:\\users\\admin\\downloads\\coffee_be\\thecoffeecatservice\\services\\vnpaylibrary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E599617-27DB-48F3-B247-1853AF6270D4}|TheCoffeeCatService\\TheCoffeeCatService.csproj|solutionrelative:thecoffeecatservice\\services\\vnpaylibrary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88784502-4081-43B4-9803-925A14971591}|TheCoffeeCatStore\\TheCoffeeCatStore.csproj|c:\\users\\admin\\downloads\\coffee_be\\thecoffeecatstore\\controllers\\orderdetailcontroller\\orderdetailscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88784502-4081-43B4-9803-925A14971591}|TheCoffeeCatStore\\TheCoffeeCatStore.csproj|solutionrelative:thecoffeecatstore\\controllers\\orderdetailcontroller\\orderdetailscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{65C6E527-8CDB-4DAD-9FB2-5E9B2E171307}|TheCoffeeCatDAO\\TheCoffeeCatDAO.csproj|c:\\users\\admin\\downloads\\coffee_be\\thecoffeecatdao\\daos\\orderdetaildao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{65C6E527-8CDB-4DAD-9FB2-5E9B2E171307}|TheCoffeeCatDAO\\TheCoffeeCatDAO.csproj|solutionrelative:thecoffeecatdao\\daos\\orderdetaildao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41C9E9CE-0B82-467C-8670-0A9179BBB5EC}|TheCoffeeCatBusinessObject\\TheCoffeeCatBusinessObject.csproj|c:\\users\\admin\\downloads\\coffee_be\\thecoffeecatbusinessobject\\businessobject\\orderdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41C9E9CE-0B82-467C-8670-0A9179BBB5EC}|TheCoffeeCatBusinessObject\\TheCoffeeCatBusinessObject.csproj|solutionrelative:thecoffeecatbusinessobject\\businessobject\\orderdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41C9E9CE-0B82-467C-8670-0A9179BBB5EC}|TheCoffeeCatBusinessObject\\TheCoffeeCatBusinessObject.csproj|c:\\users\\admin\\downloads\\coffee_be\\thecoffeecatbusinessobject\\dto\\request\\orderdetailcreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41C9E9CE-0B82-467C-8670-0A9179BBB5EC}|TheCoffeeCatBusinessObject\\TheCoffeeCatBusinessObject.csproj|solutionrelative:thecoffeecatbusinessobject\\dto\\request\\orderdetailcreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88784502-4081-43B4-9803-925A14971591}|TheCoffeeCatStore\\TheCoffeeCatStore.csproj|c:\\users\\admin\\downloads\\coffee_be\\thecoffeecatstore\\controllers\\menuscontroller\\menuscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88784502-4081-43B4-9803-925A14971591}|TheCoffeeCatStore\\TheCoffeeCatStore.csproj|solutionrelative:thecoffeecatstore\\controllers\\menuscontroller\\menuscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E599617-27DB-48F3-B247-1853AF6270D4}|TheCoffeeCatService\\TheCoffeeCatService.csproj|c:\\users\\admin\\downloads\\coffee_be\\thecoffeecatservice\\iservices\\iorderservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E599617-27DB-48F3-B247-1853AF6270D4}|TheCoffeeCatService\\TheCoffeeCatService.csproj|solutionrelative:thecoffeecatservice\\iservices\\iorderservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E599617-27DB-48F3-B247-1853AF6270D4}|TheCoffeeCatService\\TheCoffeeCatService.csproj|c:\\users\\admin\\downloads\\coffee_be\\thecoffeecatservice\\services\\orderservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E599617-27DB-48F3-B247-1853AF6270D4}|TheCoffeeCatService\\TheCoffeeCatService.csproj|solutionrelative:thecoffeecatservice\\services\\orderservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E599617-27DB-48F3-B247-1853AF6270D4}|TheCoffeeCatService\\TheCoffeeCatService.csproj|c:\\users\\admin\\downloads\\coffee_be\\thecoffeecatservice\\services\\tableservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E599617-27DB-48F3-B247-1853AF6270D4}|TheCoffeeCatService\\TheCoffeeCatService.csproj|solutionrelative:thecoffeecatservice\\services\\tableservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88784502-4081-43B4-9803-925A14971591}|TheCoffeeCatStore\\TheCoffeeCatStore.csproj|c:\\users\\admin\\downloads\\coffee_be\\thecoffeecatstore\\controllers\\tablescontroller\\tablescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88784502-4081-43B4-9803-925A14971591}|TheCoffeeCatStore\\TheCoffeeCatStore.csproj|solutionrelative:thecoffeecatstore\\controllers\\tablescontroller\\tablescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41C9E9CE-0B82-467C-8670-0A9179BBB5EC}|TheCoffeeCatBusinessObject\\TheCoffeeCatBusinessObject.csproj|c:\\users\\admin\\downloads\\coffee_be\\thecoffeecatbusinessobject\\businessobject\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41C9E9CE-0B82-467C-8670-0A9179BBB5EC}|TheCoffeeCatBusinessObject\\TheCoffeeCatBusinessObject.csproj|solutionrelative:thecoffeecatbusinessobject\\businessobject\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88784502-4081-43B4-9803-925A14971591}|TheCoffeeCatStore\\TheCoffeeCatStore.csproj|c:\\users\\admin\\downloads\\coffee_be\\thecoffeecatstore\\controllers\\orderscontroller\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88784502-4081-43B4-9803-925A14971591}|TheCoffeeCatStore\\TheCoffeeCatStore.csproj|solutionrelative:thecoffeecatstore\\controllers\\orderscontroller\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88784502-4081-43B4-9803-925A14971591}|TheCoffeeCatStore\\TheCoffeeCatStore.csproj|c:\\users\\admin\\downloads\\coffee_be\\thecoffeecatstore\\controllers\\subscriptionscontroller\\subscriptionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88784502-4081-43B4-9803-925A14971591}|TheCoffeeCatStore\\TheCoffeeCatStore.csproj|solutionrelative:thecoffeecatstore\\controllers\\subscriptionscontroller\\subscriptionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{65C6E527-8CDB-4DAD-9FB2-5E9B2E171307}|TheCoffeeCatDAO\\TheCoffeeCatDAO.csproj|c:\\users\\admin\\downloads\\coffee_be\\thecoffeecatdao\\daos\\paymentresponsemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{65C6E527-8CDB-4DAD-9FB2-5E9B2E171307}|TheCoffeeCatDAO\\TheCoffeeCatDAO.csproj|solutionrelative:thecoffeecatdao\\daos\\paymentresponsemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E599617-27DB-48F3-B247-1853AF6270D4}|TheCoffeeCatService\\TheCoffeeCatService.csproj|c:\\users\\admin\\downloads\\coffee_be\\thecoffeecatservice\\iservices\\icustomerpackageservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E599617-27DB-48F3-B247-1853AF6270D4}|TheCoffeeCatService\\TheCoffeeCatService.csproj|solutionrelative:thecoffeecatservice\\iservices\\icustomerpackageservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E599617-27DB-48F3-B247-1853AF6270D4}|TheCoffeeCatService\\TheCoffeeCatService.csproj|c:\\users\\admin\\downloads\\coffee_be\\thecoffeecatservice\\iservices\\iaccountservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E599617-27DB-48F3-B247-1853AF6270D4}|TheCoffeeCatService\\TheCoffeeCatService.csproj|solutionrelative:thecoffeecatservice\\iservices\\iaccountservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{65C6E527-8CDB-4DAD-9FB2-5E9B2E171307}|TheCoffeeCatDAO\\TheCoffeeCatDAO.csproj|c:\\users\\admin\\downloads\\coffee_be\\thecoffeecatdao\\daos\\menudao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{65C6E527-8CDB-4DAD-9FB2-5E9B2E171307}|TheCoffeeCatDAO\\TheCoffeeCatDAO.csproj|solutionrelative:thecoffeecatdao\\daos\\menudao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{65C6E527-8CDB-4DAD-9FB2-5E9B2E171307}|TheCoffeeCatDAO\\TheCoffeeCatDAO.csproj|c:\\users\\admin\\downloads\\coffee_be\\thecoffeecatdao\\daos\\accountdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{65C6E527-8CDB-4DAD-9FB2-5E9B2E171307}|TheCoffeeCatDAO\\TheCoffeeCatDAO.csproj|solutionrelative:thecoffeecatdao\\daos\\accountdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88784502-4081-43B4-9803-925A14971591}|TheCoffeeCatStore\\TheCoffeeCatStore.csproj|c:\\users\\admin\\downloads\\coffee_be\\thecoffeecatstore\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{88784502-4081-43B4-9803-925A14971591}|TheCoffeeCatStore\\TheCoffeeCatStore.csproj|solutionrelative:thecoffeecatstore\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88784502-4081-43B4-9803-925A14971591}|TheCoffeeCatStore\\TheCoffeeCatStore.csproj|c:\\users\\admin\\downloads\\coffee_be\\thecoffeecatstore\\admin\\adminconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88784502-4081-43B4-9803-925A14971591}|TheCoffeeCatStore\\TheCoffeeCatStore.csproj|solutionrelative:thecoffeecatstore\\admin\\adminconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88784502-4081-43B4-9803-925A14971591}|TheCoffeeCatStore\\TheCoffeeCatStore.csproj|c:\\users\\admin\\downloads\\coffee_be\\thecoffeecatstore\\controllers\\commentscontroller\\commentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88784502-4081-43B4-9803-925A14971591}|TheCoffeeCatStore\\TheCoffeeCatStore.csproj|solutionrelative:thecoffeecatstore\\controllers\\commentscontroller\\commentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E599617-27DB-48F3-B247-1853AF6270D4}|TheCoffeeCatService\\TheCoffeeCatService.csproj|c:\\users\\admin\\downloads\\coffee_be\\thecoffeecatservice\\services\\commentservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E599617-27DB-48F3-B247-1853AF6270D4}|TheCoffeeCatService\\TheCoffeeCatService.csproj|solutionrelative:thecoffeecatservice\\services\\commentservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{570BAC27-2C36-4B1A-A26C-C00FCEEC09AF}|TheCoffeeCatRepository\\TheCoffeeCatRepository.csproj|c:\\users\\admin\\downloads\\coffee_be\\thecoffeecatrepository\\repository\\commentrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{570BAC27-2C36-4B1A-A26C-C00FCEEC09AF}|TheCoffeeCatRepository\\TheCoffeeCatRepository.csproj|solutionrelative:thecoffeecatrepository\\repository\\commentrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{65C6E527-8CDB-4DAD-9FB2-5E9B2E171307}|TheCoffeeCatDAO\\TheCoffeeCatDAO.csproj|c:\\users\\admin\\downloads\\coffee_be\\thecoffeecatdao\\daos\\commentdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{65C6E527-8CDB-4DAD-9FB2-5E9B2E171307}|TheCoffeeCatDAO\\TheCoffeeCatDAO.csproj|solutionrelative:thecoffeecatdao\\daos\\commentdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88784502-4081-43B4-9803-925A14971591}|TheCoffeeCatStore\\TheCoffeeCatStore.csproj|c:\\users\\admin\\downloads\\coffee_be\\thecoffeecatstore\\mapper\\orderprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88784502-4081-43B4-9803-925A14971591}|TheCoffeeCatStore\\TheCoffeeCatStore.csproj|solutionrelative:thecoffeecatstore\\mapper\\orderprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88784502-4081-43B4-9803-925A14971591}|TheCoffeeCatStore\\TheCoffeeCatStore.csproj|c:\\users\\admin\\downloads\\coffee_be\\thecoffeecatstore\\thecoffeecatstore.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{88784502-4081-43B4-9803-925A14971591}|TheCoffeeCatStore\\TheCoffeeCatStore.csproj|solutionrelative:thecoffeecatstore\\thecoffeecatstore.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88784502-4081-43B4-9803-925A14971591}|TheCoffeeCatStore\\TheCoffeeCatStore.csproj|c:\\users\\admin\\downloads\\coffee_be\\thecoffeecatstore\\mapper\\catprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88784502-4081-43B4-9803-925A14971591}|TheCoffeeCatStore\\TheCoffeeCatStore.csproj|solutionrelative:thecoffeecatstore\\mapper\\catprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88784502-4081-43B4-9803-925A14971591}|TheCoffeeCatStore\\TheCoffeeCatStore.csproj|c:\\users\\admin\\downloads\\coffee_be\\thecoffeecatstore\\mapper\\applicationmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88784502-4081-43B4-9803-925A14971591}|TheCoffeeCatStore\\TheCoffeeCatStore.csproj|solutionrelative:thecoffeecatstore\\mapper\\applicationmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 13,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Order.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatBusinessObject\\BusinessObject\\Order.cs",
+              "RelativeDocumentMoniker": "TheCoffeeCatBusinessObject\\BusinessObject\\Order.cs",
+              "ToolTip": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatBusinessObject\\BusinessObject\\Order.cs",
+              "RelativeToolTip": "TheCoffeeCatBusinessObject\\BusinessObject\\Order.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwA4AAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-18T14:40:32.993Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:132:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:133:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e506b91c-c606-466a-90a9-123d1d1e12b3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{74946827-37a0-11d2-a273-00c04f8ef4ff}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "VNPayController.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatStore\\Controllers\\VNPayController\\VNPayController.cs",
+              "RelativeDocumentMoniker": "TheCoffeeCatStore\\Controllers\\VNPayController\\VNPayController.cs",
+              "ToolTip": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatStore\\Controllers\\VNPayController\\VNPayController.cs",
+              "RelativeToolTip": "TheCoffeeCatStore\\Controllers\\VNPayController\\VNPayController.cs",
+              "ViewState": "AQIAAC0AAAAAAAAAAAAwwDYAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-18T14:33:08.473Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "VnPayService.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatService\\Services\\VnPayService.cs",
+              "RelativeDocumentMoniker": "TheCoffeeCatService\\Services\\VnPayService.cs",
+              "ToolTip": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatService\\Services\\VnPayService.cs",
+              "RelativeToolTip": "TheCoffeeCatService\\Services\\VnPayService.cs",
+              "ViewState": "AQIAABEAAAAAAAAAAAAiwBwAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-18T14:24:48.832Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatStore\\appsettings.json",
+              "RelativeDocumentMoniker": "TheCoffeeCatStore\\appsettings.json",
+              "ToolTip": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatStore\\appsettings.json",
+              "RelativeToolTip": "TheCoffeeCatStore\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-03-18T06:30:37.831Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatStore\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "TheCoffeeCatStore\\appsettings.Development.json",
+              "ToolTip": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatStore\\appsettings.Development.json",
+              "RelativeToolTip": "TheCoffeeCatStore\\appsettings.Development.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-03-18T06:35:36.19Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PaymentInformationModel.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatDAO\\DAOs\\PaymentInformationModel.cs",
+              "RelativeDocumentMoniker": "TheCoffeeCatDAO\\DAOs\\PaymentInformationModel.cs",
+              "ToolTip": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatDAO\\DAOs\\PaymentInformationModel.cs",
+              "RelativeToolTip": "TheCoffeeCatDAO\\DAOs\\PaymentInformationModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwBMAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-18T07:58:13.159Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatStore\\Program.cs",
+              "RelativeDocumentMoniker": "TheCoffeeCatStore\\Program.cs",
+              "ToolTip": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatStore\\Program.cs",
+              "RelativeToolTip": "TheCoffeeCatStore\\Program.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAABEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-18T06:32:43.819Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "OrderDetail.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatBusinessObject\\BusinessObject\\OrderDetail.cs",
+              "RelativeDocumentMoniker": "TheCoffeeCatBusinessObject\\BusinessObject\\OrderDetail.cs",
+              "ToolTip": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatBusinessObject\\BusinessObject\\OrderDetail.cs",
+              "RelativeToolTip": "TheCoffeeCatBusinessObject\\BusinessObject\\OrderDetail.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-18T14:55:01.68Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "VnPayLibrary.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatService\\Services\\VnPayLibrary.cs",
+              "RelativeDocumentMoniker": "TheCoffeeCatService\\Services\\VnPayLibrary.cs",
+              "ToolTip": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatService\\Services\\VnPayLibrary.cs",
+              "RelativeToolTip": "TheCoffeeCatService\\Services\\VnPayLibrary.cs",
+              "ViewState": "AQIAABMAAAAAAAAAAAA1wDQAAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-18T14:25:47.015Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IVnPayService.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatService\\IServices\\IVnPayService.cs",
+              "RelativeDocumentMoniker": "TheCoffeeCatService\\IServices\\IVnPayService.cs",
+              "ToolTip": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatService\\IServices\\IVnPayService.cs",
+              "RelativeToolTip": "TheCoffeeCatService\\IServices\\IVnPayService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwBAAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-18T14:17:22.537Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "MenusController.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatStore\\Controllers\\MenusController\\MenusController.cs",
+              "RelativeDocumentMoniker": "TheCoffeeCatStore\\Controllers\\MenusController\\MenusController.cs",
+              "ToolTip": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatStore\\Controllers\\MenusController\\MenusController.cs",
+              "RelativeToolTip": "TheCoffeeCatStore\\Controllers\\MenusController\\MenusController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAA1AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-18T14:36:45.482Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "OrderDetailsController.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatStore\\Controllers\\OrderDetailController\\OrderDetailsController.cs",
+              "RelativeDocumentMoniker": "TheCoffeeCatStore\\Controllers\\OrderDetailController\\OrderDetailsController.cs",
+              "ToolTip": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatStore\\Controllers\\OrderDetailController\\OrderDetailsController.cs",
+              "RelativeToolTip": "TheCoffeeCatStore\\Controllers\\OrderDetailController\\OrderDetailsController.cs",
+              "ViewState": "AQIAAEQAAAAAAAAAAAAwwGMAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-18T15:05:55.827Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "OrderDetailDAO.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatDAO\\DAOs\\OrderDetailDAO.cs",
+              "RelativeDocumentMoniker": "TheCoffeeCatDAO\\DAOs\\OrderDetailDAO.cs",
+              "ToolTip": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatDAO\\DAOs\\OrderDetailDAO.cs",
+              "RelativeToolTip": "TheCoffeeCatDAO\\DAOs\\OrderDetailDAO.cs",
+              "ViewState": "AQIAAC0AAAAAAAAAAAAowAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-18T14:14:15.255Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "OrderDetailCreateDTO.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatBusinessObject\\DTO\\Request\\OrderDetailCreateDTO.cs",
+              "RelativeDocumentMoniker": "TheCoffeeCatBusinessObject\\DTO\\Request\\OrderDetailCreateDTO.cs",
+              "ToolTip": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatBusinessObject\\DTO\\Request\\OrderDetailCreateDTO.cs",
+              "RelativeToolTip": "TheCoffeeCatBusinessObject\\DTO\\Request\\OrderDetailCreateDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwA0AAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-18T15:03:41.238Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "IOrderServices.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatService\\IServices\\IOrderServices.cs",
+              "RelativeDocumentMoniker": "TheCoffeeCatService\\IServices\\IOrderServices.cs",
+              "ToolTip": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatService\\IServices\\IOrderServices.cs",
+              "RelativeToolTip": "TheCoffeeCatService\\IServices\\IOrderServices.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwBEAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-18T14:52:53.188Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "OrderServices.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatService\\Services\\OrderServices.cs",
+              "RelativeDocumentMoniker": "TheCoffeeCatService\\Services\\OrderServices.cs",
+              "ToolTip": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatService\\Services\\OrderServices.cs",
+              "RelativeToolTip": "TheCoffeeCatService\\Services\\OrderServices.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-18T14:53:31.971Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "TableServices.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatService\\Services\\TableServices.cs",
+              "RelativeDocumentMoniker": "TheCoffeeCatService\\Services\\TableServices.cs",
+              "ToolTip": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatService\\Services\\TableServices.cs",
+              "RelativeToolTip": "TheCoffeeCatService\\Services\\TableServices.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-18T14:48:29.431Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "TablesController.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatStore\\Controllers\\TablesController\\TablesController.cs",
+              "RelativeDocumentMoniker": "TheCoffeeCatStore\\Controllers\\TablesController\\TablesController.cs",
+              "ToolTip": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatStore\\Controllers\\TablesController\\TablesController.cs",
+              "RelativeToolTip": "TheCoffeeCatStore\\Controllers\\TablesController\\TablesController.cs",
+              "ViewState": "AQIAACQAAAAAAAAAAAAowEIAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-18T06:35:00.19Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "OrdersController.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatStore\\Controllers\\OrdersController\\OrdersController.cs",
+              "RelativeDocumentMoniker": "TheCoffeeCatStore\\Controllers\\OrdersController\\OrdersController.cs",
+              "ToolTip": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatStore\\Controllers\\OrdersController\\OrdersController.cs",
+              "RelativeToolTip": "TheCoffeeCatStore\\Controllers\\OrdersController\\OrdersController.cs",
+              "ViewState": "AQIAAGEAAAAAAAAAAAAcwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-18T06:31:34.007Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "SubscriptionsController.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatStore\\Controllers\\SubscriptionsController\\SubscriptionsController.cs",
+              "RelativeDocumentMoniker": "TheCoffeeCatStore\\Controllers\\SubscriptionsController\\SubscriptionsController.cs",
+              "ToolTip": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatStore\\Controllers\\SubscriptionsController\\SubscriptionsController.cs",
+              "RelativeToolTip": "TheCoffeeCatStore\\Controllers\\SubscriptionsController\\SubscriptionsController.cs",
+              "ViewState": "AQIAACQAAAAAAAAAAAAowB0AAABFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-18T14:34:40.644Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "PaymentResponseModel.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatDAO\\DAOs\\PaymentResponseModel.cs",
+              "RelativeDocumentMoniker": "TheCoffeeCatDAO\\DAOs\\PaymentResponseModel.cs",
+              "ToolTip": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatDAO\\DAOs\\PaymentResponseModel.cs",
+              "RelativeToolTip": "TheCoffeeCatDAO\\DAOs\\PaymentResponseModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwA0AAAAxAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-18T07:56:57.432Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "ICustomerPackageServices.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatService\\IServices\\ICustomerPackageServices.cs",
+              "RelativeDocumentMoniker": "TheCoffeeCatService\\IServices\\ICustomerPackageServices.cs",
+              "ToolTip": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatService\\IServices\\ICustomerPackageServices.cs",
+              "RelativeToolTip": "TheCoffeeCatService\\IServices\\ICustomerPackageServices.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-18T14:20:48.967Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "IAccountServices.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatService\\IServices\\IAccountServices.cs",
+              "RelativeDocumentMoniker": "TheCoffeeCatService\\IServices\\IAccountServices.cs",
+              "ToolTip": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatService\\IServices\\IAccountServices.cs",
+              "RelativeToolTip": "TheCoffeeCatService\\IServices\\IAccountServices.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-18T14:20:43.475Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "MenuDAO.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatDAO\\DAOs\\MenuDAO.cs",
+              "RelativeDocumentMoniker": "TheCoffeeCatDAO\\DAOs\\MenuDAO.cs",
+              "ToolTip": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatDAO\\DAOs\\MenuDAO.cs",
+              "RelativeToolTip": "TheCoffeeCatDAO\\DAOs\\MenuDAO.cs",
+              "ViewState": "AQIAABMAAAAAAAAAAAAgwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-18T14:14:16.032Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "AccountDAO.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatDAO\\DAOs\\AccountDAO.cs",
+              "RelativeDocumentMoniker": "TheCoffeeCatDAO\\DAOs\\AccountDAO.cs",
+              "ToolTip": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatDAO\\DAOs\\AccountDAO.cs",
+              "RelativeToolTip": "TheCoffeeCatDAO\\DAOs\\AccountDAO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-18T08:43:09.65Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatStore\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "TheCoffeeCatStore\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatStore\\Properties\\launchSettings.json",
+              "RelativeToolTip": "TheCoffeeCatStore\\Properties\\launchSettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-03-18T06:37:23.216Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "AdminConfig.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatStore\\Admin\\AdminConfig.cs",
+              "RelativeDocumentMoniker": "TheCoffeeCatStore\\Admin\\AdminConfig.cs",
+              "ToolTip": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatStore\\Admin\\AdminConfig.cs",
+              "RelativeToolTip": "TheCoffeeCatStore\\Admin\\AdminConfig.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-18T07:56:22.153Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "CommentsController.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatStore\\Controllers\\CommentsController\\CommentsController.cs",
+              "RelativeDocumentMoniker": "TheCoffeeCatStore\\Controllers\\CommentsController\\CommentsController.cs",
+              "ToolTip": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatStore\\Controllers\\CommentsController\\CommentsController.cs",
+              "RelativeToolTip": "TheCoffeeCatStore\\Controllers\\CommentsController\\CommentsController.cs",
+              "ViewState": "AQIAABUAAAAAAAAAAABQwCsAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-18T07:56:08.312Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "CommentServices.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatService\\Services\\CommentServices.cs",
+              "RelativeDocumentMoniker": "TheCoffeeCatService\\Services\\CommentServices.cs",
+              "ToolTip": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatService\\Services\\CommentServices.cs",
+              "RelativeToolTip": "TheCoffeeCatService\\Services\\CommentServices.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAIBJwCYAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-18T07:55:58.7Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "CommentRepo.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatRepository\\Repository\\CommentRepo.cs",
+              "RelativeDocumentMoniker": "TheCoffeeCatRepository\\Repository\\CommentRepo.cs",
+              "ToolTip": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatRepository\\Repository\\CommentRepo.cs",
+              "RelativeToolTip": "TheCoffeeCatRepository\\Repository\\CommentRepo.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAABQwCMAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-18T07:55:52.005Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "CommentDAO.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatDAO\\DAOs\\CommentDAO.cs",
+              "RelativeDocumentMoniker": "TheCoffeeCatDAO\\DAOs\\CommentDAO.cs",
+              "ToolTip": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatDAO\\DAOs\\CommentDAO.cs",
+              "RelativeToolTip": "TheCoffeeCatDAO\\DAOs\\CommentDAO.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAQwA8AAAAPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-18T07:55:36.802Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "OrderProfile.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatStore\\Mapper\\OrderProfile.cs",
+              "RelativeDocumentMoniker": "TheCoffeeCatStore\\Mapper\\OrderProfile.cs",
+              "ToolTip": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatStore\\Mapper\\OrderProfile.cs",
+              "RelativeToolTip": "TheCoffeeCatStore\\Mapper\\OrderProfile.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-18T06:36:51.879Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "TheCoffeeCatStore.csproj",
+              "DocumentMoniker": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatStore\\TheCoffeeCatStore.csproj",
+              "RelativeDocumentMoniker": "TheCoffeeCatStore\\TheCoffeeCatStore.csproj",
+              "ToolTip": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatStore\\TheCoffeeCatStore.csproj",
+              "RelativeToolTip": "TheCoffeeCatStore\\TheCoffeeCatStore.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-03-18T06:31:54.757Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "ApplicationMapper.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatStore\\Mapper\\ApplicationMapper.cs",
+              "RelativeDocumentMoniker": "TheCoffeeCatStore\\Mapper\\ApplicationMapper.cs",
+              "ToolTip": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatStore\\Mapper\\ApplicationMapper.cs",
+              "RelativeToolTip": "TheCoffeeCatStore\\Mapper\\ApplicationMapper.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-18T06:33:14.959Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "CatProfile.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatStore\\Mapper\\CatProfile.cs",
+              "RelativeDocumentMoniker": "TheCoffeeCatStore\\Mapper\\CatProfile.cs",
+              "ToolTip": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatStore\\Mapper\\CatProfile.cs",
+              "RelativeToolTip": "TheCoffeeCatStore\\Mapper\\CatProfile.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-18T06:33:15.631Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 723,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

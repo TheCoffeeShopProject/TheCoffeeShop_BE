@@ -1,0 +1,16 @@
+C:\Users\admin\Downloads\Coffee_BE\TheCoffeeCatDAO\bin\Debug\net6.0\TheCoffeeCatDAO.deps.json
+C:\Users\admin\Downloads\Coffee_BE\TheCoffeeCatDAO\bin\Debug\net6.0\TheCoffeeCatDAO.dll
+C:\Users\admin\Downloads\Coffee_BE\TheCoffeeCatDAO\bin\Debug\net6.0\TheCoffeeCatDAO.pdb
+C:\Users\admin\Downloads\Coffee_BE\TheCoffeeCatDAO\bin\Debug\net6.0\TheCoffeeCatBusinessObject.dll
+C:\Users\admin\Downloads\Coffee_BE\TheCoffeeCatDAO\bin\Debug\net6.0\TheCoffeeCatBusinessObject.pdb
+C:\Users\admin\Downloads\Coffee_BE\TheCoffeeCatDAO\obj\Debug\net6.0\TheCoffeeCatDAO.csproj.AssemblyReference.cache
+C:\Users\admin\Downloads\Coffee_BE\TheCoffeeCatDAO\obj\Debug\net6.0\TheCoffeeCatDAO.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\admin\Downloads\Coffee_BE\TheCoffeeCatDAO\obj\Debug\net6.0\TheCoffeeCatDAO.AssemblyInfoInputs.cache
+C:\Users\admin\Downloads\Coffee_BE\TheCoffeeCatDAO\obj\Debug\net6.0\TheCoffeeCatDAO.AssemblyInfo.cs
+C:\Users\admin\Downloads\Coffee_BE\TheCoffeeCatDAO\obj\Debug\net6.0\TheCoffeeCatDAO.csproj.CoreCompileInputs.cache
+C:\Users\admin\Downloads\Coffee_BE\TheCoffeeCatDAO\obj\Debug\net6.0\TheCoffeeCatDAO.sourcelink.json
+C:\Users\admin\Downloads\Coffee_BE\TheCoffeeCatDAO\obj\Debug\net6.0\TheCoffe.656A6658.Up2Date
+C:\Users\admin\Downloads\Coffee_BE\TheCoffeeCatDAO\obj\Debug\net6.0\TheCoffeeCatDAO.dll
+C:\Users\admin\Downloads\Coffee_BE\TheCoffeeCatDAO\obj\Debug\net6.0\refint\TheCoffeeCatDAO.dll
+C:\Users\admin\Downloads\Coffee_BE\TheCoffeeCatDAO\obj\Debug\net6.0\TheCoffeeCatDAO.pdb
+C:\Users\admin\Downloads\Coffee_BE\TheCoffeeCatDAO\obj\Debug\net6.0\ref\TheCoffeeCatDAO.dll

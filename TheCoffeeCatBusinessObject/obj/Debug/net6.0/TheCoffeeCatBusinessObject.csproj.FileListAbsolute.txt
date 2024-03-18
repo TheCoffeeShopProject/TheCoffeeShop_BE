@@ -1,0 +1,15 @@
+C:\Users\admin\Downloads\Coffee_BE\TheCoffeeCatBusinessObject\bin\Debug\net6.0\TheCoffeeCatBusinessObject.deps.json
+C:\Users\admin\Downloads\Coffee_BE\TheCoffeeCatBusinessObject\bin\Debug\net6.0\TheCoffeeCatBusinessObject.runtimeconfig.json
+C:\Users\admin\Downloads\Coffee_BE\TheCoffeeCatBusinessObject\bin\Debug\net6.0\TheCoffeeCatBusinessObject.dll
+C:\Users\admin\Downloads\Coffee_BE\TheCoffeeCatBusinessObject\bin\Debug\net6.0\TheCoffeeCatBusinessObject.pdb
+C:\Users\admin\Downloads\Coffee_BE\TheCoffeeCatBusinessObject\obj\Debug\net6.0\TheCoffeeCatBusinessObject.csproj.AssemblyReference.cache
+C:\Users\admin\Downloads\Coffee_BE\TheCoffeeCatBusinessObject\obj\Debug\net6.0\TheCoffeeCatBusinessObject.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\admin\Downloads\Coffee_BE\TheCoffeeCatBusinessObject\obj\Debug\net6.0\TheCoffeeCatBusinessObject.AssemblyInfoInputs.cache
+C:\Users\admin\Downloads\Coffee_BE\TheCoffeeCatBusinessObject\obj\Debug\net6.0\TheCoffeeCatBusinessObject.AssemblyInfo.cs
+C:\Users\admin\Downloads\Coffee_BE\TheCoffeeCatBusinessObject\obj\Debug\net6.0\TheCoffeeCatBusinessObject.csproj.CoreCompileInputs.cache
+C:\Users\admin\Downloads\Coffee_BE\TheCoffeeCatBusinessObject\obj\Debug\net6.0\TheCoffeeCatBusinessObject.sourcelink.json
+C:\Users\admin\Downloads\Coffee_BE\TheCoffeeCatBusinessObject\obj\Debug\net6.0\TheCoffeeCatBusinessObject.dll
+C:\Users\admin\Downloads\Coffee_BE\TheCoffeeCatBusinessObject\obj\Debug\net6.0\refint\TheCoffeeCatBusinessObject.dll
+C:\Users\admin\Downloads\Coffee_BE\TheCoffeeCatBusinessObject\obj\Debug\net6.0\TheCoffeeCatBusinessObject.pdb
+C:\Users\admin\Downloads\Coffee_BE\TheCoffeeCatBusinessObject\obj\Debug\net6.0\TheCoffeeCatBusinessObject.genruntimeconfig.cache
+C:\Users\admin\Downloads\Coffee_BE\TheCoffeeCatBusinessObject\obj\Debug\net6.0\ref\TheCoffeeCatBusinessObject.dll

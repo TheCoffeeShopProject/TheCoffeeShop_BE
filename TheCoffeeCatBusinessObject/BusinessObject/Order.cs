@@ -15,7 +15,7 @@ namespace TheCoffeeCatBusinessObject
         public int TotalItem {  get; set; }
         public float TotalDiscount { get; set; }
         public  bool Status { get; set; }
-
+        public Guid CustomerID {  get; set; }
         public Guid StaffID { get; set; }
         public Staff Staff { get; set; }
         public Guid? CPID { get; set; }
