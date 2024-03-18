@@ -69,7 +69,7 @@ namespace TheCoffeeCatStore.Controllers.TablesController
             }
         }
 
-        [HttpPut]
+        [HttpPut("{id}")]
         public IActionResult UpdateTable(TableUpdateDTO table, Guid id)
         {
             try
