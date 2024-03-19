@@ -96,18 +96,39 @@ namespace TheCoffeeCatStore.Controllers.OrdersController
             var mapper = config.CreateMapper();
 
             var listOrderDetails = listOrderDetailDtos.Select(o => mapper.Map<OrderDetailCreateDTO, OrderDetail>(o));
-  
+
             _order.AddNewOrderByListOrderDetail(listOrderDetails.ToList(), CPID, StaffID);
 
 
             return Ok("Create Successfully");
         }
 
+        [HttpGet("/GetMonthlyTotalPrices")]
+        public ActionResult<object> GetMonthlyTotalPrices()
+        {
+            var monthlyTotalPrices = _order.GetMonthlyTotalPrices();
+            return Ok(monthlyTotalPrices);
+        }
+
+        [HttpGet("/CalculateTotalOrderPrice")]
+        public ActionResult<object> CalculateTotalOrderPrice()
+        {
+            var totalPrice = _order.CalculateTotalOrderPrice();
+            return Ok(totalPrice);
+        }
+
+        [HttpGet("/CalculateTotalItems")]
+        public ActionResult<object> CalculateTotalItems()
+        {
+            var totalItem = _order.CalculateTotalItems();
+            return Ok(totalItem);
+        }
+
         // DELETE: api/Order/5
         [HttpDelete("{id}")]
         public IActionResult DeleteOrder(Guid id)
         {
-            if (_order.GetOrders()== null)
+            if (_order.GetOrders() == null)
             {
                 return NotFound();
             }

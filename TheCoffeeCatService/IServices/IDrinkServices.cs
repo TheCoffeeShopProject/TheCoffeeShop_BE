@@ -16,5 +16,6 @@ namespace TheCoffeeCatService.IServices
         public void AddDrink(Drink drink);
         public void UpdateDrink(Drink drink);
         public bool ChangeStatus(Drink drink);
+        int GetTotalDrinkCount();
     }
 }
