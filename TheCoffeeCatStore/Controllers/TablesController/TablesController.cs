@@ -81,7 +81,7 @@ namespace TheCoffeeCatStore.Controllers.TablesController
                 var _table = _mapper.Map<Table>(table);
                 _tableServices.UpdateTable(_table);
 
-                return Ok();
+                return Ok("Update Successfully");
 
             }
             catch (Exception ex)

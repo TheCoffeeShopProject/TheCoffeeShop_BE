@@ -61,9 +61,12 @@ namespace TheCoffeeCatDAO.DAOs
         {
             try
             {
-                _context.Attach(table).State = EntityState.Modified;
-                _context.SaveChanges();
-
+                var existingTable = _context.Tables.FirstOrDefault(t => t.TableID == table.TableID);
+                if (existingTable != null)
+                {
+                    existingTable.Status = table.Status;
+                    _context.SaveChanges();
+                }
             }
             catch (Exception ex)
             {
