@@ -56,7 +56,6 @@ namespace TheCoffeeCatStore.Controllers.VNPayController
                 };
 
                 _orderServices.AddNewOrder(order);
-
                 Guid orderID = order.OrderID;
                 foreach (var orderDetail in model.orderDetails)
                 {
