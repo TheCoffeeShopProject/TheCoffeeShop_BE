@@ -36,7 +36,8 @@ namespace TheCoffeeCatStore.Controllers.NewFolder
                 var drinks = _services.GetDrinks();
                 var res = _mapper.Map<List<DrinkResponseDTO>>(drinks);
                 return Ok(res);
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 return BadRequest(ex.Message);
             }
@@ -109,14 +110,14 @@ namespace TheCoffeeCatStore.Controllers.NewFolder
         }
 
         [HttpPost]
-        public ActionResult AddDrink([FromForm]DrinkCreateDTO drinkDTO)
+        public ActionResult AddDrink([FromForm] DrinkCreateDTO drinkDTO)
         {
             try
             {
                 var containerInstance = _blobServiceClient.GetBlobContainerClient("thecoffeeshoppictures");
                 var blobName = $"{Guid.NewGuid()}{drinkDTO.Image?.FileName}";
                 var blobIntance = containerInstance.GetBlobClient(blobName);
-                blobIntance.Upload(drinkDTO.Image?.OpenReadStream());            
+                blobIntance.Upload(drinkDTO.Image?.OpenReadStream());
                 var storageAccountUrl = "https://thecoffeeshopimage.blob.core.windows.net/thecoffeeshoppictures";
                 var blobUrl = $"{storageAccountUrl}/{blobName}";
                 var respose = _mapper.Map<Drink>(drinkDTO);
@@ -133,7 +134,7 @@ namespace TheCoffeeCatStore.Controllers.NewFolder
         }
         [HttpPut]
         [Route("{id}")]
-        public ActionResult UpdateDrink([FromRoute] Guid id,[FromForm] DrinkUpdateDTO drinkDTO)
+        public ActionResult UpdateDrink([FromRoute] Guid id, [FromForm] DrinkUpdateDTO drinkDTO)
         {
 
             try
@@ -200,6 +201,20 @@ namespace TheCoffeeCatStore.Controllers.NewFolder
             _services.ChangeStatus(res2);
             return Ok("Delete  Success");
 
+
+        }
+
+        [HttpGet("/CountDrinks")]
+        public ActionResult GetCountDrinks()
+        {
+            try
+            {
+                return Ok(_services.GetTotalDrinkCount());
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
 
         }
 
