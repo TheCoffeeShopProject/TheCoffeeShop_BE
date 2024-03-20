@@ -2911,23 +2911,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\admin\\.nuget\\packages\\": {},
+    "C:\\Users\\duyng\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatRepository\\TheCoffeeCatRepository.csproj",
+      "projectUniqueName": "E:\\SWP\\Backup\\Coffee_BE\\TheCoffeeCatRepository\\TheCoffeeCatRepository.csproj",
       "projectName": "TheCoffeeCatRepository",
-      "projectPath": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatRepository\\TheCoffeeCatRepository.csproj",
-      "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatRepository\\obj\\",
+      "projectPath": "E:\\SWP\\Backup\\Coffee_BE\\TheCoffeeCatRepository\\TheCoffeeCatRepository.csproj",
+      "packagesPath": "C:\\Users\\duyng\\.nuget\\packages\\",
+      "outputPath": "E:\\SWP\\Backup\\Coffee_BE\\TheCoffeeCatRepository\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\duyng\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -2942,8 +2942,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatDAO\\TheCoffeeCatDAO.csproj": {
-              "projectPath": "C:\\Users\\admin\\Downloads\\Coffee_BE\\TheCoffeeCatDAO\\TheCoffeeCatDAO.csproj"
+            "E:\\SWP\\Backup\\Coffee_BE\\TheCoffeeCatDAO\\TheCoffeeCatDAO.csproj": {
+              "projectPath": "E:\\SWP\\Backup\\Coffee_BE\\TheCoffeeCatDAO\\TheCoffeeCatDAO.csproj"
             }
           }
         }
@@ -2952,11 +2952,6 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -2978,7 +2973,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }

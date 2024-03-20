@@ -47,5 +47,10 @@ namespace TheCoffeeCatService.Services
         {
             _drink.UpdateDrink(drink);
         }
+        public int GetTotalDrinkCount()
+        {
+            return _drink.GetDrinks().Count;
+        }
+
     }
 }

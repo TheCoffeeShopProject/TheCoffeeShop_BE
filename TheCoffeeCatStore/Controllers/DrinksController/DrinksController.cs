@@ -203,6 +203,18 @@ namespace TheCoffeeCatStore.Controllers.NewFolder
 
         }
 
-
+        [HttpGet("/CountDrinks")]
+        public ActionResult GetCountDrinks()
+        {
+            try
+            {
+                return Ok(_services.GetTotalDrinkCount());
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+           
+        }
     }
 }

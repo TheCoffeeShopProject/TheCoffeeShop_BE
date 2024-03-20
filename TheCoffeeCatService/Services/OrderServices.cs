@@ -74,10 +74,58 @@ namespace TheCoffeeCatService.Services
             
         }
 
+        public List<object> GetMonthlyTotalPrices()
+        {
+            int currentYear = DateTime.Now.Year;
+            List<object> monthlyTotalPrices = new List<object>();
+
+            for (int month = 1; month <= 12; month++)
+            {
+                double totalPriceOfMonth = _order.GetOrders()
+                    .Where(order => order.CreateTime.Year == currentYear && order.CreateTime.Month == month)
+                    .Sum(order => order.TotalPrice);
+
+                var monthlyTotalPrice = new
+                {
+                    Month = month,
+                    TotalPrice = totalPriceOfMonth
+                };
+
+                monthlyTotalPrices.Add(monthlyTotalPrice);
+            }
+
+            return monthlyTotalPrices;
+        }
+
+
+
+
         public bool ChangeOrderStatus(Order order)
         {
             return _order.ChangeOrderStatus(order);
         }
+
+        public double CalculateTotalOrderPrice()
+        {
+            double total = 0;
+            var orders = _order.GetOrders(); // Đây là phương thức lấy danh sách đơn hàng từ cơ sở dữ liệu
+            foreach (var order in orders)
+            {
+                total += order.TotalPrice;
+            }
+            return total;
+        }
+        public int CalculateTotalItems()
+        {
+            int totalItems = 0;
+            var orders = _order.GetOrders(); // Lấy danh sách đơn hàng từ cơ sở dữ liệu
+            foreach (var order in orders)
+            {
+                totalItems += order.TotalItem;
+            }
+            return totalItems;
+        }
+
 
         public Order GetOrderById(Guid id)
         {

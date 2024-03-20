@@ -1840,5 +1840,45 @@
     "Order": 0,
     "Parameters": [],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TheCoffeeCatStore.Controllers.OrdersController.OrdersController",
+    "Method": "CalculateTotalItems",
+    "RelativePath": "CalculateTotalItems",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TheCoffeeCatStore.Controllers.OrdersController.OrdersController",
+    "Method": "CalculateTotalOrderPrice",
+    "RelativePath": "CalculateTotalOrderPrice",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TheCoffeeCatStore.Controllers.NewFolder.DrinksController",
+    "Method": "GetCountDrinks",
+    "RelativePath": "CountDrinks",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TheCoffeeCatStore.Controllers.OrdersController.OrdersController",
+    "Method": "GetMonthlyTotalPrices",
+    "RelativePath": "GetMonthlyTotalPrices",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
   }
 ]

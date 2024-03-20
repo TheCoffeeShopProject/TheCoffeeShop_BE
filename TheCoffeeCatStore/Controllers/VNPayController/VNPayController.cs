@@ -53,9 +53,9 @@ namespace TheCoffeeCatStore.Controllers.VNPayController
                     TotalItem = model.TotalItem,
                     TotalDiscount = model.TotalDiscount,
                     Status = true,
-                    TableID = model.tableID,
-                    CPID = model.CPID,
-                    StaffID = model.StaffID
+                    TableID = model.tableID != null ? model.tableID : Guid.Empty,
+                    CPID = model.CPID != null ? model.CPID : Guid.Empty,
+                    StaffID = model.StaffID != null ? model.StaffID : Guid.Empty
                 };
               
                  _orderServices.AddNewOrder(order);
@@ -77,13 +77,13 @@ namespace TheCoffeeCatStore.Controllers.VNPayController
                     _orderDetailServices.AddNew(orderdetail);
                 }
 
-                return Redirect($"~/success-page?OrderID={orderID}");
+                return Redirect("http://localhost:3000/admin?message=true");
             }
             else
             {
                 // Payment failed, handle accordingly
                 // Redirect to a failure page or return an error response
-                return Redirect("~/fail-page");
+                return Redirect("http://localhost:3000/admin?message=false");
             }
         }
     }
