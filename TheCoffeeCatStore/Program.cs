@@ -43,7 +43,7 @@ builder.Services.AddScoped<IMenuRepo, MenuRepo>();
 builder.Services.AddScoped<IMenuServices, MenuServices>();
 builder.Services.AddScoped<ITableRepo, TableRepo>();
 builder.Services.AddScoped<ITableServices, TableServices>();
-builder.Services.AddScoped<IVnPayService, VnPayService>();
+
 builder.Services.AddScoped<ICustomerRepo, CustomerRepo>();
 builder.Services.AddScoped<ICustomerServices, CustomerServices>();
 
