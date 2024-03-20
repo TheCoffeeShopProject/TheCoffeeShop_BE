@@ -13,3 +13,17 @@ C:\Users\admin\Downloads\Coffee_BE\TheCoffeeCatBusinessObject\obj\Debug\net6.0\r
 C:\Users\admin\Downloads\Coffee_BE\TheCoffeeCatBusinessObject\obj\Debug\net6.0\TheCoffeeCatBusinessObject.pdb
 C:\Users\admin\Downloads\Coffee_BE\TheCoffeeCatBusinessObject\obj\Debug\net6.0\TheCoffeeCatBusinessObject.genruntimeconfig.cache
 C:\Users\admin\Downloads\Coffee_BE\TheCoffeeCatBusinessObject\obj\Debug\net6.0\ref\TheCoffeeCatBusinessObject.dll
+F:\TheCoffeeShopBE\TheCoffeeCatBusinessObject\bin\Debug\net6.0\TheCoffeeCatBusinessObject.deps.json
+F:\TheCoffeeShopBE\TheCoffeeCatBusinessObject\bin\Debug\net6.0\TheCoffeeCatBusinessObject.runtimeconfig.json
+F:\TheCoffeeShopBE\TheCoffeeCatBusinessObject\bin\Debug\net6.0\TheCoffeeCatBusinessObject.dll
+F:\TheCoffeeShopBE\TheCoffeeCatBusinessObject\bin\Debug\net6.0\TheCoffeeCatBusinessObject.pdb
+F:\TheCoffeeShopBE\TheCoffeeCatBusinessObject\obj\Debug\net6.0\TheCoffeeCatBusinessObject.csproj.AssemblyReference.cache
+F:\TheCoffeeShopBE\TheCoffeeCatBusinessObject\obj\Debug\net6.0\TheCoffeeCatBusinessObject.GeneratedMSBuildEditorConfig.editorconfig
+F:\TheCoffeeShopBE\TheCoffeeCatBusinessObject\obj\Debug\net6.0\TheCoffeeCatBusinessObject.AssemblyInfoInputs.cache
+F:\TheCoffeeShopBE\TheCoffeeCatBusinessObject\obj\Debug\net6.0\TheCoffeeCatBusinessObject.AssemblyInfo.cs
+F:\TheCoffeeShopBE\TheCoffeeCatBusinessObject\obj\Debug\net6.0\TheCoffeeCatBusinessObject.csproj.CoreCompileInputs.cache
+F:\TheCoffeeShopBE\TheCoffeeCatBusinessObject\obj\Debug\net6.0\TheCoffeeCatBusinessObject.dll
+F:\TheCoffeeShopBE\TheCoffeeCatBusinessObject\obj\Debug\net6.0\refint\TheCoffeeCatBusinessObject.dll
+F:\TheCoffeeShopBE\TheCoffeeCatBusinessObject\obj\Debug\net6.0\TheCoffeeCatBusinessObject.pdb
+F:\TheCoffeeShopBE\TheCoffeeCatBusinessObject\obj\Debug\net6.0\TheCoffeeCatBusinessObject.genruntimeconfig.cache
+F:\TheCoffeeShopBE\TheCoffeeCatBusinessObject\obj\Debug\net6.0\ref\TheCoffeeCatBusinessObject.dll
