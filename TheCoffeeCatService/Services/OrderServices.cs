@@ -59,7 +59,7 @@ namespace TheCoffeeCatService.Services
                     {
                         detail.OrderDeatailID = Guid.NewGuid();
                         detail.OrderID = order.OrderID;
-
+                    
                         _orderDetail.AddNew(detail);
                     }
                     scope.Complete();
@@ -71,7 +71,7 @@ namespace TheCoffeeCatService.Services
                     return false;
                 }
             }
-
+            
         }
 
         public List<object> GetMonthlyTotalPrices()
@@ -96,6 +96,9 @@ namespace TheCoffeeCatService.Services
 
             return monthlyTotalPrices;
         }
+
+
+
 
         public bool ChangeOrderStatus(Order order)
         {
@@ -122,6 +125,7 @@ namespace TheCoffeeCatService.Services
             }
             return totalItems;
         }
+
 
         public Order GetOrderById(Guid id)
         {

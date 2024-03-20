@@ -11,6 +11,7 @@ using TheCoffeeCatBusinessObject;
 using TheCoffeeCatBusinessObject.BusinessObject;
 using TheCoffeeCatBusinessObject.DTO.Request;
 using TheCoffeeCatService.IServices;
+using TheCoffeeCatService.Services;
 using TheCoffeeCatStore.Mapper;
 
 namespace TheCoffeeCatStore.Controllers.OrdersController
@@ -96,13 +97,12 @@ namespace TheCoffeeCatStore.Controllers.OrdersController
             var mapper = config.CreateMapper();
 
             var listOrderDetails = listOrderDetailDtos.Select(o => mapper.Map<OrderDetailCreateDTO, OrderDetail>(o));
-
+  
             _order.AddNewOrderByListOrderDetail(listOrderDetails.ToList(), CPID, StaffID);
 
 
             return Ok("Create Successfully");
         }
-
         [HttpGet("/GetMonthlyTotalPrices")]
         public ActionResult<object> GetMonthlyTotalPrices()
         {
@@ -123,12 +123,11 @@ namespace TheCoffeeCatStore.Controllers.OrdersController
             var totalItem = _order.CalculateTotalItems();
             return Ok(totalItem);
         }
-
         // DELETE: api/Order/5
         [HttpDelete("{id}")]
         public IActionResult DeleteOrder(Guid id)
         {
-            if (_order.GetOrders() == null)
+            if (_order.GetOrders()== null)
             {
                 return NotFound();
             }

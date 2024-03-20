@@ -24,7 +24,7 @@ namespace TheCoffeeCatService.Services
 
         public bool ChangeStatus(Drink drink)
         {
-            return _drink.ChangeStatus(drink);
+          return _drink.ChangeStatus(drink);
         }
 
 
@@ -47,7 +47,6 @@ namespace TheCoffeeCatService.Services
         {
             _drink.UpdateDrink(drink);
         }
-
         public int GetTotalDrinkCount()
         {
             return _drink.GetDrinks().Count;
