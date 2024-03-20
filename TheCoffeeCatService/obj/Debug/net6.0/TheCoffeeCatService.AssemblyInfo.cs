@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TheCoffeeCatService")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+58b7ea8e158ae5d5158876ac5a559af2c4a1931c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("TheCoffeeCatService")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TheCoffeeCatService")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
