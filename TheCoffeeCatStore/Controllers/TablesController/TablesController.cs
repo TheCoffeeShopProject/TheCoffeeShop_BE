@@ -70,34 +70,16 @@ namespace TheCoffeeCatStore.Controllers.TablesController
         }
 
         [HttpPut("{id}")]
-        public IActionResult UpdateTable([FromForm] TableUpdateDTO table, Guid id)
+        public IActionResult UpdateTable(TableUpdateDTO table, Guid id)
         {
             try
             {
-                //if (table.TableID != id)
-                //{
-                //    return NotFound();
-                //}
-                //var _table = _mapper.Map<Table>(table);
-                //_tableServices.UpdateTable(_table);
-
-                //return Ok();
-
-                var tables = _tableServices.GetTableByID(id);
-                if (table.Status != null)
+                if (table.TableID != id)
                 {
-                    tables.Status = table.Status;
+                    return NotFound();
                 }
-                if (table.Type != null)
-                {
-                    tables.Type = table.Type;
-                }
-                if (table.CoffeeID != null)
-                {
-                    tables.CoffeeID = (Guid)table.CoffeeID;
-                }
-
-                _tableServices.UpdateTable(tables);
+                var _table = _mapper.Map<Table>(table);
+                _tableServices.UpdateTable(_table);
 
                 return Ok("Update Successfully");
 
