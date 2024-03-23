@@ -2,7 +2,10 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Win32;
+using System.Net;
 using TheCoffeeCatBusinessObject;
+using TheCoffeeCatBusinessObject.BusinessObject;
 using TheCoffeeCatBusinessObject.DTO;
 using TheCoffeeCatBusinessObject.ViewModels;
 using TheCoffeeCatService.IServices;
@@ -15,12 +18,14 @@ namespace TheCoffeeCatStore.Controllers.StaffsController
     [ApiController]
     public class StaffsController : ControllerBase
     {
+        private readonly IAccountServices _accountServices;
         private readonly IStaffServices _staffServices;
         private readonly IMapper _mapper;
 
-        public StaffsController(IStaffServices staffServices, IMapper mapper)
+        public StaffsController(IStaffServices staffServices, IAccountServices accountServices, IMapper mapper)
         {
             _staffServices = staffServices;
+            _accountServices = accountServices;
             _mapper = mapper;
         }
 
@@ -55,10 +60,41 @@ namespace TheCoffeeCatStore.Controllers.StaffsController
         }
 
         [HttpPost]
-        public IActionResult AddNewStaff(StaffCreateDTO staff)
+        public IActionResult AddNewStaff(RegisterStaffVM accountStaff)
         {
             try
             {
+                var checkEmail = _accountServices.GetAllAccount().Where(u =>
+                u.Email.Equals(accountStaff.Email)).FirstOrDefault();
+
+                if (checkEmail != null)
+                {
+                    return BadRequest("Email Existed");
+                }
+
+                var account = new AccountCreateDTO
+                {
+                    AccountID = Guid.NewGuid(),
+                    Email = accountStaff.Email,
+                    Password = accountStaff.Password,
+                    Status = true,
+                    RoleID = new Guid("64dd1a12-3f2b-445e-951b-6da41bbb9b30")
+                };
+
+                var _account = _mapper.Map<Account>(account);
+                _accountServices.AddNewAccount(_account);
+
+                var staff = new StaffCreateDTO
+                {
+                    StaffID = Guid.NewGuid(),
+                    FullName = accountStaff.FullName,
+                    PhoneNumber = accountStaff.PhoneNumber,
+                    Address = accountStaff.Address,
+                    DOB = accountStaff.DOB,
+                    CoffeeID = accountStaff.CoffeeID,
+                    AccountID = account.AccountID
+                };
+
                 var _staff = _mapper.Map<Staff>(staff);
                 _staffServices.AddNewStaff(_staff);
 
