@@ -14,12 +14,12 @@ namespace TheCoffeeCatService.IServices
 
         bool ChangeOrderStatus(Order order);
 
-
+        List<object> GetMonthlyTotalPrices();
         List<Order> GetOrders();
         void AddNewOrder(Order order);
         bool AddNewOrderByListOrderDetail(List<OrderDetail> list, Guid? CPID, Guid StaffID);
-
-
+        double CalculateTotalOrderPrice();
+        int CalculateTotalItems();
         Order GetOrderById(Guid id);
 
         void UpdateOrder(Order order);
