@@ -38,7 +38,7 @@ builder.Services.AddScoped(_ => new BlobServiceClient(builder.Configuration.GetC
 
 builder.Services.AddScoped<IAccountRepo, AccountRepo>();
 builder.Services.AddScoped<IAccountServices, AccountServices>();
-
+builder.Services.AddScoped<IVnPayService, VnPayService>();
 builder.Services.AddScoped<IMenuRepo, MenuRepo>();
 builder.Services.AddScoped<IMenuServices, MenuServices>();
 builder.Services.AddScoped<ITableRepo, TableRepo>();
