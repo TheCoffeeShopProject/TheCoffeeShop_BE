@@ -107,41 +107,19 @@ namespace TheCoffeeCatStore.Controllers.StaffsController
         }
 
         [HttpPut("{id}")]
-        public IActionResult UpdateStaff([FromForm] StaffUpdateDTO staff, Guid id)
+        public IActionResult UpdateStaff(StaffUpdateDTO staff, Guid id)
         {
             try
             {
-                var staffs = _staffServices.GetStaffByID(id);
-                if (staff.FullName != null)
+                if (staff.StaffID != id)
                 {
-                    staffs.FullName = staff.FullName;
+                    return NotFound();
                 }
-                if (staff.PhoneNumber != null)
-                {
-                    staffs.PhoneNumber = staff.PhoneNumber;
-                }
-                if (staff.Address != null)
-                {
-                    staffs.Address = staff.Address;
-                }
-                if (staff.DOB != null)
-                {
-                    staffs.DOB = staff.DOB;
-                }
-                if (staff.CoffeeID != null)
-                {
-                    staffs.CoffeeID = (Guid)staff.CoffeeID;
-                }
-                if (staff.AccountID != null)
-                {
-                    staffs.AccountID = (Guid)staff.AccountID;
-                }
-
-
-
-                _staffServices.UpdateStaff(staffs);
+                var _staff = _mapper.Map<Staff>(staff);
+                _staffServices.UpdateStaff(_staff);
 
                 return Ok("Update Successfully");
+
             }
             catch (Exception ex)
             {

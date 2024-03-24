@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -62,10 +63,17 @@ namespace TheCoffeeCatDAO.DAOs
         {
             try
             {
-                var a = _context.Staffs!.SingleOrDefault(c => c.StaffID == staff.StaffID);
-
-                _context.Entry(a).CurrentValues.SetValues(staff);
-                _context.SaveChanges();
+                var existingStaff = _context.Staffs!.FirstOrDefault(t => t.StaffID == staff.StaffID);
+                if (existingStaff != null)
+                {
+                    existingStaff.FullName = staff.FullName;
+                    existingStaff.PhoneNumber = staff.PhoneNumber;
+                    existingStaff.PhoneNumber = staff.PhoneNumber;
+                    existingStaff.Address = staff.Address;
+                    existingStaff.DOB = staff.DOB;
+                    existingStaff.CoffeeID = staff.CoffeeID;
+                    _context.SaveChanges();
+                }
 
             }
             catch (Exception ex)

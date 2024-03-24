@@ -65,6 +65,7 @@ namespace TheCoffeeCatDAO.DAOs
                 if (existingTable != null)
                 {
                     existingTable.Status = table.Status;
+                    existingTable.CoffeeID = table.CoffeeID;
                     _context.SaveChanges();
                 }
             }
