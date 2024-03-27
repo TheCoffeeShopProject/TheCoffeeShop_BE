@@ -108,7 +108,7 @@ namespace TheCoffeeCatService.Services
         public double CalculateTotalOrderPrice()
         {
             double total = 0;
-            var orders = _order.GetOrders(); // Đây là phương thức lấy danh sách đơn hàng từ cơ sở dữ liệu
+            var orders = _order.GetOrders();
             foreach (var order in orders)
             {
                 total += order.TotalPrice;
@@ -118,7 +118,7 @@ namespace TheCoffeeCatService.Services
         public int CalculateTotalItems()
         {
             int totalItems = 0;
-            var orders = _order.GetOrders(); // Lấy danh sách đơn hàng từ cơ sở dữ liệu
+            var orders = _order.GetOrders();
             foreach (var order in orders)
             {
                 totalItems += order.TotalItem;
